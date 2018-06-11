@@ -108,9 +108,15 @@ You can find more detail regarding other optional parameters in the README.txt f
 
 **A:** Please follow the steps in [AWS Document: Create a Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair) link to create your private key pair file.
 
-**Q: My Linux instance does not have a Public Public DNS**
+**Q: My Linux instance does not have a Public DNS IP address**
 
 **A:** The instance Public DNS and IP address need to be configured before launching the instance. Please refer to this [AWS Document: Assigning a Public IPv4 Address During Instance Launch](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip) link. This public IPv4 address is automatically released in certain cases (stop instance, etc). If you already launched the instance or need a persistance public IP address, you can associate an [Elastic IP Address](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-eips.html) with the instance.
+
+*Note:* Elastic IP Address is not included in the AWS Free Tier services.
+
+**Q: What should I do after finish running the applciation**
+
+**A:** You can "Terminate" instance to delete your Linux instance permanently or "Stop" instance to just shutdown your instance and release all public DNS IP address. Pleaes refer to [AWS Document: Clean Up Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-clean-up-your-instance) link for more detail. 
 
 
 
