@@ -1,14 +1,4 @@
 # Elektron Real Time in Cloud (ERT in Cloud) Quick Start
-## Overview
-Elektron Data Platform (EDP) gives you seamless and holistic access to all of Thomson Reuters content (whether real-time or non- real-time, analytics or alternative datasets), commingled with the customer’s content, enriching, integrating and distributing the data through a single interface, delivered wherever you need it
-
-As part of the Elektron Data Platform,  Elektron Real Time in Cloud (ERT in Cloud) gives you access to our best in class Real Time market data delivered in the cloud ( over 70 million securities covering 500 exchanges globally and thousands of over the counter markets.  In addition, beyond the content we are offering:
-- Cloud Native Delivery 
-- Reduction in TCO
-- Use Industry standard APIs
-
-The launch of ERT in Cloud is the first stepping-stone on the path to aligning the breadth of content you can access through Thomson Reuters.
-
 ## Introduction
 ERT in Cloud is a new delivery mechanism for Elektron Data Platform (EDP), using the AWS (Amazon Web Services) cloud. Once a connection to EDP is established using ERT in Cloud, data can be retrieved using any one of the Elektron APIs.
 
