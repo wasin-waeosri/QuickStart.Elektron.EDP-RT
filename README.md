@@ -82,7 +82,7 @@ Once you have connected to your Linux instance, you will be avaliable at your ho
 - *python folder*: contains the market_price_edpgw_authentication.py EDP-RT example application and its README.txt files
 - *README.txt*: Thomon Reuters Amzon Linux Machine Image README file
 
-The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in the Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
+The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
 
 *Note:* This Thomson Reuters based AMI machined already installed all required libraries. 
 
@@ -96,7 +96,7 @@ $>python market_rpice_edpgw_authentication.py --auth_hostname <Hostname of the E
 
 You can use *api.edp.thomsreuters.com* EDP Gateway for the ```--auth_hostname``` and *amer-1.pricing.streaming.edp.thomsonreuters.com* ERT hostname for the ```--hostname``` parameters. The other optional parameters are explained in the README.txt file. 
 
-Upon execution, you will be presented with authentication process via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in the Cloud. 
+Upon execution, you will be presented with authentication process via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
 
 ```
 $>python market_rpice_edpgw_authentication.py --auth_hostname api.edp.thomsreuters.com --hostname amer-1.pricing.streaming.edp.thomsonreuters.com --user user1 --password password1
@@ -169,7 +169,7 @@ RECEIVED:
 ]
 ```
 
-Then application will receive an initial image called a RefreshMsg. The RefreshMsg or initial image contains all fields for the requested instrument representing the latest up-to-date market values. Following this image, you will begin to see UpdateMsgs or realtime updates reflecting changes in the market. All messages between the application and ERT in the Cloud are in JSON format, you can find more detail regarding the Elektron WebSocket API's JSON message format in [WebSocket API Developer Guide](https://docs-developers.thomsonreuters.com/1528863829980/14977/) link.
+Then application will receive an initial image called a RefreshMsg. The RefreshMsg or initial image contains all fields for the requested instrument representing the latest up-to-date market values. Following this image, you will begin to see UpdateMsgs or realtime updates reflecting changes in the market. All messages between the application and ERT in Cloud are in JSON format, you can find more detail regarding the Elektron WebSocket API's JSON message format in [WebSocket API Developer Guide](https://docs-developers.thomsonreuters.com/1528863829980/14977/) link.
 
 You can (Ctrl+C) to exit the application at any time.
 
