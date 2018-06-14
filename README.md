@@ -1,8 +1,9 @@
 # Elektron Real Time in Cloud (ERT in Cloud) Quick Start
 ## Introduction
-ERT in Cloud is a new delivery mechanism for Elektron Data Platform (EDP), using the AWS (Amazon Web Services) cloud. Once a connection to EDP is established using ERT in Cloud, data can be retrieved using any one of the Elektron APIs.
 
-The goal of this Quick Started tutorial is to provide the developer the steps required to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Linux Instance based on Thomson Reuters's Amazon Machine Images ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)), connecting to it and finally consuming EDP data through ERT in Cloud. Data retrieval uses a small Python sample code based on the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
+ERT in Cloud is a new delivery mechanism for EDP, using the AWS (Amazon Web Services) cloud. Once a connection to EDP is established using ERT in Cloud, data can be retrieved using any one of the Elektron APIs.
+
+The goal of this Quick Start tutorial is to guide you through launching an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image (([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)), connecting to it and finally consuming EDP data through ERT in Cloud. Data retrieval uses a small Python sample code based on the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api) (EWA).
 
 ## Description In this quick start guide, we will cover the following areas:
 - Prerequisite
@@ -19,7 +20,7 @@ The following accounts and softwares are required in order to run this quick sta
 4. SSH client software or Putty application
 5. Amazon AWS key pair
 
-If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.amazon.com/free/) account which gives you a free hand-on access to AWS platform and services. We highly recommend you follow the Amazon AWS [Setting Up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) and [Getting Started with Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) tutorials before proceed futher in this quick start guide to create your key-pair, VPC and Security Group which are required for your EC2 instance.
+If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.amazon.com/free/) account which gives you a free hands-on access to AWS platform and services. We highly recommend you follow the Amazon AWS [Setting Up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) and [Getting Started with Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) tutorials before proceeding futher in this quick start guide to create your key-pair, VPC and Security Group which are required for your EC2 instance.
 
 ## How to launch your EC2 Linux instance based on Thomson Reuters's AMI 
 1. Login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
@@ -78,9 +79,9 @@ ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-35-172-111-28.compute
 
 ## How to run EDP-RT demo application inside your EC2 instance
 
-Once you have connected to your Linux instance, you will be avaliable at your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
+Once you have connected to your Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
 - *python folder*: contains the market_price_edpgw_authentication.py EDP-RT example application and its README.txt files
-- *README.txt*: Thomon Reuters Amzon Linux Machine Image README file
+- *README.txt*: Thomon Reuters Amazon Linux Machine Image README file
 
 The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
 
@@ -251,7 +252,7 @@ RECEIVED:
 
 **Q: How can I have EDP-RT username and password**
 
-**A:** Please contact your Thomson Reuters's Technical Account Manager or Technical Relationship Manager to help your to access EDP account and services.
+**A:** Please contact your Thomson Reuters's Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
 
 **Q: I do not have a private key pair file**
 
