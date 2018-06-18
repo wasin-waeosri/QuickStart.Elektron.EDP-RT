@@ -16,11 +16,16 @@ ERT in Cloud is a new delivery mechanism for EDP, using the AWS (Amazon Web Serv
 
 The goal of this Quick Start tutorial is to guide you through launching an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image (([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)), connecting to it and finally consuming EDP data through ERT in Cloud. Data retrieval uses a small Python sample code based on the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api) (EWA).
 
+## Connecting to the API from AWS
+
+Elektron Real Time in Cloud (ERT in Cloud) supports Amazon EC2's [Amazon Linux](https://aws.amazon.com/amazon-linux-ami/) instance customers only. Thomson Reuters will not support customers outside of Amazon EC2 service until further notice.
+
 ## Description In this quick start guide, we will cover the following areas:
 - Prerequisite
 - How to launch your EC2 Linux instance based on Thomson Reuters's AMI 
-- How to connect to your EC2 instance
-- How to run EDP-RT demo application inside your EC2 instance
+- How to connect to your EC2 Linux instance
+- How to run Elektron in Cloud demo application inside your newly created EC2 Linux instance
+- How to run Elektron in Cloud demo application from your existing EC2 Amazon Linux instance
 
 ## Prerequisite 
 
@@ -46,7 +51,7 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 
     ![Figure-3](images/edp_rt_3.png "EC2 Dashboard")
 
-4. In the AMIs page, select "Public images" and then search Thomson Reuters' AMI with "Thomson Reuters" filter.
+4. In the AMIs page, select "Public images" and then search Thomson Reuters' AMI name with "Thomson Reuters Elektron Reap-Time Amazon Linux Examples AMI" filter.
 
     ![Figure-4](images/edp_rt_4.png "Searching Thomson Reuters AMI")
 
@@ -66,7 +71,7 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 
     ![Figure-8](images/edp_rt_9.png "Instance is running")
 
-## How to connect to your EC2 instance
+## How to connect to your EC2 Linux instance
 
 Once your Linux instance is running, you can connect to your Linux instance using Putty or SSH client applications. The following information are required to connect to your Linux instance.
 - Your private key file (example: key-pair.pem)
@@ -88,15 +93,17 @@ ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-35-172-111-28.compute
 ```
 ![Figure-9](images/edp_rt_10.png "Connecting to Linux instance")
 
-## How to run EDP-RT demo application inside your EC2 instance
+## How to run Elektron in Cloud demo application inside your newly created EC2 Linux instance
 
 Once you have connected to your Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
-- *python folder*: contains the market_price_edpgw_authentication.py EDP-RT example application and its README.txt files
+- *python folder*: contains the market_price_edpgw_authentication.py Elektron in Cloud example application and its README.txt files
 - *README.txt*: Thomon Reuters Amazon Linux Machine Image README file
 
 The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
 
 *Note:* This Thomson Reuters based AMI machined already installed all required libraries. 
+
+## How to run Elektron in Cloud demo application from your existing EC2 Amazon Linux instance
 
 ### Running the example
 
@@ -261,7 +268,7 @@ RECEIVED:
 
 ## Troubleshooting
 
-**Q: How can I have EDP-RT username and password**
+**Q: How can I have Elektron in Cloud username and password**
 
 **A:** Please contact your Thomson Reuters's Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
 
