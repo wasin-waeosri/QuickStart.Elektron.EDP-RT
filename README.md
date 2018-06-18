@@ -3,16 +3,7 @@
 
 Elektron Data Platform (EDP) gives you seamless and holistic access to all of Thomson Reuters content (whether real-time or non- real-time, analytics or alternative datasets), commingled with your own content, enriching, integrating and distributing the data through a single interface, delivered wherever you need it.
 
-As part of the Elektron Data Platform, Elektron Real Time in Cloud (ERT in Cloud) gives you access to our best in class Real Time market data delivered in the cloud (over 70 million securities covering 500 exchanges globally, and thousands of over the counter markets).  In addition, beyond the content we offer:
-- Cloud Native Delivery 
-- Reduction in TCO
-- Industry standard APIs
-
-The launch of ERT in Cloud is the first stepping-stone on the path to aligning the breadth of content you can access through Thomson Reuters.
-
-## Introduction
-
-ERT in Cloud is a new delivery mechanism for EDP, using the AWS (Amazon Web Services) cloud. Once a connection to EDP is established using ERT in Cloud, data can be retrieved using any one of the Elektron APIs.
+As part of the Elektron Data Platform, Elektron Real Time in Cloud (ERT in Cloud) gives you access to best in class Real Time market data delivered in the cloud.  ERT in Cloud is a new delivery mechanism for EDP, using the AWS (Amazon Web Services) cloud. Once a connection to EDP is established using ERT in Cloud, data can be retrieved using any one of the Elektron APIs.
 
 The goal of this Quick Start tutorial is to guide you through launching an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image (([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)), connecting to it and finally consuming EDP data through ERT in Cloud. Data retrieval uses a small Python sample code based on the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api) (EWA).
 
@@ -26,6 +17,8 @@ Elektron Real Time in Cloud (ERT in Cloud) supports Amazon EC2's [Amazon Linux](
 - How to connect to your EC2 Linux instance
 - How to run Elektron in Cloud demo application inside your newly created EC2 Linux instance
 - How to run Elektron in Cloud demo application from your existing EC2 Amazon Linux instance
+- Troubleshooting
+- References
 
 ## Prerequisite 
 
@@ -41,35 +34,35 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 ## How to launch your EC2 Linux instance based on Thomson Reuters's AMI 
 1. Login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
 
-    ![Figure-1](images/edp_rt_1.png "Login to AWS console as IAM user")
+    ![Figure-1](images/draft4/edp_rt_1.png "Login to AWS console as IAM user")
 
 2. In the Region section, choose "US East (N. Virginia)"
 
-    ![Figure-2](images/edp_rt_2.png "Choose US East N. Virginia region")
+    ![Figure-2](images/draft4/edp_rt_2.png "Choose US East N. Virginia region")
 
 3. Go to [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home) page, then choose IMAGES -> AMIs section.
 
-    ![Figure-3](images/edp_rt_3.png "EC2 Dashboard")
+    ![Figure-3](images/draft4/edp_rt_3.png "EC2 Dashboard")
 
-4. In the AMIs page, select "Public images" and then search Thomson Reuters' AMI name with "Thomson Reuters Elektron Reap-Time Amazon Linux Examples AMI" filter.
+4. In the AMIs page, select "Public images" and then search Thomson Reuters' AMI name with **Thomson Reuters Elektron Real-Time Examples - Amazon Linux AMI** name filter.
 
-    ![Figure-4](images/edp_rt_4.png "Searching Thomson Reuters AMI")
+    ![Figure-4](images/draft4/edp_rt_4.png "Searching Thomson Reuters AMI")
 
 5. Select Thomson Reuters AMI, then select "Launch".
 
-    ![Figure-5](images/edp_rt_5.png "Launch instance 1")
+    ![Figure-5](images/draft4/edp_rt_5.png "Launch instance 1")
 
 6. Select your Instance type based on your preference and requirement, then click "Review and Launch" button. You may choose "Configure Instance Details" button to configure Instance network and public IP address (see more detail [here](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip)), storage, etc based on your requirement. Click "Launch" button to launch your EC2 Linux instance.
 
-    ![Figure-6](images/edp_rt_7.png "Launch instance 2")
+    ![Figure-6](images/draft4/edp_rt_7.png "Launch instance 2")
 
-7. Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this intance here.
+7. Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this intance here. Click "Launch Instances" button to launch your Linux instance.
 
-    ![Figure-7](images/edp_rt_8.png "Select key pair")
+    ![Figure-7](images/draft4/edp_rt_8.png "Select key pair")
 
 8. Back to EC2 Dashboard, you will see your newly created Linux instance is running with the instance information such as Instance ID, Public DNS (IPv4), IPv4 Public IP, etc. The main information is Public DNS (IPv4) which is required to connect to this instance.
 
-    ![Figure-8](images/edp_rt_9.png "Instance is running")
+    ![Figure-8](images/draft4/edp_rt_9.png "Instance is running")
 
 ## How to connect to your EC2 Linux instance
 
@@ -89,7 +82,7 @@ ssh -i "<your private key file name>" ec2-user@<Your Linux intance Public DNS>
 
 Example:
 ```
-ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-35-172-111-28.compute-1.amazonaws.com
+ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-54-88-108-197.compute-1.amazonaws.com
 ```
 ![Figure-9](images/edp_rt_10.png "Connecting to Linux instance")
 
@@ -104,6 +97,18 @@ The market_price_edpgw_authentication.py file is an example Python application t
 *Note:* This Thomson Reuters based AMI machined already installed all required libraries. 
 
 ## How to run Elektron in Cloud demo application from your existing EC2 Amazon Linux instance
+
+If you already have an existing Amazon Linux instance in your EC2 service, you can download the market_rpice_edpgw_authentication.py application from [Thomson Reuters Developer Community: Elektron Data Platform](https://developers.thomsonreuters.com/elektron-data-platform/elektron-data-platform-early-access-apis/downloads) download page and upload the file to your Linux instance. 
+
+![Figure-9](images/draft4/edp_rt_13.png "Downloading the application")
+
+Before running the application, you need to install the following  application required libraries via the ```pip install``` command
+- [requests](https://pypi.org/project/requests/) library
+- [websocket-client](https://pypi.org/project/websocket-client/) library
+
+```
+$>pip install requests websocket-client
+```
 
 ### Running the example
 
@@ -286,7 +291,15 @@ RECEIVED:
 
 **A:** You can "Terminate" instance to delete your Linux instance permanently or "Stop" instance to just shutdown your instance and release all public DNS IP address. Please refer to [AWS Document: Clean Up Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-clean-up-your-instance) link for more detail. 
 
+## References
+For further details, please check out the following resources:
+* [Thomson Reuters Elektron WebSocket API page](https://developers.thomsonreuters.com/websocket-api) on the [Thomson Reuters Developer Community](https://developers.thomsonreuters.com/) web site.
+* [Developer Webinar Recording: Introduction to Electron Websocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)
+* [Thomson Reuters Elektron WebSocket API: Quick Start Guide](https://developers.thomsonreuters.com/elektron/websocket-api/quick-start)
+* [Thomson Reuters Elektron WebSocket API: RIC Search](https://developers.thomsonreuters.com/elektron/websocket-api/dev-tools?type=ric)
+* [Thomson Reuters Data Model Discovery page](https://thomsonreuters.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 
+For any question related to this quick start guide or Elektron in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/).
 
 
 
