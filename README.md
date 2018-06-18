@@ -98,7 +98,7 @@ The market_price_edpgw_authentication.py file is an example Python application t
 
 ## <a id="run_instance"></a>How to run Elektron in Cloud demo application from your existing EC2 Amazon Linux instance
 
-If you already have an existing Amazon Linux instance in your EC2 service, you can download the market_rpice_edpgw_authentication.py application from [Thomson Reuters Developer Community: Elektron Data Platform](https://developers.thomsonreuters.com/elektron-data-platform/elektron-data-platform-early-access-apis/downloads) download page and upload the file to your Amazon Linux instance. 
+If you already have an existing Amazon Linux instance in your EC2 service, you can download the market_price_edpgw_authentication.py application from [Thomson Reuters Developer Community: Elektron Data Platform](https://developers.thomsonreuters.com/elektron-data-platform/elektron-data-platform-early-access-apis/downloads) download page and upload the file to your Amazon Linux instance. 
 
 ![Figure-9](images/draft4/edp_rt_13.png "Downloading the application")
 
@@ -112,10 +112,10 @@ $>pip install requests websocket-client
 
 ### Running the example
 
-You can run market_rpice_edpgw_authentication.py application with the following command
+You can run market_price_edpgw_authentication.py application with the following command
 
 ```
-$>python market_rpice_edpgw_authentication.py --auth_hostname <Hostname of the EDP Gateway> --hostname <Hostname of the Elektron Real-Time Service> --user <EDP Username> --password <EDP Password>
+$>python market_price_edpgw_authentication.py --auth_hostname <Hostname of the EDP Gateway> --hostname <Hostname of the Elektron Real-Time Service> --user <EDP Username> --password <EDP Password>
 ```
 
 You can use *api.edp.thomsreuters.com* EDP Gateway for the ```--auth_hostname``` and *amer-1.pricing.streaming.edp.thomsonreuters.com* ERT hostname for the ```--hostname``` parameters. The other optional parameters are explained in the README.txt file. 
@@ -123,7 +123,7 @@ You can use *api.edp.thomsreuters.com* EDP Gateway for the ```--auth_hostname```
 Upon execution, you will be presented with authentication process via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
 
 ```
-$>python market_rpice_edpgw_authentication.py --auth_hostname api.edp.thomsreuters.com --hostname amer-1.pricing.streaming.edp.thomsonreuters.com --user user1 --password password1
+$>python market_price_edpgw_authentication.py --auth_hostname api.edp.thomsreuters.com --hostname amer-1.pricing.streaming.edp.thomsonreuters.com --user user1 --password password1
 
 ('Sending authentication request with password to ', 'https://api.edp.thomsonreuters.com:443/auth/oauth2/beta1/token', '...')
 EDP-GW Authentication succeeded. RECEIVED:
@@ -293,13 +293,16 @@ RECEIVED:
 
 ## <a id="references"></a>References
 For further details, please check out the following resources:
-* [Thomson Reuters Elektron WebSocket API page](https://developers.thomsonreuters.com/websocket-api) on the [Thomson Reuters Developer Community](https://developers.thomsonreuters.com/) web site.
+* [Thomson Reuters Elektron SDK Family page](https://developers.thomsonreuters.com/elektron) on the [Thomson Reuters Developer Community](https://developers.thomsonreuters.com/) web site.
+* [Thomson Reuters Elektron WebSocket API page](https://developers.thomsonreuters.com/websocket-api) 
 * [Developer Webinar Recording: Introduction to Electron Websocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)
-* [Thomson Reuters Elektron WebSocket API: Quick Start Guide](https://developers.thomsonreuters.com/elektron/websocket-api/quick-start)
-* [Thomson Reuters Elektron WebSocket API: RIC Search](https://developers.thomsonreuters.com/elektron/websocket-api/dev-tools?type=ric)
+* [Thomson Reuters Elektron: RIC Search](https://developers.thomsonreuters.com/elektron/websocket-api/dev-tools?type=ric)
 * [Thomson Reuters Data Model Discovery page](https://thomsonreuters.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 
-For any question related to this quick start guide or Elektron in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/).
+For any question related to this quick start guide or Elektron in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/spaces/71/index.html).
+
+<!--* [Thomson Reuters Elektron WebSocket API: Quick Start Guide](https://developers.thomsonreuters.com/elektron/websocket-api/quick-start)-->
+<!--* [Developer Webinar Recording: Introduction to Electron Websocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)-->
 
 
 
