@@ -98,7 +98,7 @@ Once you have connected to your Amazon Linux instance, you will be available in 
 
 The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
 
-*Note:* This Thomson Reuters based AMI machined already installed all required libraries. 
+*Note:* This Thomson Reuters based AMI machined already installed all Python required libraries. 
 
 ## <a id="run_instance"></a>How to run Elektron in Cloud demo application from your existing EC2 instance
 
@@ -106,13 +106,15 @@ If you already have an existing instance in your EC2 service, you can download t
 
 ![Figure-9](images/draft4/edp_rt_13.png "Downloading the application")
 
-Before running the application, you need to install the following  application required libraries via the ```pip install``` command
+Before running the application, you need to install the following required libraries via the ```pip install``` command in your EC2 instance:
 - [requests](https://pypi.org/project/requests/) library
 - [websocket-client](https://pypi.org/project/websocket-client/) library
 
 ```
-$>pip install requests websocket-client
+$>sudo pip install requests websocket-client
 ```
+
+*Note:* Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your EC2 instance does not have the [pip tool](https://pypi.org/project/pip/) installed. 
 
 ### Running the example
 
