@@ -5,18 +5,22 @@ Elektron Data Platform (EDP) gives you seamless and holistic access to all of Th
 
 As part of the Elektron Data Platform, Elektron Real Time in Cloud (ERT in Cloud) gives you access to best in class Real Time market data delivered in the cloud.  ERT in Cloud is a new delivery mechanism for EDP, using the AWS (Amazon Web Services) cloud. Once a connection to EDP is established using ERT in Cloud, data can be retrieved using any one of the Elektron APIs.
 
-The goal of this Quick Start tutorial is to guide you through launching an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image (([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)), connecting to it and finally consuming EDP data through ERT in Cloud. Data retrieval uses a small Python sample code based on the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api) (EWA).
+<!--The goal of this Quick Start tutorial is to guide you through launching an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image (([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)), connecting to it and finally consuming EDP data through ERT in Cloud. Data retrieval uses a small Python sample code based on the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api) (EWA).-->
+
+The goal of this Quick Start tutorial is to guide you through initial steps to consume data from Thomson Reuters Elektron Data Platform in the [Amazon Cloud](https://aws.amazon.com/), using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/). This tutorial will teach you to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) or to connect to the Elektron Websockets API from your own EC2 instance using provided sample code.
+
+Once you complete this, further tutorials on using the Elektron Websockets API can be found in the [Elektron WebSocket API page](https://developers.thomsonreuters.com/elektron/websocket-api) of the [Developer Community](https://developers.thomsonreuters.com/).
 
 ## Connecting to the API from Amazon AWS
 
-Elektron Real Time in Cloud (ERT in Cloud) supports Amazon EC2's [Amazon Linux](https://aws.amazon.com/amazon-linux-ami/) instance customers only. Thomson Reuters will not support customers outside of Amazon EC2 service until further notice.
+Elektron Real Time in Cloud (ERT in Cloud) supports Amazon EC2 instance customers only. Thomson Reuters will not support customers outside of Amazon EC2 service until further notice.
 
 ## Description In this quick start guide, we will cover the following areas:
 - [Prerequisite](#prerequisite)
 - [How to launch your EC2 Amazon Linux instance based on Thomson Reuters's AMI](#launch)
 - [How to connect to your EC2 Amazon Linux instance](#connect)
 - [How to run Elektron in Cloud demo application inside your newly created EC2 Amazon Linux instance](#run_ami)
-- [How to run Elektron in Cloud demo application from your existing EC2 Amazon Linux instance](#run_instance)
+- [How to run Elektron in Cloud demo application from your existing EC2 instance](#run_instance)
 - [Troubleshooting](#troubleshooting)
 - [References](#references)
 
@@ -56,7 +60,7 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 
     ![Figure-6](images/draft4/edp_rt_7.png "Launch instance 2")
 
-7. Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this intance here. Click "Launch Instances" button to launch your Linux instance.
+7. Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this instance here. Click "Launch Instances" button to launch your Linux instance.
 
     ![Figure-7](images/draft4/edp_rt_8.png "Select key pair")
 
@@ -68,16 +72,16 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 
 Once your Amazon Linux instance is running, you can connect to your Amazon Linux instance using Putty or SSH client applications. The following information are required to connect to your instance.
 - Your private key file (example: key-pair.pem)
-- Your Linux intance Public DNS
+- Your Linux instance Public DNS
 
-You can find more details regarding how to connect to your Amazon Linux instance from the following AWS document links:
+You can find more details regarding how to connect to your Amazon Linux instance from the following AWS documents links below:
 - [Connecting to Your Linux Instance from Windows Using PuTTY](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html)
 - [Connecting to Your Linux Instance Using SSH](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)
 
 This Quick Start Guide uses [Git Bash](https://git-scm.com/downloads) application as a SSH client to connect to Amazon Linux instance with the following command
 
 ```
-ssh -i "<your private key file name>" ec2-user@<Your Linux intance Public DNS>
+ssh -i "<your private key file name>" ec2-user@<Your Linux instance Public DNS>
 ```
 
 Example:
@@ -96,9 +100,9 @@ The market_price_edpgw_authentication.py file is an example Python application t
 
 *Note:* This Thomson Reuters based AMI machined already installed all required libraries. 
 
-## <a id="run_instance"></a>How to run Elektron in Cloud demo application from your existing EC2 Amazon Linux instance
+## <a id="run_instance"></a>How to run Elektron in Cloud demo application from your existing EC2 instance
 
-If you already have an existing Amazon Linux instance in your EC2 service, you can download the market_price_edpgw_authentication.py application from [Thomson Reuters Developer Community: Elektron Data Platform](https://developers.thomsonreuters.com/elektron-data-platform/elektron-data-platform-early-access-apis/downloads) download page and upload the file to your Amazon Linux instance. 
+If you already have an existing instance in your EC2 service, you can download the market_price_edpgw_authentication.py application from [Thomson Reuters Developer Community: Elektron Data Platform](https://developers.thomsonreuters.com/elektron-data-platform/elektron-data-platform-early-access-apis/downloads) download page and upload the file to your EC2 instance. 
 
 ![Figure-9](images/draft4/edp_rt_13.png "Downloading the application")
 
@@ -281,15 +285,15 @@ RECEIVED:
 
 **A:** Please follow the steps in [AWS Document: Create a Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair) link to create your private key pair file.
 
-**Q: My Amazon Linux instance does not have a Public DNS IP address**
+**Q: My Amazon EC2 instance does not have a Public DNS IP address**
 
-**A:** The instance Public DNS and IP address need to be configured before launching the instance. Please refer to this [AWS Document: Assigning a Public IPv4 Address During Instance Launch](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip) link. This public IPv4 address is automatically released in certain cases (stop instance, etc). If you already launched the instance or need a persistance public IP address, you can associate an [AWS Elastic IP Address](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-eips.html) with the instance.
+**A:** The instance Public DNS and IP address need to be configured before launching the instance. Please refer to this [AWS Document: Assigning a Public IPv4 Address During Instance Launch](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip) link. This public IPv4 address is automatically released in certain cases (stop instance, etc). If you already launched an instance or need a persistance public IP address, you can associate an [AWS Elastic IP Address](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-eips.html) with the instance.
 
 *Note:* AWS Elastic IP Address is not included in the AWS Free Tier services.
 
 **Q: What should I do after finish running an example application**
 
-**A:** You can "Terminate" instance to delete your Amazon Linux instance permanently or "Stop" instance to just shutdown your instance and release all public DNS IP address. Please refer to [AWS Document: Clean Up Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-clean-up-your-instance) link for more detail. 
+**A:** You can "Terminate" instance to delete your E2 instance permanently or "Stop" instance to just shutdown your instance and release all public DNS IP address. Please refer to [AWS Document: Clean Up Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-clean-up-your-instance) link for more detail. 
 
 ## <a id="references"></a>References
 For further details, please check out the following resources:
