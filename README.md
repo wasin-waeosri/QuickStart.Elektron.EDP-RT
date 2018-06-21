@@ -94,7 +94,7 @@ ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-54-88-108-197.compute
 
 Once you have connected to your Amazon Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
 - *python folder*: contains the market_price_edpgw_authentication.py Elektron in Cloud example application and its README.txt files
-- *README.txt*: Thomon Reuters Amazon Linux Machine Image README file
+- *README.txt*: Thomson Reuters Amazon Linux Machine Image README file
 
 The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
 
