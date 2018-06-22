@@ -1,12 +1,6 @@
 # Elektron Real Time in Cloud (ERT in Cloud) Quick Start
 ## Overview
 
-Elektron Data Platform (EDP) gives you seamless and holistic access to all of Thomson Reuters content (whether real-time or non- real-time, analytics or alternative datasets), commingled with your own content, enriching, integrating and distributing the data through a single interface, delivered wherever you need it.
-
-As part of the Elektron Data Platform, Elektron Real Time in Cloud (ERT in Cloud) gives you access to best in class Real Time market data delivered in the cloud.  ERT in Cloud is a new delivery mechanism for EDP, using the AWS (Amazon Web Services) cloud. Once a connection to EDP is established using ERT in Cloud, data can be retrieved using any one of the Elektron APIs.
-
-<!--The goal of this Quick Start tutorial is to guide you through launching an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image (([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)), connecting to it and finally consuming EDP data through ERT in Cloud. Data retrieval uses a small Python sample code based on the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api) (EWA).-->
-
 The goal of this Quick Start tutorial is to guide you through initial steps to consume data from Thomson Reuters Elektron Data Platform in the [Amazon Cloud](https://aws.amazon.com/), using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/). This tutorial will teach you to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) or to connect to the Elektron Websockets API from your own EC2 instance using provided sample code.
 
 Once you complete this, further tutorials on using the Elektron Websockets API can be found in the [Elektron WebSocket API page](https://developers.thomsonreuters.com/elektron/websocket-api) of the [Developer Community](https://developers.thomsonreuters.com/).
@@ -94,11 +88,11 @@ ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-54-88-108-197.compute
 
 Once you have connected to your Amazon Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
 - *python folder*: contains the market_price_edpgw_authentication.py Elektron in Cloud example application and its README.txt files
-- *README.txt*: Thomon Reuters Amazon Linux Machine Image README file
+- *README.txt*: Thomson Reuters Amazon Linux Machine Image README file
 
 The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
 
-*Note:* This Thomson Reuters based AMI machined already installed all required libraries. 
+*Note:* This Thomson Reuters based AMI machined already installed all Python required libraries. 
 
 ## <a id="run_instance"></a>How to run Elektron in Cloud demo application from your existing EC2 instance
 
@@ -106,13 +100,15 @@ If you already have an existing instance in your EC2 service, you can download t
 
 ![Figure-9](images/draft4/edp_rt_13.png "Downloading the application")
 
-Before running the application, you need to install the following  application required libraries via the ```pip install``` command
+Before running the application, you need to install the following required libraries via the ```pip install``` command in your EC2 instance:
 - [requests](https://pypi.org/project/requests/) library
 - [websocket-client](https://pypi.org/project/websocket-client/) library
 
 ```
-$>pip install requests websocket-client
+$>sudo pip install requests websocket-client
 ```
+
+*Note:* Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your EC2 instance does not have the [pip tool](https://pypi.org/project/pip/) installed. 
 
 ### Running the example
 
