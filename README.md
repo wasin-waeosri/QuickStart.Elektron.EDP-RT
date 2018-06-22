@@ -1,12 +1,6 @@
 # Elektron Real Time in Cloud (ERT in Cloud) Quick Start
 ## Overview
 
-Elektron Data Platform (EDP) gives you seamless and holistic access to all of Thomson Reuters content (whether real-time or non- real-time, analytics or alternative datasets), commingled with your own content, enriching, integrating and distributing the data through a single interface, delivered wherever you need it.
-
-As part of the Elektron Data Platform, Elektron Real Time in Cloud (ERT in Cloud) gives you access to best in class Real Time market data delivered in the cloud.  ERT in Cloud is a new delivery mechanism for EDP, using the AWS (Amazon Web Services) cloud. Once a connection to EDP is established using ERT in Cloud, data can be retrieved using any one of the Elektron APIs.
-
-<!--The goal of this Quick Start tutorial is to guide you through launching an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image (([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)), connecting to it and finally consuming EDP data through ERT in Cloud. Data retrieval uses a small Python sample code based on the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api) (EWA).-->
-
 The goal of this Quick Start tutorial is to guide you through initial steps to consume data from Thomson Reuters Elektron Data Platform in the [Amazon Cloud](https://aws.amazon.com/), using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/). This tutorial will teach you to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) or to connect to the Elektron Websockets API from your own EC2 instance using provided sample code.
 
 Once you complete this, further tutorials on using the Elektron Websockets API can be found in the [Elektron WebSocket API page](https://developers.thomsonreuters.com/elektron/websocket-api) of the [Developer Community](https://developers.thomsonreuters.com/).
