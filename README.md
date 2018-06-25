@@ -110,6 +110,13 @@ $>sudo pip install requests websocket-client
 
 *Note:* Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your EC2 instance does not have the [pip tool](https://pypi.org/project/pip/) installed. 
 
+### Elektron in Cloud connection parameters
+
+The required connections parameters for the Elektron in Cloud application are following
+- *Authorization host of the EDP Gateway*: You can use *api.edp.thomsreuters.com:443* to request the access token or pass it to ```---auth_hostname``` parameter on the application command line
+- *Hostname of the Elektron Real-Time Service endpoint*: You can use *wss://amer-1.pricing.streaming.edp.thomsonreuters.com:443* as you API connection point, or pass it to ```--hostname``` parameter on the application command line.
+- *User name and Password*: To request your access token you must pass in a user name and password (or specify it with ```--user``` and ```--password``` parameters on the application command line).  Your user name and password are in the Welcome Email that you receive when you subscribe to EDP-RT.  If you do not have that email please contact your Thomson Reuters account team, or if you are not a client please click [Contact Us page](https://my.thomsonreuters.com/ContactUsNew) if you would like to  try Elektron Real Time data.
+
 ### Running the example
 
 You can run market_price_edpgw_authentication.py application with the following command
@@ -118,7 +125,7 @@ You can run market_price_edpgw_authentication.py application with the following 
 $>python market_price_edpgw_authentication.py --auth_hostname <Hostname of the EDP Gateway> --hostname <Hostname of the Elektron Real-Time Service> --user <EDP Username> --password <EDP Password>
 ```
 
-You can use *api.edp.thomsreuters.com* EDP Gateway for the ```--auth_hostname``` and *amer-1.pricing.streaming.edp.thomsonreuters.com* ERT hostname for the ```--hostname``` parameters. The other optional parameters are explained in the README.txt file. 
+The other optional parameters are explained in the README.txt file. 
 
 Upon execution, you will be presented with authentication process via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
 
