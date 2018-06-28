@@ -5,6 +5,15 @@ retrieve MarketPrice content.  A username, password, and client ID are used to
 retrieve this token. The Client ID must be requested from Thomson Reuters.
 """
 
+"""
+Modify By Wasin W. with following
+1.	The API endpoint is fixed: api.edp.thomsreuters.com and we shouldn’t be asking users for it (--auth_hostname)
+2.	The version number (beta1) is hardcoded in sample, and should be made configurable, probably as a variable at the very top.
+3.	There is a username/password, but no prompt for Client_ID. It is also a required parameter for getting an OAuth token.
+4.	Previous comment about not hardcoding the streaming endpoint, and get it from the REST call instead.
+5.	As a part of best practice, we should persist the Refresh Token. See the EDP sample for how it is done. <-- Not do this yet
+"""
+
 import sys
 import time
 import getopt
