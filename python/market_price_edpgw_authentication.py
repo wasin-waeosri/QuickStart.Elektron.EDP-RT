@@ -30,6 +30,19 @@ client_secret = ''
 scope = 'trapi'
 ric = 'TRI.N'
 
+# Add by Wasin W
+client_id = ''
+EDP_version = '/beta1'
+auth_category_URL = '/auth/oauth2'
+auth_endpoint_URL = '/token'
+TOKEN_ENDPOINT = auth_hostname + auth_category_URL + EDP_version + auth_endpoint_URL
+location = ["us-east-1a"]
+transport = 'websocket'
+dataformat='tr_json2'
+
+streaming_category_URL = '/streaming/pricing'
+hostname_service_endpoint = auth_hostname + streaming_category_URL + EDP_version
+
 # Global Variables
 web_socket_app = None
 web_socket_open = False
@@ -146,12 +159,15 @@ def get_sts_token(current_refresh_token):
         subsequent access token. If not provided (i.e. on the initial authentication), the password is used.
     """
     
-    url = 'https://{}:{}/{}'.format(auth_hostname, auth_port, auth_path)
+    # Modify By Wasin W.
+    #url = 'https://{}:{}/{}'.format(auth_hostname, auth_port, auth_path)
+    url = 'https://{}'.format(TOKEN_ENDPOINT)
 
     if not current_refresh_token:  # First time through, send password
         data = {'username': user, 'password': password, 'grant_type': 'password', 'takeExclusiveSignOnControl': True,
                 'scope': scope}
-        print("Sending authentication request with password to ", url, "...")
+        #print("Sending authentication request with password to ", url, "...")
+        print("Sending authentication request with client_id to ", url, "...")
     else:  # Use the given refresh token
         data = {'username': user, 'refresh_token': current_refresh_token, 'grant_type': 'refresh_token',
                 'takeExclusiveSignOnControl': True}
@@ -161,7 +177,7 @@ def get_sts_token(current_refresh_token):
         r = requests.post(url,
                           headers={'Accept': 'application/json'},
                           data=data,
-                          auth=(user, client_secret),
+                          auth=(client_id, client_secret),
                           verify=True)
 
     except requests.exceptions.RequestException as e:
@@ -182,40 +198,70 @@ def get_sts_token(current_refresh_token):
 
     return auth_json['access_token'], auth_json['refresh_token'], auth_json['expires_in']
 
+def get_hostname_url(token):
+    streaming_url = 'https://{}/'.format(hostname_service_endpoint)
+    payload = {'transport': transport, 'dataformat': dataformat}
+
+    print("Sending Elektron Data Platform RealTime Service Discoveryn to ", streaming_url, "...")
+    try:
+        r = requests.get(streaming_url, 
+                            headers={'Accept': 'application/json', 'Authorization': "Bearer " + token},
+                            params=payload)
+
+    except requests.exceptions.RequestException as e:
+        print('EDP-GW authentication exception failure:', e)
+        return None, None, None
+    
+    if r.status_code != 200:
+        print('ERT in Cloud RealTime Service Discovery result failure:', r.status_code, r.reason)
+        print('Text:', r.text)
+        return None, None, None
+
+    streaming_list_json = r.json()
+    print("ERT in Cloud RealTime Service Discovery succeeded. RECEIVED:")
+    print(json.dumps(streaming_list_json, sort_keys=True, indent=2, separators=(',', ':'))) 
+
+    endpoint_hostname = ''
+    for endpoint in streaming_list_json['service']:
+        print(endpoint['location'])
+        if endpoint['location'] == location:
+            endpoint_hostname = endpoint['endpoint']
+
+    return endpoint_hostname
 
 if __name__ == "__main__":
     # Get command line parameters
+    # Modify By Wasin 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "", ["help", "hostname=", "port=", "app_id=", "user=", "password=",
-                                                      "position=", "auth_hostname=", "auth_port=", "scope=",
-                                                      "ric="])
+        opts, args = getopt.getopt(sys.argv[1:], "", ["help", "port=", "app_id=", "user=", "password=","client_id=",
+                                                      "position=","scope=","ric="])
     except getopt.GetoptError:
-        print('Usage: market_price_edpgw_authentication.py [--hostname hostname] [--port port] [--app_id app_id] '
-              '[--user user] [--password password] [--position position] [--auth_hostname auth_hostname] '
-              '[--auth_port auth_port] [--scope scope] [--ric ric] [--help]')
+        print('Usage: market_price_edpgw_authentication.py [--app_id app_id] '
+              '[--user user] [--password password] [--client_id client_id] [--position position]'
+              '[--scope scope] [--ric ric] [--help]')
         sys.exit(2)
     for opt, arg in opts:
         if opt in "--help":
-            print('Usage: market_price_edpgw_authentication.py [--hostname hostname] [--port port] [--app_id app_id] '
-                  '[--user user] [--password password] [--position position] [--auth_hostname auth_hostname] '
-                  '[--auth_port auth_port] [--scope scope] [--ric ric] [--help]')
+            print('Usage: market_price_edpgw_authentication.py  [--app_id app_id] '
+                  '[--user user] [--password password] [--client_id client_id] [--position position]'
+                  '[--scope scope] [--ric ric] [--help]')
             sys.exit(0)
-        elif opt in "--hostname":
-            hostname = arg
-        elif opt in "--port":
-            port = arg
+        # Modify By Wasin W.
+        #elif opt in "--hostname":
+            #hostname = arg
+        #elif opt in "--port":
+            #port = arg
         elif opt in "--app_id":
             app_id = arg
         elif opt in "--user":
             user = arg
         elif opt in "--password":
-            password = arg
+            password = arg   
+        # Modify By Wasin 
+        elif opt in ("--client_id"):
+            client_id = arg
         elif opt in "--position":
             position = arg
-        elif opt in "--auth_hostname":
-            auth_hostname = arg
-        elif opt in "--auth_port":
-            auth_port = arg
         elif opt in "--scope":
             scope = arg
         elif opt in "--ric":
@@ -233,6 +279,8 @@ if __name__ == "__main__":
     if not sts_token:
         sys.exit(1)
     
+    # Modify By Wasin W. to get List is Hostname 
+    hostname = get_hostname_url(sts_token)
     # Start websocket handshake
     ws_address = "wss://{}:{}/WebSocket".format(hostname, port)
     print("Connecting to WebSocket " + ws_address + " ...")

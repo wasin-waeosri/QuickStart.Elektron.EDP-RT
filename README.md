@@ -34,53 +34,37 @@ The following accounts and softwares are required in order to run this quick sta
 If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.amazon.com/free/) account which gives you a free hands-on access to AWS platform and services. We highly recommend you follow the Amazon AWS [Setting Up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) and [Getting Started with Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) tutorials before proceeding futher in this quick start guide to create your key-pair, VPC and Security Group which are required for your EC2 instance.
 
 ## <a id="launch"></a>How to launch your EC2 Amazon Linux instance based on Thomson Reuters's AMI 
-Firstly, login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
+1. Firstly, login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
 
-![Figure-1](images/draft4/edp_rt_1.png "Login to AWS console as IAM user")<!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
+    ![Figure-1](images/draft4/edp_rt_1.png "Login to AWS console as IAM user")<!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
 
-Figure-1: Login to AWS console as IAM user
+2. Once you are logged in to the AWS Management Console, choose "US East (N. Virginia)" In the Region section
 
-Once you are logged in to the AWS Management Console, choose "US East (N. Virginia)" In the Region section
+    ![Figure-2](images/draft4/edp_rt_2.png "Choose US East N. Virginia region") <!-- ![](/sites/default/files/inline/images/edp_rt_2.png) -->
 
-![Figure-2](images/draft4/edp_rt_2.png "Choose US East N. Virginia region") <!-- ![](/sites/default/files/inline/images/edp_rt_2.png) -->
+3. Go to [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home) page, then choose IMAGES -> AMIs section.
 
-Figure-2: Choose US East N. Virginia region
+    ![Figure-3](images/draft4/edp_rt_3.png "EC2 Dashboard") <!-- ![](/sites/default/files/inline/images/edp_rt_3.png) -->
 
-Then go to [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home) page, then choose IMAGES -> AMIs section.
+4. In the AMIs page, select "Public images" and then search Thomson Reuters' AMI name with **Thomson Reuters Elektron Real-Time Examples - Amazon Linux AMI** name filter.
 
-![Figure-3](images/draft4/edp_rt_3.png "EC2 Dashboard") <!-- ![](/sites/default/files/inline/images/edp_rt_3.png) -->
+    ![Figure-4](images/draft4/edp_rt_4.png "Searching Thomson Reuters AMI") <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
 
-Figure-3: EC2 Dashboard
+5. Select Thomson Reuters AMI, then select "Launch".
 
-In the AMIs page, select "Public images" and then search Thomson Reuters' AMI name with **Thomson Reuters Elektron Real-Time Examples - Amazon Linux AMI** name filter.
+    ![Figure-5](images/draft4/edp_rt_5.png "Launch instance 1") <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
 
-![Figure-4](images/draft4/edp_rt_4.png "Searching Thomson Reuters AMI") <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
+6. Select your Instance type based on your preference and requirement, then click "Review and Launch" button. You may choose "Configure Instance Details" button to configure Instance network and public IP address (see more detail [here](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip)), storage, etc based on your requirement. Click "Launch" button to launch your EC2 Linux instance.
 
-Figure-4: Searching Thomson Reuters AMI
+    ![Figure-6](images/draft4/edp_rt_7.png "Launch instance 2") <!-- ![](/sites/default/files/inline/images/edp_rt_7.png) -->
 
-Then select Thomson Reuters AMI, then select "Launch".
+7. Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this instance here. Click "Launch Instances" button to launch your Linux instance.
 
-![Figure-5](images/draft4/edp_rt_5.png "Launch instance 1") <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
+    ![Figure-7](images/draft4/edp_rt_8.png "Select key pair") <!-- ![](/sites/default/files/inline/images/edp_rt_8.png) -->
 
-Figure-5: Launch instance AWS instance
+8. Back to EC2 Dashboard, you will see your newly created Amazon Linux instance is running with the instance information such as Instance ID, Public DNS (IPv4), IPv4 Public IP, etc. The main information is Public DNS (IPv4) which is required to connect to this instance.
 
-Select your Instance type based on your preference and requirement, then click "Review and Launch" button. You may choose "Configure Instance Details" button to configure Instance network and public IP address (see more detail [here](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip)), storage, etc based on your requirement. Click "Launch" button to launch your EC2 Linux instance.
-
-![Figure-6](images/draft4/edp_rt_7.png "Launch instance 2") <!-- ![](/sites/default/files/inline/images/edp_rt_7.png) -->
-
-Figure-6: Launch instance AWS instance
-
-Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this instance here. Click "Launch Instances" button to launch your Linux instance.
-
-![Figure-7](images/draft4/edp_rt_8.png "Select key pair") <!-- ![](/sites/default/files/inline/images/edp_rt_8.png) -->
-
-Figure-7: Select key pair for this AWS instance
-
-Back to EC2 Dashboard, you will see your newly created Amazon Linux instance is running with the instance information such as Instance ID, Public DNS (IPv4), IPv4 Public IP, etc. The main information is Public DNS (IPv4) which is required to connect to this instance.
-
-![Figure-8](images/draft4/edp_rt_9.png "Instance is running") <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
-
-Figure-8: Instance is running
+    ![Figure-8](images/draft4/edp_rt_9.png "Instance is running") <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
 
 ## <a id="connect"></a>How to connect to your EC2 Amazon Linux instance
 
