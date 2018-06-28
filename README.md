@@ -13,8 +13,8 @@ Elektron Real Time in Cloud (ERT in Cloud) supports Amazon EC2 instance customer
 - [Prerequisite](#prerequisite)
 - [How to launch your EC2 Amazon Linux instance based on Thomson Reuters's AMI](#launch)
 - [How to connect to your EC2 Amazon Linux instance](#connect)
-- [How to run Elektron in Cloud demo application inside your newly created EC2 Amazon Linux instance](#run_ami)
-- [How to run Elektron in Cloud demo application from your existing EC2 instance](#run_instance)
+- [How to run ERT in Cloud demo application inside your newly created EC2 Amazon Linux instance](#run_ami)
+- [How to run ERT in Cloud demo application from your existing EC2 instance](#run_instance)
 - [Troubleshooting](#troubleshooting)
 - [References](#references)
 
@@ -84,21 +84,19 @@ ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-54-88-108-197.compute
 ```
 ![Figure-9](images/draft4/edp_rt_10.png "Connecting to Linux instance")
 
-## <a id="run_ami"></a>How to run Elektron in Cloud demo application inside your newly created EC2 Amazon Linux instance
+## <a id="run_ami"></a>How to run ERT in Cloud demo application inside your newly created EC2 Amazon Linux instance
 
 Once you have connected to your Amazon Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
-- *python folder*: contains the market_price_edpgw_authentication.py Elektron in Cloud example application and its README.txt files
+- *python folder*: contains the market_price_edpgw_authentication.py ERT in Cloud example application and its README.txt files
 - *README.txt*: Thomson Reuters Amazon Linux Machine Image README file
 
 The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
 
 *Note:* This Thomson Reuters based AMI machined already installed all Python required libraries. 
 
-## <a id="run_instance"></a>How to run Elektron in Cloud demo application from your existing EC2 instance
+## <a id="run_instance"></a>How to run ERT in Cloud demo application from your existing EC2 instance
 
-If you already have an existing instance in your EC2 service, you can download the market_price_edpgw_authentication.py application from [Thomson Reuters Developer Community: Elektron Data Platform](https://developers.thomsonreuters.com/elektron-data-platform/elektron-data-platform-early-access-apis/downloads) download page and upload the file to your EC2 instance. 
-
-![Figure-9](images/draft4/edp_rt_13.png "Downloading the application")
+If you already have an existing instance in your EC2 service, you can download the ERT in Cloud Quick Start example application from [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads) and upload the package to your EC2 instance. The ERT in Cloud Quick Start example application contains the same market_price_edpgw_authentication.py and README.txt files as same as Thomson Reuters AMI.
 
 Before running the application, you need to install the following required libraries via the ```pip install``` command in your EC2 instance:
 - [requests](https://pypi.org/project/requests/) library
@@ -110,6 +108,13 @@ $>sudo pip install requests websocket-client
 
 *Note:* Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your EC2 instance does not have the [pip tool](https://pypi.org/project/pip/) installed. 
 
+### ERT in Cloud connection parameters
+
+The required connections parameters for the ERT in Cloud application are following
+- *Authorization host of the EDP Gateway*: You can use *api.edp.thomsreuters.com:443* to request the access token or pass it to ```---auth_hostname``` parameter on the application command line
+- *Hostname of the Elektron Real-Time Service endpoint*: You can use *wss://amer-1.pricing.streaming.edp.thomsonreuters.com:443* as you API connection point, or pass it to ```--hostname``` parameter on the application command line.
+- *User name and Password*: To request your access token you must pass in a user name and password (or specify it with ```--user``` and ```--password``` parameters on the application command line).  Your user name and password are in the Welcome Email that you receive when you subscribe to EDP-RT.  If you do not have that email please contact your Thomson Reuters account team, or if you are not a client please click [Contact Us page](https://my.thomsonreuters.com/ContactUsNew) if you would like to  try Elektron Real Time data.
+
 ### Running the example
 
 You can run market_price_edpgw_authentication.py application with the following command
@@ -118,7 +123,7 @@ You can run market_price_edpgw_authentication.py application with the following 
 $>python market_price_edpgw_authentication.py --auth_hostname <Hostname of the EDP Gateway> --hostname <Hostname of the Elektron Real-Time Service> --user <EDP Username> --password <EDP Password>
 ```
 
-You can use *api.edp.thomsreuters.com* EDP Gateway for the ```--auth_hostname``` and *amer-1.pricing.streaming.edp.thomsonreuters.com* ERT hostname for the ```--hostname``` parameters. The other optional parameters are explained in the README.txt file. 
+The other optional parameters are explained in the README.txt file. 
 
 Upon execution, you will be presented with authentication process via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
 
@@ -273,7 +278,7 @@ RECEIVED:
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
-**Q: How can I have Elektron in Cloud username and password**
+**Q: How can I have Elektron Data Platform username and password**
 
 **A:** Please contact your Thomson Reuters's Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
 
@@ -299,7 +304,7 @@ For further details, please check out the following resources:
 * [Thomson Reuters Elektron: RIC Search](https://developers.thomsonreuters.com/elektron/websocket-api/dev-tools?type=ric)
 * [Thomson Reuters Data Model Discovery page](https://thomsonreuters.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 
-For any question related to this quick start guide or Elektron in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/spaces/71/index.html).
+For any question related to this quick start guide or Elektron Real Time in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/spaces/71/index.html).
 
 <!--* [Thomson Reuters Elektron WebSocket API: Quick Start Guide](https://developers.thomsonreuters.com/elektron/websocket-api/quick-start)-->
 <!--* [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)-->
