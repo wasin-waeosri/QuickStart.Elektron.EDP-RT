@@ -37,41 +37,49 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 Firstly, login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
 
 ![Figure-1](images/draft4/edp_rt_1.png "Login to AWS console as IAM user")<!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
+
 Figure-1: Login to AWS console as IAM user
 
 Once you are logged in to the AWS Management Console, choose "US East (N. Virginia)" In the Region section
 
 ![Figure-2](images/draft4/edp_rt_2.png "Choose US East N. Virginia region") <!-- ![](/sites/default/files/inline/images/edp_rt_2.png) -->
+
 Figure-2: Choose US East N. Virginia region
 
 Then go to [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home) page, then choose IMAGES -> AMIs section.
 
 ![Figure-3](images/draft4/edp_rt_3.png "EC2 Dashboard") <!-- ![](/sites/default/files/inline/images/edp_rt_3.png) -->
+
 Figure-3: EC2 Dashboard
 
 In the AMIs page, select "Public images" and then search Thomson Reuters' AMI name with **Thomson Reuters Elektron Real-Time Examples - Amazon Linux AMI** name filter.
 
 ![Figure-4](images/draft4/edp_rt_4.png "Searching Thomson Reuters AMI") <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
+
 Figure-4: Searching Thomson Reuters AMI
 
 Then select Thomson Reuters AMI, then select "Launch".
 
 ![Figure-5](images/draft4/edp_rt_5.png "Launch instance 1") <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
+
 Figure-5: Launch instance AWS instance
 
 Select your Instance type based on your preference and requirement, then click "Review and Launch" button. You may choose "Configure Instance Details" button to configure Instance network and public IP address (see more detail [here](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip)), storage, etc based on your requirement. Click "Launch" button to launch your EC2 Linux instance.
 
 ![Figure-6](images/draft4/edp_rt_7.png "Launch instance 2") <!-- ![](/sites/default/files/inline/images/edp_rt_7.png) -->
+
 Figure-6: Launch instance AWS instance
 
 Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this instance here. Click "Launch Instances" button to launch your Linux instance.
 
 ![Figure-7](images/draft4/edp_rt_8.png "Select key pair") <!-- ![](/sites/default/files/inline/images/edp_rt_8.png) -->
+
 Figure-7: Select key pair for this AWS instance
 
 Back to EC2 Dashboard, you will see your newly created Amazon Linux instance is running with the instance information such as Instance ID, Public DNS (IPv4), IPv4 Public IP, etc. The main information is Public DNS (IPv4) which is required to connect to this instance.
 
 ![Figure-8](images/draft4/edp_rt_9.png "Instance is running") <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
+
 Figure-8: Instance is running
 
 ## <a id="connect"></a>How to connect to your EC2 Amazon Linux instance
@@ -95,6 +103,7 @@ Example:
 ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-54-88-108-197.compute-1.amazonaws.com
 ```
 ![Figure-9](images/draft4/edp_rt_10.png "Connecting to AWS Linux instance") <!-- ![](/sites/default/files/inline/images/edp_rt_10.png) -->
+
 Figure-9: Connecting to AWS Linux instance
 
 ## <a id="run_ami"></a>How to run ERT in Cloud demo application inside your newly created EC2 Amazon Linux instance
