@@ -37,7 +37,7 @@ user = ''
 port = '443'
 client_secret = ''
 scope = 'trapi'
-ric = 'ERU='
+ric = 'EUR='
 
 # Add by Wasin W
 client_id = ''
