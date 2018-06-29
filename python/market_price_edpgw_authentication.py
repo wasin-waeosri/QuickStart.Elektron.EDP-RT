@@ -11,7 +11,7 @@ Modify By Wasin W. with following
 2.	The version number (beta1) is hardcoded in sample, and should be made configurable, probably as a variable at the very top. [Wasin: Done]
 3.	There is a username/password, but no prompt for Client_ID. It is also a required parameter for getting an OAuth token. [Wasin: Done]
 4.	Previous comment about not hardcoding the streaming endpoint, and get it from the REST call instead. [Wasin: Done]
-5.	As a part of best practice, we should persist the Refresh Token. See the EDP sample for how it is done. [Wasin: Not do this yet]
+5.	As a part of best practice, we should persist the Refresh Token. See the EDP sample for how it is done. [Wasin: Done]
 """
 
 import sys
