@@ -7,11 +7,11 @@ retrieve this token. The Client ID must be requested from Thomson Reuters.
 
 """
 Modify By Wasin W. with following
-1.	The API endpoint is fixed: api.edp.thomsreuters.com and we shouldn’t be asking users for it (--auth_hostname)
-2.	The version number (beta1) is hardcoded in sample, and should be made configurable, probably as a variable at the very top.
-3.	There is a username/password, but no prompt for Client_ID. It is also a required parameter for getting an OAuth token.
-4.	Previous comment about not hardcoding the streaming endpoint, and get it from the REST call instead.
-5.	As a part of best practice, we should persist the Refresh Token. See the EDP sample for how it is done. <-- Not do this yet
+1.	The API endpoint is fixed: api.edp.thomsreuters.com and we shouldn’t be asking users for it (--auth_hostname) [Wasin: Done]
+2.	The version number (beta1) is hardcoded in sample, and should be made configurable, probably as a variable at the very top. [Wasin: Done]
+3.	There is a username/password, but no prompt for Client_ID. It is also a required parameter for getting an OAuth token. [Wasin: Done]
+4.	Previous comment about not hardcoding the streaming endpoint, and get it from the REST call instead. [Wasin: Done]
+5.	As a part of best practice, we should persist the Refresh Token. See the EDP sample for how it is done. [Wasin: Not do this yet]
 """
 
 import sys
@@ -45,9 +45,10 @@ EDP_version = '/beta1'
 auth_category_URL = '/auth/oauth2'
 auth_endpoint_URL = '/token'
 TOKEN_ENDPOINT = auth_hostname + auth_category_URL + EDP_version + auth_endpoint_URL
-location = ["us-east-1a"]
+location = 'us-east-1a'
 transport = 'websocket'
 dataformat='tr_json2'
+TOKEN_FILE = "token.txt"
 
 streaming_category_URL = '/streaming/pricing'
 hostname_service_endpoint = auth_hostname + streaming_category_URL + EDP_version
@@ -205,44 +206,80 @@ def get_sts_token(current_refresh_token):
     print("EDP-GW Authentication succeeded. RECEIVED:")
     print(json.dumps(auth_json, sort_keys=True, indent=2, separators=(',', ':')))
 
-    return auth_json['access_token'], auth_json['refresh_token'], auth_json['expires_in']
+    #save Refresh Token to File:
+    saveToken(json.loads(r.text))
+    # Modify by Wasin W. to let application reads those auth information from file only
+    #return auth_json['access_token'], auth_json['refresh_token'], auth_json['expires_in']
+    return auth_json
 
 def get_hostname_url(token):
+
+    """ 
+        Retrieves an RealTime Service list. 
+    """
+
     streaming_url = 'https://{}/'.format(hostname_service_endpoint)
     payload = {'transport': transport, 'dataformat': dataformat}
 
-    print("Sending Elektron Data Platform RealTime Service Discoveryn to ", streaming_url, "...")
+    print("Sending Elektron Data Platform RealTime Service Discovery to ", streaming_url, "...")
     try:
         r = requests.get(streaming_url, 
                             headers={'Accept': 'application/json', 'Authorization': "Bearer " + token},
                             params=payload)
 
     except requests.exceptions.RequestException as e:
-        print('EDP-GW authentication exception failure:', e)
-        return None, None, None
+        print('ERT in Cloud RealTime Service Discovery result failure:', e)
+        return None, None
     
     if r.status_code != 200:
         print('ERT in Cloud RealTime Service Discovery result failure:', r.status_code, r.reason)
         print('Text:', r.text)
-        return None, None, None
+        return None, None
 
     streaming_list_json = r.json()
     print("ERT in Cloud RealTime Service Discovery succeeded. RECEIVED:")
     print(json.dumps(streaming_list_json, sort_keys=True, indent=2, separators=(',', ':'))) 
 
-    endpoint_hostname = ''
-    for endpoint in streaming_list_json['service']:
-        print(endpoint['location'])
-        if endpoint['location'] == location:
-            endpoint_hostname = endpoint['endpoint']
+    # Filter to get Elektron WebSocket Host with  "location":["us-east-1a"] only
+    endpoint = [node for node in streaming_list_json['service'] if node['location'][0] == location and len(node['location']) == 1 ]
+    
+    return endpoint[0]['endpoint'], endpoint[0]['port']
 
-    return endpoint_hostname
+# Modify by Wasin W. to save auth information to file
+def saveToken(tknObject):
+    tf = open(TOKEN_FILE, 'w')
+    print('Saving the new token')
+	# Append the expiry time to token
+    tknObject['expiry_tm'] = time.time() + int(tknObject['expires_in']) - 10
+    # Store it in the file
+    json.dump(tknObject, tf, indent=4)
+    tf.close()
+
+# Modify by Wasin W. to read auth information from file or re-request auth token
+def getToken():
+    try:
+        print("Reading the token from: " + TOKEN_FILE)
+        with open(TOKEN_FILE, 'r+') as tf:
+            tknObject = json.load(tf)
+            if tknObject['expiry_tm'] > time.time():
+                return tknObject['access_token'], tknObject['refresh_token'], tknObject['expires_in']
+            
+        print("Token expired, refreshing a new one...")
+        tknObject = get_sts_token(tknObject["refresh_token"])
+    except:
+        print('Getting a new token...')
+        tknObject = get_sts_token(None)
+    
+    # Persist this token for future queries
+    saveToken(tknObject)
+    # Return access token
+    return tknObject['access_token'], tknObject['refresh_token'], tknObject['expires_in']
 
 if __name__ == "__main__":
     # Get command line parameters
     # Modify By Wasin 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "", ["help", "port=", "app_id=", "user=", "password=","client_id=",
+        opts, args = getopt.getopt(sys.argv[1:], "", ["help", "app_id=", "user=", "password=","client_id=",
                                                       "position=","scope=","ric="])
     except getopt.GetoptError:
         print('Usage: market_price_edpgw_authentication.py [--app_id app_id] '
@@ -284,12 +321,16 @@ if __name__ == "__main__":
         except socket.gaierror:
             position = "127.0.0.1/net"
 
-    sts_token, refresh_token, expire_time = get_sts_token(None)
+    # Modify By Wasin W. to get Token from persist file 
+    #sts_token, refresh_token, expire_time = get_sts_token(None)
+    sts_token, refresh_token, expire_time =getToken()
     if not sts_token:
         sys.exit(1)
     
-    # Modify By Wasin W. to get List is Hostname 
-    hostname = get_hostname_url(sts_token)
+    # Modify By Wasin W. to get Hostname and Port from REST Service
+    hostname, port = get_hostname_url(sts_token)
+    if not hostname:
+        sys.exit(1)
     # Start websocket handshake
     ws_address = "wss://{}:{}/WebSocket".format(hostname, port)
     print("Connecting to WebSocket " + ws_address + " ...")
