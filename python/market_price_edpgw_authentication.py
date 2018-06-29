@@ -6,12 +6,10 @@ retrieve this token. The Client ID must be requested from Thomson Reuters.
 """
 
 """
-Modify By Wasin W. with following
-1.	The API endpoint is fixed: api.edp.thomsreuters.com and we shouldn’t be asking users for it (--auth_hostname) [Wasin: Done]
-2.	The version number (beta1) is hardcoded in sample, and should be made configurable, probably as a variable at the very top. [Wasin: Done]
-3.	There is a username/password, but no prompt for Client_ID. It is also a required parameter for getting an OAuth token. [Wasin: Done]
-4.	Previous comment about not hardcoding the streaming endpoint, and get it from the REST call instead. [Wasin: Done]
-5.	As a part of best practice, we should persist the Refresh Token. See the EDP sample for how it is done. [Wasin: Done]
+Modify by Wasin W. to
+- use client_id for authentication
+- query service list from REST
+- save Refresh Token in token.txt file
 """
 
 import sys
@@ -48,7 +46,7 @@ TOKEN_ENDPOINT = auth_hostname + auth_category_URL + EDP_version + auth_endpoint
 location = 'us-east-1a'
 transport = 'websocket'
 dataformat='tr_json2'
-TOKEN_FILE = "token.txt"
+TOKEN_FILE = './token.txt'
 
 streaming_category_URL = '/streaming/pricing'
 hostname_service_endpoint = auth_hostname + streaming_category_URL + EDP_version
@@ -71,7 +69,7 @@ def process_message(ws, message_json):
     elif message_type == "Ping":
         pong_json = {'Type': 'Pong'}
         ws.send(json.dumps(pong_json))
-        print("SENT:")
+        print('SENT:')
         print(json.dumps(pong_json, sort_keys=True, indent=2, separators=(',', ':')))
 
 
@@ -80,7 +78,7 @@ def process_login_response(ws, message_json):
     global logged_in
 
     if message_json['State']['Stream'] != "Open" or message_json['State']['Data'] != "Ok":
-        print("Login failed.")
+        print('Login failed.')
         sys.exit(1)
 
     logged_in = True
@@ -96,7 +94,7 @@ def send_market_price_request(ws, ric_name):
         },
     }
     ws.send(json.dumps(mp_req_json))
-    print("SENT:")
+    print('SENT:')
     print(json.dumps(mp_req_json, sort_keys=True, indent=2, separators=(',', ':')))
 
 
@@ -127,13 +125,13 @@ def send_login_request(ws, auth_token, is_refresh_token):
         login_json['Refresh'] = False
         
     ws.send(json.dumps(login_json))
-    print("SENT:")
+    print('SENT:')
     print(json.dumps(login_json, sort_keys=True, indent=2, separators=(',', ':')))
 
 
 def on_message(ws, message):
     """ Called when message received, parse message into JSON for processing """
-    print("RECEIVED: ")
+    print('RECEIVED: ')
     message_json = json.loads(message)
     print(json.dumps(message_json, sort_keys=True, indent=2, separators=(',', ':')))
 
@@ -150,13 +148,13 @@ def on_close(_):
     """ Called when websocket is closed """
     global web_socket_open
     web_socket_open = False
-    print("WebSocket Closed")
+    print('WebSocket Closed')
 
 
 def on_open(ws):
     """ Called when handshake is complete and websocket is open, send login """
 
-    print("WebSocket successfully connected!")
+    print('WebSocket successfully connected!')
     global web_socket_open
     web_socket_open = True
     send_login_request(ws, sts_token, False)
@@ -177,11 +175,11 @@ def get_sts_token(current_refresh_token):
         data = {'username': user, 'password': password, 'grant_type': 'password', 'takeExclusiveSignOnControl': True,
                 'scope': scope}
         #print("Sending authentication request with password to ", url, "...")
-        print("Sending authentication request with client_id to ", url, "...")
+        print('Sending authentication request with client_id to ', url, '...')
     else:  # Use the given refresh token
         data = {'username': user, 'refresh_token': current_refresh_token, 'grant_type': 'refresh_token',
                 'takeExclusiveSignOnControl': True}
-        print("Sending authentication request with refresh token to ", url, "...")
+        print('Sending authentication request with refresh token to ', url, '...')
 
     try:
         r = requests.post(url,
@@ -203,7 +201,7 @@ def get_sts_token(current_refresh_token):
         return None, None, None
 
     auth_json = r.json()
-    print("EDP-GW Authentication succeeded. RECEIVED:")
+    print('EDP-GW Authentication succeeded. RECEIVED:')
     print(json.dumps(auth_json, sort_keys=True, indent=2, separators=(',', ':')))
 
     #save Refresh Token to File:
@@ -237,7 +235,7 @@ def get_hostname_url(token):
         return None, None
 
     streaming_list_json = r.json()
-    print("ERT in Cloud RealTime Service Discovery succeeded. RECEIVED:")
+    print('ERT in Cloud RealTime Service Discovery succeeded. RECEIVED:')
     print(json.dumps(streaming_list_json, sort_keys=True, indent=2, separators=(',', ':'))) 
 
     # Filter to get Elektron WebSocket Host with  "location":["us-east-1a"] only
@@ -258,13 +256,13 @@ def saveToken(tknObject):
 # Modify by Wasin W. to read auth information from file or re-request auth token
 def getToken():
     try:
-        print("Reading the token from: " + TOKEN_FILE)
+        print('Reading the token from: ' + TOKEN_FILE)
         with open(TOKEN_FILE, 'r+') as tf:
             tknObject = json.load(tf)
             if tknObject['expiry_tm'] > time.time():
                 return tknObject['access_token'], tknObject['refresh_token'], tknObject['expires_in']
             
-        print("Token expired, refreshing a new one...")
+        print('Token expired, refreshing a new one...')
         tknObject = get_sts_token(tknObject["refresh_token"])
     except:
         print('Getting a new token...')

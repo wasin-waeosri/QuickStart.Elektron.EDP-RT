@@ -3,6 +3,7 @@
 - Environment: Amazon AWS EC2 instance
 - Complier: Python
 - Prerequisite: [Access to Amazon AWS EC2](#prerequisite)
+
 ## Overview
 
 The goal of this Quick Start tutorial is to guide you through initial steps to consume data from Thomson Reuters Elektron Data Platform in the [Amazon Cloud](https://aws.amazon.com/), using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/). This tutorial will teach you to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) or to connect to the Elektron Websockets API from your own EC2 instance using provided sample code.
@@ -94,9 +95,10 @@ Figure-9: Connecting to AWS Linux instance
 
 Once you have connected to your Amazon Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
 - *python folder*: contains the market_price_edpgw_authentication.py ERT in Cloud example application and its README.txt files
+- *java folder*: contains the MarketPriceEdpGwAuthentication.java ERT in Cloud example application, library and related files. 
 - *README.txt*: Thomson Reuters Amazon Linux Machine Image README file
 
-The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
+This Quick Start focuses on the market_price_edpgw_authentication.py application only. The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
 
 *Note:* This Thomson Reuters based AMI machined already installed all Python required libraries. 
 
