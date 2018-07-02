@@ -94,8 +94,8 @@ Figure-9: Connecting to AWS Linux instance
 ## <a id="run_ami"></a>How to run ERT in Cloud demo application inside your newly created EC2 Amazon Linux instance
 
 Once you have connected to your Amazon Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
-- *python folder*: contains the market_price_edpgw_authentication.py and market_price_edpgw_service_discovery.py ERT in Cloud example applications and README.txt files
-- *java folder*: contains the MarketPriceEdpGwAuthentication.java ERT in Cloud example application, library and related files. 
+- *python folder*: contains the market_price_edpgw_authentication.py and market_price_edpgw_service_discovery.py ERT in Cloud Python example applications and README.txt files
+- *java folder*: contains the MarketPriceEdpGwAuthentication.java and MarketPriceEdpGwServiceDiscovery.java ERT in Cloud Java example applications, library and related files. 
 - *README.txt*: Thomson Reuters Amazon Linux Machine Image README file
 
 This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to EDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
@@ -104,7 +104,7 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 
 ## <a id="run_instance"></a>How to run ERT in Cloud demo application from your existing EC2 instance
 
-If you already have an existing instance in your EC2 service, you can download the ERT in Cloud Quick Start example application from [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads) and upload the package to your EC2 instance. The ERT in Cloud Quick Start example application contains the same market_price_edpgw_service_discovery.py and README.txt files as same as Thomson Reuters AMI.
+If you already have an existing instance in your EC2 service, you can download the ERT in Cloud Quick Start example application from [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads) and upload the package to your EC2 instance. The ERT in Cloud Quick Start example application contains the same mmarket_price_edpgw_authentication.py, market_price_edpgw_service_discovery.py and README.txt files as same as Thomson Reuters AMI.
 
 Before running the application, you need to install the following required libraries via the ```pip install``` command in your EC2 instance:
 - [requests](https://pypi.org/project/requests/) library
@@ -138,7 +138,7 @@ The other optional parameters are explained in the README.txt file.
 Upon execution, you will be presented with authentication and ERT in Cloud Service discovery processes via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
 
 ```
-$>python market_price_edpgw_service_discovery.py --auth_hostname api.edp.thomsreuters.com --hostname amer-1.pricing.streaming.edp.thomsonreuters.com --user user1 --password password1
+$>python market_price_edpgw_service_discovery.py --auth_hostname api.edp.thomsreuters.com --user user1 --password password1
 
 ('Sending authentication request with password to ', 'https://api.edp.thomsonreuters.com:443/auth/oauth2/beta1/token', '...')
 EDP-GW Authentication succeeded. RECEIVED:
