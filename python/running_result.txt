@@ -1,0 +1,173 @@
+
+
+(EDP) D:\Project\EDP-RT\python>python market_price_edpgw_authentication.py --cli
+ent_id wasin --user Wasin.Waeosri@tr.com --password wasin
+Sending authentication request with client_id to  https://api.edp.thomsonreuters
+.com/auth/oauth2/beta1/token ...
+EDP-GW Authentication succeeded. RECEIVED:
+{
+  "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJyZWYiOiJmZWI5ZjhhMi00N
+Dk0LTQ3NGMtOTAxNC0zNDExMDVhZDM4OTEiLCJhdWQiOiJENkQ3MzA4M0VBRTMxOUM2Q0RERDc0Iiwia
+XNzIjoiaHR0cHM6Ly9maW5hbmNpYWwudGhvbXNvbnJldXRlcnMuY29tL2FwaS9pZGVudGl0eS9zdHNfc
+HJvZCIsImV4cCI6MTUzMDE4NjgzOSwiaWF0IjoxNTMwMTg2NTM5fQ.sIm0Amo_Thv0CWQWqhmeLMe50P
+a4wZlP2FRnE2W_JqlUvmtpp0LF55IHg6yK8d8MFMUrXsUCgF8ANYucgOpJfGErcqf6_TNsSCL7JeVZJD
+rBHlIABsLUUdn-UzHDrDwJjQ1nbB2FvY2Z6w96lknQucDxfHIf8_AmHPTifEkblA-8Pt3ar2X30iIsBv
+hQhnXw1tjA64DSpRVQkr8u3qK_VL8rm5yBPgbqBfV2VBSDBAILJ6Rc9INCJId18Q2Dbj8a29zumRxLAV
+DpqHAOcck2X5b5U7BMDlJXoY6cXxHHCFd15HYbivblPKHL7Or6MemxQD1R8mcefSYpTG1t-U7DNg",
+  "expires_in":"300",
+  "refresh_token":"42259740-b73b-4ff0-9b05-c440f6aa8d06",
+  "scope":"trapi.alerts.news.crud trapi.alerts.research.crud trapi.auth.cloud-cr
+edentials trapi.cfs.claimcheck.read trapi.cfs.claimcheck.write trapi.cfs.publish
+er.read trapi.cfs.publisher.stream.write trapi.cfs.publisher.write trapi.cfs.sub
+scriber.read trapi.data.aggregates.read trapi.data.api.test trapi.data.esg.bulk.
+read trapi.data.esg.metadata.read trapi.data.esg.read trapi.data.esg.universe.re
+ad trapi.data.esg.views-basic.read trapi.data.esg.views-measures-full.read trapi
+.data.esg.views-measures-standard.read trapi.data.esg.views-measures.read trapi.
+data.esg.views-scores-full.read trapi.data.esg.views-scores-standard.read trapi.
+data.esg.views-scores.read trapi.data.historical-pricing.read trapi.data.news.re
+ad trapi.data.pricing.read trapi.data.research.read trapi.data.symbology.bulk.re
+ad trapi.data.symbology.read trapi.metadata.read trapi.streaming.pricing.read",
+  "token_type":"Bearer"
+}
+Sending Elektron Data Platform RealTime Service Discoveryn to  https://api.edp.t
+homsonreuters.com/streaming/pricing/beta1/ ...
+ERT in Cloud RealTime Service Discovery succeeded. RECEIVED:
+{
+  "service":[
+    {
+      "dataFormat":[
+        "tr_json2"
+      ],
+      "endpoint":"amer-1.pricing.streaming.edp.thomsonreuters.com",
+      "location":[
+        "us-east-1a"
+      ],
+      "port":443,
+      "provider":"aws",
+      "transport":"websocket"
+    },
+    {
+      "dataFormat":[
+        "tr_json2"
+      ],
+      "endpoint":"amer-2.pricing.streaming.edp.thomsonreuters.com",
+      "location":[
+        "us-east-1b"
+      ],
+      "port":443,
+      "provider":"aws",
+      "transport":"websocket"
+    },
+    {
+      "dataFormat":[
+        "tr_json2"
+      ],
+      "endpoint":"amer-3.pricing.streaming.edp.thomsonreuters.com",
+      "location":[
+        "us-east-1a",
+        "us-east-1b"
+      ],
+      "port":443,
+      "provider":"aws",
+      "transport":"websocket"
+    }
+  ]
+}
+['us-east-1a']
+['us-east-1b']
+['us-east-1a', 'us-east-1b']
+Connecting to WebSocket wss://amer-1.pricing.streaming.edp.thomsonreuters.com:44
+3/WebSocket ...
+WebSocket successfully connected!
+SENT:
+{
+  "Domain":"Login",
+  "ID":1,
+  "Key":{
+    "Elements":{
+      "ApplicationId":"256",
+      "AuthenticationToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJyZWYiOiJmZW
+I5ZjhhMi00NDk0LTQ3NGMtOTAxNC0zNDExMDVhZDM4OTEiLCJhdWQiOiJENkQ3MzA4M0VBRTMxOUM2Q0
+RERDc0IiwiaXNzIjoiaHR0cHM6Ly9maW5hbmNpYWwudGhvbXNvbnJldXRlcnMuY29tL2FwaS9pZGVudG
+l0eS9zdHNfcHJvZCIsImV4cCI6MTUzMDE4NjgzOSwiaWF0IjoxNTMwMTg2NTM5fQ.sIm0Amo_Thv0CWQ
+WqhmeLMe50Pa4wZlP2FRnE2W_JqlUvmtpp0LF55IHg6yK8d8MFMUrXsUCgF8ANYucgOpJfGErcqf6_TN
+sSCL7JeVZJDrBHlIABsLUUdn-UzHDrDwJjQ1nbB2FvY2Z6w96lknQucDxfHIf8_AmHPTifEkblA-8Pt3
+ar2X30iIsBvhQhnXw1tjA64DSpRVQkr8u3qK_VL8rm5yBPgbqBfV2VBSDBAILJ6Rc9INCJId18Q2Dbj8
+a29zumRxLAVDpqHAOcck2X5b5U7BMDlJXoY6cXxHHCFd15HYbivblPKHL7Or6MemxQD1R8mcefSYpTG1
+t-U7DNg",
+      "Position":"10.42.68.162/U8004042-TPL-A"
+    },
+    "NameType":"AuthnToken"
+  }
+}
+RECEIVED:
+[
+  {
+    "Domain":"Login",
+    "Elements":{
+      "MaxMsgSize":61430,
+      "PingTimeout":30
+    },
+    "ID":1,
+    "Key":{
+      "Elements":{
+        "AllowSuspectData":1,
+        "ApplicationId":"256",
+        "ApplicationName":"ADS",
+        "AuthenticationErrorCode":0,
+        "AuthenticationErrorText":{
+          "Data":null,
+          "Type":"AsciiString"
+        },
+        "AuthenticationTTReissue":1530186839,
+        "Position":"10.42.68.162/U8004042-TPL-A",
+        "ProvidePermissionExpressions":1,
+        "ProvidePermissionProfile":0,
+        "SingleOpen":1,
+        "SupportBatchRequests":7,
+        "SupportEnhancedSymbolList":1,
+        "SupportOMMPost":1,
+        "SupportOptimizedPauseResume":0,
+        "SupportPauseResume":0,
+        "SupportStandby":0,
+        "SupportViewRequests":1
+      },
+      "Name":"AQIC5wM2LY4Sfcz7zHiQEy8p1cwk8gO06I0ZJNPnduZhpIk%3D%40AAJTSQACMTAAA
+lNLABM1ODAyMDM2Nzk2ODI4MjA0NjcyAAJTMQACMjg%3D%23"
+    },
+    "State":{
+      "Data":"Ok",
+      "Stream":"Open",
+      "Text":"Login accepted by host ads-premium-az1-green-2-main-prd.use1-az1."
+
+    },
+    "Type":"Refresh"
+  }
+]
+SENT:
+{
+  "ID":2,
+  "Key":{
+    "Name":"TRI.N"
+  }
+}
+RECEIVED:
+[
+  {
+    "ID":2,
+    "Key":{
+      "Name":"TRI.N",
+      "Service":"ELEKTRON_DD"
+    },
+    "State":{
+      "Code":"NotEntitled",
+      "Data":"Suspect",
+      "Stream":"Closed",
+      "Text":"Access Denied: User req to PE(6562)"
+    },
+    "Type":"Status"
+  }
+]
+WebSocket Closed
+
+(EDP) D:\Project\EDP-RT\python>

@@ -1,4 +1,9 @@
 # Elektron Real Time in Cloud (ERT in Cloud) Quick Start
+- Last update: July 2018
+- Environment: Amazon AWS EC2 instance
+- Complier: Python
+- Prerequisite: [Access to Amazon AWS EC2](#prerequisite)
+
 ## Overview
 
 The goal of this Quick Start tutorial is to guide you through initial steps to consume data from Thomson Reuters Elektron Data Platform in the [Amazon Cloud](https://aws.amazon.com/), using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/). This tutorial will teach you to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) or to connect to the Elektron Websockets API from your own EC2 instance using provided sample code.
@@ -30,37 +35,37 @@ The following accounts and softwares are required in order to run this quick sta
 If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.amazon.com/free/) account which gives you a free hands-on access to AWS platform and services. We highly recommend you follow the Amazon AWS [Setting Up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) and [Getting Started with Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) tutorials before proceeding futher in this quick start guide to create your key-pair, VPC and Security Group which are required for your EC2 instance.
 
 ## <a id="launch"></a>How to launch your EC2 Amazon Linux instance based on Thomson Reuters's AMI 
-1. Login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
+1. Firstly, login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
 
-    ![Figure-1](images/draft4/edp_rt_1.png "Login to AWS console as IAM user")
+    ![Figure-1](images/draft4/edp_rt_1.png "Login to AWS console as IAM user")<!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
 
-2. In the Region section, choose "US East (N. Virginia)"
+2. Once you are logged in to the AWS Management Console, choose "US East (N. Virginia)" In the Region section
 
-    ![Figure-2](images/draft4/edp_rt_2.png "Choose US East N. Virginia region")
+    ![Figure-2](images/draft4/edp_rt_2.png "Choose US East N. Virginia region") <!-- ![](/sites/default/files/inline/images/edp_rt_2.png) -->
 
 3. Go to [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home) page, then choose IMAGES -> AMIs section.
 
-    ![Figure-3](images/draft4/edp_rt_3.png "EC2 Dashboard")
+    ![Figure-3](images/draft4/edp_rt_3.png "EC2 Dashboard") <!-- ![](/sites/default/files/inline/images/edp_rt_3.png) -->
 
 4. In the AMIs page, select "Public images" and then search Thomson Reuters' AMI name with **Thomson Reuters Elektron Real-Time Examples - Amazon Linux AMI** name filter.
 
-    ![Figure-4](images/draft4/edp_rt_4.png "Searching Thomson Reuters AMI")
+    ![Figure-4](images/draft4/edp_rt_4.png "Searching Thomson Reuters AMI") <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
 
 5. Select Thomson Reuters AMI, then select "Launch".
 
-    ![Figure-5](images/draft4/edp_rt_5.png "Launch instance 1")
+    ![Figure-5](images/draft4/edp_rt_5.png "Launch instance 1") <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
 
 6. Select your Instance type based on your preference and requirement, then click "Review and Launch" button. You may choose "Configure Instance Details" button to configure Instance network and public IP address (see more detail [here](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip)), storage, etc based on your requirement. Click "Launch" button to launch your EC2 Linux instance.
 
-    ![Figure-6](images/draft4/edp_rt_7.png "Launch instance 2")
+    ![Figure-6](images/draft4/edp_rt_7.png "Launch instance 2") <!-- ![](/sites/default/files/inline/images/edp_rt_7.png) -->
 
 7. Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this instance here. Click "Launch Instances" button to launch your Linux instance.
 
-    ![Figure-7](images/draft4/edp_rt_8.png "Select key pair")
+    ![Figure-7](images/draft4/edp_rt_8.png "Select key pair") <!-- ![](/sites/default/files/inline/images/edp_rt_8.png) -->
 
 8. Back to EC2 Dashboard, you will see your newly created Amazon Linux instance is running with the instance information such as Instance ID, Public DNS (IPv4), IPv4 Public IP, etc. The main information is Public DNS (IPv4) which is required to connect to this instance.
 
-    ![Figure-8](images/draft4/edp_rt_9.png "Instance is running")
+    ![Figure-8](images/draft4/edp_rt_9.png "Instance is running") <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
 
 ## <a id="connect"></a>How to connect to your EC2 Amazon Linux instance
 
@@ -82,15 +87,18 @@ Example:
 ```
 ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-54-88-108-197.compute-1.amazonaws.com
 ```
-![Figure-9](images/draft4/edp_rt_10.png "Connecting to Linux instance")
+![Figure-9](images/draft4/edp_rt_10.png "Connecting to AWS Linux instance") <!-- ![](/sites/default/files/inline/images/edp_rt_10.png) -->
+
+Figure-9: Connecting to AWS Linux instance
 
 ## <a id="run_ami"></a>How to run ERT in Cloud demo application inside your newly created EC2 Amazon Linux instance
 
 Once you have connected to your Amazon Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
 - *python folder*: contains the market_price_edpgw_authentication.py ERT in Cloud example application and its README.txt files
+- *java folder*: contains the MarketPriceEdpGwAuthentication.java ERT in Cloud example application, library and related files. 
 - *README.txt*: Thomson Reuters Amazon Linux Machine Image README file
 
-The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
+This Quick Start focuses on the market_price_edpgw_authentication.py application only. The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
 
 *Note:* This Thomson Reuters based AMI machined already installed all Python required libraries. 
 
