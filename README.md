@@ -94,17 +94,17 @@ Figure-9: Connecting to AWS Linux instance
 ## <a id="run_ami"></a>How to run ERT in Cloud demo application inside your newly created EC2 Amazon Linux instance
 
 Once you have connected to your Amazon Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
-- *python folder*: contains the market_price_edpgw_authentication.py ERT in Cloud example application and its README.txt files
+- *python folder*: contains the market_price_edpgw_authentication.py and market_price_edpgw_service_discovery.py ERT in Cloud example applications and README.txt files
 - *java folder*: contains the MarketPriceEdpGwAuthentication.java ERT in Cloud example application, library and related files. 
 - *README.txt*: Thomson Reuters Amazon Linux Machine Image README file
 
-This Quick Start focuses on the market_price_edpgw_authentication.py application only. The market_price_edpgw_authentication.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to login and consume real-time streaming quote data of TRI.N instrument from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
+This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to EDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
 
 *Note:* This Thomson Reuters based AMI machined already installed all Python required libraries. 
 
 ## <a id="run_instance"></a>How to run ERT in Cloud demo application from your existing EC2 instance
 
-If you already have an existing instance in your EC2 service, you can download the ERT in Cloud Quick Start example application from [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads) and upload the package to your EC2 instance. The ERT in Cloud Quick Start example application contains the same market_price_edpgw_authentication.py and README.txt files as same as Thomson Reuters AMI.
+If you already have an existing instance in your EC2 service, you can download the ERT in Cloud Quick Start example application from [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads) and upload the package to your EC2 instance. The ERT in Cloud Quick Start example application contains the same market_price_edpgw_service_discovery.py and README.txt files as same as Thomson Reuters AMI.
 
 Before running the application, you need to install the following required libraries via the ```pip install``` command in your EC2 instance:
 - [requests](https://pypi.org/project/requests/) library
@@ -120,49 +120,94 @@ $>sudo pip install requests websocket-client
 
 The required connections parameters for the ERT in Cloud application are following
 - *Authorization host of the EDP Gateway*: You can use *api.edp.thomsreuters.com:443* to request the access token or pass it to ```---auth_hostname``` parameter on the application command line
-- *Hostname of the Elektron Real-Time Service endpoint*: You can use *wss://amer-1.pricing.streaming.edp.thomsonreuters.com:443* as you API connection point, or pass it to ```--hostname``` parameter on the application command line.
+<!--- *Hostname of the Elektron Real-Time Service endpoint*: You can use *wss://amer-1.pricing.streaming.edp.thomsonreuters.com:443* as you API connection point, or pass it to ```--hostname``` parameter on the application command line.-->
 - *User name and Password*: To request your access token you must pass in a user name and password (or specify it with ```--user``` and ```--password``` parameters on the application command line).  Your user name and password are in the Welcome Email that you receive when you subscribe to EDP-RT.  If you do not have that email please contact your Thomson Reuters account team, or if you are not a client please click [Contact Us page](https://my.thomsonreuters.com/ContactUsNew) if you would like to  try Elektron Real Time data.
+
+Optionally, the application subscribes *TRI.N* RIC code from ERT in Cloud by default. You can pass your interested RIC code to ```--ric``` parameter on the application command line. You can find Thomson Reuters RIC Code of your interested instrument via [RIC Search page](https://developers.thomsonreuters.com/elektron/websocket-api/dev-tools?type=ric)
 
 ### Running the example
 
-You can run market_price_edpgw_authentication.py application with the following command
+You can run market_price_edpgw_service_discovery.py application with the following command
 
 ```
-$>python market_price_edpgw_authentication.py --auth_hostname <Hostname of the EDP Gateway> --hostname <Hostname of the Elektron Real-Time Service> --user <EDP Username> --password <EDP Password>
+$>python market_price_edpgw_service_discovery.py --auth_hostname <Hostname of the EDP Gateway>  --user <EDP Username> --password <EDP Password>
 ```
 
 The other optional parameters are explained in the README.txt file. 
 
-Upon execution, you will be presented with authentication process via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
+Upon execution, you will be presented with authentication and ERT in Cloud Service discovery processes via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
 
 ```
-$>python market_price_edpgw_authentication.py --auth_hostname api.edp.thomsreuters.com --hostname amer-1.pricing.streaming.edp.thomsonreuters.com --user user1 --password password1
+$>python market_price_edpgw_service_discovery.py --auth_hostname api.edp.thomsreuters.com --hostname amer-1.pricing.streaming.edp.thomsonreuters.com --user user1 --password password1
 
 ('Sending authentication request with password to ', 'https://api.edp.thomsonreuters.com:443/auth/oauth2/beta1/token', '...')
 EDP-GW Authentication succeeded. RECEIVED:
 {
-  "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJyZWYiOiIwYjRkNjg0ZC0wYmRjLTQ4ZjctYTIyOS03YWU0ZTg1OTI5YWYiLCJhdWQiOiJHRS1BLTAxMTAzODY3LTMtNTU0IiwiaXNzIjoiaHR0cHM6Ly9maW5hbmNpYWwudGhvbXNvbnJldXRlcnMuY29tL2FwaS9pZGVudGl0eS9zdHNfcHJvZCIsImV4cCI6MTUyODg2NTEwMSwiaWF0IjoxNTI4ODY0ODAxfQ.GLDlw7h_JOTzRfw4yPQHtYtL0KA-Ek562tTV9HpSe2b3RDHyo-bXU6m7ORK3tzOA7zhfZa-GNPuUPtxKorHU_hYx9RP3qbaZJhuaK-uSwSKR6AwdCv55TJg959ebXghpSL0Ve5LR590fPO22AUVqPz5ahN5lpASNZeRzqKjRPbXOC5vWnNhLNhFMZ-Zwbv-WLKC8M8BSAJ72UOqV7YP_USeZKOxkkxVcLgC0V8WRb2JEJLDRRhM3MSMySeWIHj3FWC7rlXW625okcgy0OZiH10SfmnYMZtk9lp0njVBDJRYDh-QytYrnC3synNS8IruGfXfakmZUZIJwPNSGnMUhFQ",
+  "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJyZWYiOiI3MTAyNzdmOS0yZjdhLTRiNWQtYWJlMy1iODVjNzZhZDdjMDUiLCJhdWQiOiJHRS1BLTAxMTAzODY3LTMtNTU0IiwiaXNzIjoiaHR0cHM6Ly9maW5hbmNpYWwudGhvbXNvbnJldXRlcnMuY29tL2FwaS9pZGVudGl0eS9zdHNfcHJvZCIsImV4cCI6MTUzMDUwODg2NCwiaWF0IjoxNTMwNTA4NTY0fQ.wlgAepUGgYq5tTHEKo7QCeMf0oTSqQLUF-VsddRsitWc_fa4Km0fVH8dI7A7K7RB8slJCf0agppjxxl65MP25wy4_n4NUicx5AiSXj10RsFLzXWTZPeD3v87gfEF7t33JKWbfqSL5Z13xiZkXl2zDmtVAxjEp7rNYnTx_E0uxu1K9HK2MPQy_W0mos0LNmKbVDHLr8QpG3OmP6dm1RHnawZd-KfxsvfoUEm9yAZ1pZcnKkQPD6TZsEzLL0bR_T23Muy1RucRKQddUxm-oajc_DrZzj9jFcmkaDFBCo_V9LuKCRPPlzE_s-69hExEinW7K6upXk3AgfGXCC06_kkfVQ",
   "expires_in":"300",
-  "refresh_token":"288e1d89-248f-41e2-936c-d25631ad37bd",
+  "refresh_token":"f69c291b-4d1a-48e8-8210-19fad796b924",
   "scope":"",
   "token_type":"Bearer"
 }
-Connecting to WebSocket wss://amer-1.pricing.streaming.edp.thomsonreuters.com:443/WebSocket ...
-WebSocket successfully connected!
-SENT:
+Sending EDP-GW service discovery request to https://api.edp.thomsonreuters.com/streaming/pricing/v1/
+EDP-GW Service discovery succeeded. RECEIVED:
+{
+  "services":[
+    {
+      "dataFormat":[
+        "tr_json2"
+      ],
+      "endpoint":"amer-3.pricing.streaming.edp.thomsonreuters.com",
+      "location":[
+        "us-east-1a",
+        "us-east-1b"
+      ],
+      "port":443,
+      "provider":"aws",
+      "transport":"websocket"
+    },
+    {
+      "dataFormat":[
+        "tr_json2"
+      ],
+      "endpoint":"amer-2.pricing.streaming.edp.thomsonreuters.com",
+      "location":[
+        "us-east-1b"
+      ],
+      "port":443,
+      "provider":"aws",
+      "transport":"websocket"
+    },
+    {
+      "dataFormat":[
+        "tr_json2"
+      ],
+      "endpoint":"amer-1.pricing.streaming.edp.thomsonreuters.com",
+      "location":[
+        "us-east-1a"
+      ],
+      "port":443,
+      "provider":"aws",
+      "transport":"websocket"
+    }
+  ]
+}
+Connecting to WebSocket wss://amer-3.pricing.streaming.edp.thomsonreuters.com:443/WebSocket for session1...
+WebSocket successfully connected for session1!
+SENT on session1:
 {
   "Domain":"Login",
   "ID":1,
   "Key":{
     "Elements":{
       "ApplicationId":"256",
-      "AuthenticationToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJyZWYiOiIwYjRkNjg0ZC0wYmRjLTQ4ZjctYTIyOS03YWU0ZTg1OTI5YWYiLCJhdWQiOiJHRS1BLTAxMTAzODY3LTMtNTU0IiwiaXNzIjoiaHR0cHM6Ly9maW5hbmNpYWwudGhvbXNvbnJldXRlcnMuY29tL2FwaS9pZGVudGl0eS9zdHNfcHJvZCIsImV4cCI6MTUyODg2NTEwMSwiaWF0IjoxNTI4ODY0ODAxfQ.GLDlw7h_JOTzRfw4yPQHtYtL0KA-Ek562tTV9HpSe2b3RDHyo-bXU6m7ORK3tzOA7zhfZa-GNPuUPtxKorHU_hYx9RP3qbaZJhuaK-uSwSKR6AwdCv55TJg959ebXghpSL0Ve5LR590fPO22AUVqPz5ahN5lpASNZeRzqKjRPbXOC5vWnNhLNhFMZ-Zwbv-WLKC8M8BSAJ72UOqV7YP_USeZKOxkkxVcLgC0V8WRb2JEJLDRRhM3MSMySeWIHj3FWC7rlXW625okcgy0OZiH10SfmnYMZtk9lp0njVBDJRYDh-QytYrnC3synNS8IruGfXfakmZUZIJwPNSGnMUhFQ",
-      "Position":"10.0.0.40/ip-10-0-0-40"
+      "AuthenticationToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJyZWYiOiI3MTAyNzdmOS0yZjdhLTRiNWQtYWJlMy1iODVjNzZhZDdjMDUiLCJhdWQiOiJHRS1BLTAxMTAzODY3LTMtNTU0IiwiaXNzIjoiaHR0cHM6Ly9maW5hbmNpYWwudGhvbXNvbnJldXRlcnMuY29tL2FwaS9pZGVudGl0eS9zdHNfcHJvZCIsImV4cCI6MTUzMDUwODg2NCwiaWF0IjoxNTMwNTA4NTY0fQ.wlgAepUGgYq5tTHEKo7QCeMf0oTSqQLUF-VsddRsitWc_fa4Km0fVH8dI7A7K7RB8slJCf0agppjxxl65MP25wy4_n4NUicx5AiSXj10RsFLzXWTZPeD3v87gfEF7t33JKWbfqSL5Z13xiZkXl2zDmtVAxjEp7rNYnTx_E0uxu1K9HK2MPQy_W0mos0LNmKbVDHLr8QpG3OmP6dm1RHnawZd-KfxsvfoUEm9yAZ1pZcnKkQPD6TZsEzLL0bR_T23Muy1RucRKQddUxm-oajc_DrZzj9jFcmkaDFBCo_V9LuKCRPPlzE_s-69hExEinW7K6upXk3AgfGXCC06_kkfVQ",
+      "Position":"172.31.95.146/ip-172-31-95-146"
     },
     "NameType":"AuthnToken"
   }
 }
-RECEIVED: 
+RECEIVED on session1:
 [
   {
     "Domain":"Login",
@@ -181,8 +226,8 @@ RECEIVED:
           "Data":null,
           "Type":"AsciiString"
         },
-        "AuthenticationTTReissue":1528865101,
-        "Position":"10.0.0.40/ip-10-0-0-40",
+        "AuthenticationTTReissue":1530508864,
+        "Position":"172.31.95.146/ip-172-31-95-146",
         "ProvidePermissionExpressions":1,
         "ProvidePermissionProfile":0,
         "SingleOpen":1,
@@ -194,12 +239,12 @@ RECEIVED:
         "SupportStandby":0,
         "SupportViewRequests":1
       },
-      "Name":"AQIC5wM2LY4SfcydaoLdG...zUyMQACUzEAAjM0%23"
+      "Name":"AQIC5wM2LY4Sfcz9Qn2Us7g5Ib5L%2BnFvYof2BkNXTAXbNbk%3D%40AAJTSQACMjAAAlNLABM2MjQ0MjU5NzI3ODE2MzM5MTI4AAJTMQACMzI%3D%23"
     },
     "State":{
       "Data":"Ok",
       "Stream":"Open",
-      "Text":"Login accepted by host ads-premium-az1-blue-1-main-prd.use1-az1."
+      "Text":"Login accepted by host ads-premium-az2-green-2-main-prd.use1-az2."
     },
     "Type":"Refresh"
   }
