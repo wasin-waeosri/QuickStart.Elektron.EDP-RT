@@ -85,7 +85,7 @@ ssh -i "<your private key file name>" ec2-user@<Your Linux instance Public DNS>
 
 Example:
 ```
-ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-54-88-108-197.compute-1.amazonaws.com
+ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-35-174-156-150.compute-1.amazonaws.com
 ```
 ![Figure-9](images/draft4/edp_rt_10.png "Connecting to AWS Linux instance") <!-- ![](/sites/default/files/inline/images/edp_rt_10.png) -->
 
