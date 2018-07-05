@@ -143,7 +143,7 @@ $>python market_price_edpgw_service_discovery.py --auth_hostname api.edp.thomsre
 ('Sending authentication request with password to ', 'https://api.edp.thomsonreuters.com:443/auth/oauth2/beta1/token', '...')
 EDP-GW Authentication succeeded. RECEIVED:
 {
-  "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJyZWYiOiI3MTAyNzdmOS0yZjdhLTRiNWQtYWJlMy1iODVjNzZhZDdjMDUiLCJhdWQiOiJHRS1BLTAxMTAzODY3LTMtNTU0IiwiaXNzIjoiaHR0cHM6Ly9maW5hbmNpYWwudGhvbXNvbnJldXRlcnMuY29tL2FwaS9pZGVudGl0eS9zdHNfcHJvZCIsImV4cCI6MTUzMDUwODg2NCwiaWF0IjoxNTMwNTA4NTY0fQ.wlgAepUGgYq5tTHEKo7QCeMf0oTSqQLUF-VsddRsitWc_fa4Km0fVH8dI7A7K7RB8slJCf0agppjxxl65MP25wy4_n4NUicx5AiSXj10RsFLzXWTZPeD3v87gfEF7t33JKWbfqSL5Z13xiZkXl2zDmtVAxjEp7rNYnTx_E0uxu1K9HK2MPQy_W0mos0LNmKbVDHLr8QpG3OmP6dm1RHnawZd-KfxsvfoUEm9yAZ1pZcnKkQPD6TZsEzLL0bR_T23Muy1RucRKQddUxm-oajc_DrZzj9jFcmkaDFBCo_V9LuKCRPPlzE_s-69hExEinW7K6upXk3AgfGXCC06_kkfVQ",
+  "access_token":"<Access Token>",
   "expires_in":"300",
   "refresh_token":"f69c291b-4d1a-48e8-8210-19fad796b924",
   "scope":"",
@@ -201,7 +201,7 @@ SENT on session1:
   "Key":{
     "Elements":{
       "ApplicationId":"256",
-      "AuthenticationToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJyZWYiOiI3MTAyNzdmOS0yZjdhLTRiNWQtYWJlMy1iODVjNzZhZDdjMDUiLCJhdWQiOiJHRS1BLTAxMTAzODY3LTMtNTU0IiwiaXNzIjoiaHR0cHM6Ly9maW5hbmNpYWwudGhvbXNvbnJldXRlcnMuY29tL2FwaS9pZGVudGl0eS9zdHNfcHJvZCIsImV4cCI6MTUzMDUwODg2NCwiaWF0IjoxNTMwNTA4NTY0fQ.wlgAepUGgYq5tTHEKo7QCeMf0oTSqQLUF-VsddRsitWc_fa4Km0fVH8dI7A7K7RB8slJCf0agppjxxl65MP25wy4_n4NUicx5AiSXj10RsFLzXWTZPeD3v87gfEF7t33JKWbfqSL5Z13xiZkXl2zDmtVAxjEp7rNYnTx_E0uxu1K9HK2MPQy_W0mos0LNmKbVDHLr8QpG3OmP6dm1RHnawZd-KfxsvfoUEm9yAZ1pZcnKkQPD6TZsEzLL0bR_T23Muy1RucRKQddUxm-oajc_DrZzj9jFcmkaDFBCo_V9LuKCRPPlzE_s-69hExEinW7K6upXk3AgfGXCC06_kkfVQ",
+      "AuthenticationToken":<Access Token>",
       "Position":"172.31.95.146/ip-172-31-95-146"
     },
     "NameType":"AuthnToken"
