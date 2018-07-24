@@ -119,9 +119,9 @@ $>sudo pip install requests websocket-client
 ### ERT in Cloud connection parameters
 
 The required connections parameters for the ERT in Cloud application are following
-- *Authorization host of the EDP Gateway*: You can use *api.edp.thomsreuters.com:443* to request the access token or pass it to ```---auth_hostname``` parameter on the application command line
+- *Authorization host of the EDP Gateway*: You can use *api.edp.thomsonreuters.com:443* to request the access token or pass it to ```---auth_hostname``` parameter on the application command line
 <!--- *Hostname of the Elektron Real-Time Service endpoint*: You can use *wss://amer-1.pricing.streaming.edp.thomsonreuters.com:443* as you API connection point, or pass it to ```--hostname``` parameter on the application command line.-->
-- *User name and Password*: To request your access token you must pass in a user name and password (or specify it with ```--user``` and ```--password``` parameters on the application command line).  Your user name and password are in the Welcome Email that you receive when you subscribe to EDP-RT.  If you do not have that email please contact your Thomson Reuters account team, or if you are not a client please click [Contact Us page](https://my.thomsonreuters.com/ContactUsNew) if you would like to  try Elektron Real Time data.
+- *User name and Password*: To request your access token you must pass in a user name and password (or specify it with ```--user``` and ```--password``` parameters on the application command line). You will receive your Machine ID as a user name and a link to activate your machine account and set your password via the Welcome Email that you receive when you subscribe to ERT in Cloud. If you do not have that email please contact your Thomson Reuters account team, or if you are not a client please click [Contact Us page](https://my.thomsonreuters.com/ContactUsNew) if you would like to  try Elektron Real Time data.
 
 Optionally, the application subscribes *TRI.N* RIC code from ERT in Cloud by default. You can pass your interested RIC code to ```--ric``` parameter on the application command line. You can find Thomson Reuters RIC Code of your interested instrument via [RIC Search page](https://developers.thomsonreuters.com/elektron/websocket-api/dev-tools?type=ric)
 
@@ -138,7 +138,7 @@ The other optional parameters are explained in the README.txt file.
 Upon execution, you will be presented with authentication and ERT in Cloud Service discovery processes via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
 
 ```
-$>python market_price_edpgw_service_discovery.py --auth_hostname api.edp.thomsreuters.com --user user1 --password password1
+$>python market_price_edpgw_service_discovery.py --auth_hostname api.edp.thomsonreuters.com --user user1 --password password1
 
 ('Sending authentication request with password to ', 'https://api.edp.thomsonreuters.com:443/auth/oauth2/beta1/token', '...')
 EDP-GW Authentication succeeded. RECEIVED:
