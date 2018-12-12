@@ -96,6 +96,7 @@ Figure-9: Connecting to AWS Linux instance
 Once you have connected to your Amazon Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following file and folder
 - *python folder*: contains the market_price_edpgw_authentication.py and market_price_edpgw_service_discovery.py ERT in Cloud Python example applications and README.txt files
 - *java folder*: contains the MarketPriceEdpGwAuthentication.java and MarketPriceEdpGwServiceDiscovery.java ERT in Cloud Java example applications, library and related files. 
+- *CSharp folder*: contains the MarketPriceEdpGwAuthenticationExample and MMarketPriceEdpGwServiceDiscoveryExample ERT in Cloud C# example applications, library and related files. 
 - *README.txt*: Thomson Reuters Amazon Linux Machine Image README file
 
 This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to EDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.thomsonreuters.com/elektron/websocket-api).
