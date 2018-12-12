@@ -37,23 +37,23 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 ## <a id="launch"></a>How to launch your EC2 Amazon Linux instance based on Thomson Reuters's AMI 
 1. Firstly, login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
 
-    ![Figure-1](images/draft4/edp_rt_1.png "Login to AWS console as IAM user")<!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
+    ![Figure-1](images/refinitiv_rebrand/edp_rt_1_blue.png "Login to AWS console as IAM user")<!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
 
 2. Once you are logged in to the AWS Management Console, choose "US East (N. Virginia)" In the Region section
 
-    ![Figure-2](images/draft4/edp_rt_2.png "Choose US East N. Virginia region") <!-- ![](/sites/default/files/inline/images/edp_rt_2.png) -->
+    ![Figure-2](images/refinitiv_rebrand/edp_rt_2_blue.png "Choose US East N. Virginia region") <!-- ![](/sites/default/files/inline/images/edp_rt_2.png) -->
 
 3. Go to [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home) page, then choose IMAGES -> AMIs section.
 
-    ![Figure-3](images/draft4/edp_rt_3.png "EC2 Dashboard") <!-- ![](/sites/default/files/inline/images/edp_rt_3.png) -->
+    ![Figure-3](images/refinitiv_rebrand/edp_rt_3_blue.png "EC2 Dashboard") <!-- ![](/sites/default/files/inline/images/edp_rt_3.png) -->
 
 4. In the AMIs page, select "Public images" and then search Thomson Reuters' AMI name with **Thomson Reuters Elektron Real-Time Examples - Amazon Linux AMI** name filter.
 
-    ![Figure-4](images/refinitiv_rebrand/edp_rt_4.png "Searching Thomson Reuters AMI") <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
+    ![Figure-4](images/refinitiv_rebrand/edp_rt_4_blue.png "Searching Thomson Reuters AMI") <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
 
 5. Select Thomson Reuters AMI, then select "Launch".
 
-    ![Figure-5](images/refinitiv_rebrand/edp_rt_5.png "Launch instance 1") <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
+    ![Figure-5](images/refinitiv_rebrand/edp_rt_5_blue.png "Launch instance 1") <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
 
 6. Select your Instance type based on your preference and requirement, then click "Review and Launch" button. You may choose "Configure Instance Details" button to configure Instance network and public IP address (see more detail [here](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip)), storage, etc based on your requirement. Click "Launch" button to launch your EC2 Linux instance.
 
@@ -65,7 +65,7 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 
 8. Back to EC2 Dashboard, you will see your newly created Amazon Linux instance is running with the instance information such as Instance ID, Public DNS (IPv4), IPv4 Public IP, etc. The main information is Public DNS (IPv4) which is required to connect to this instance.
 
-    ![Figure-8](images/refinitiv_rebrand/edp_rt_9.png "Instance is running") <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
+    ![Figure-8](images/refinitiv_rebrand/edp_rt_9_blue.png "Instance is running") <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
 
 ## <a id="connect"></a>How to connect to your EC2 Amazon Linux instance
 
