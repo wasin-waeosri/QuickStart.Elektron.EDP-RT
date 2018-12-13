@@ -123,9 +123,9 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 
 ## <a id="run_instance"></a>How to run ERT in Cloud demo application from your existing EC2 instance
 
-If you already have an existing instance in your EC2 service, you can download the ERT in Cloud Quick Start example application from [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads) and upload the package to your EC2 instance. The ERT in Cloud Quick Start example application contains the same mmarket_price_edpgw_authentication.py, market_price_edpgw_service_discovery.py and README.txt files as same as Thomson Reuters AMI.
+If you already have an existing instance in your EC2 service, you can download the ERT in Cloud Quick Start example application from [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads) and upload the package to your EC2 instance. The ERT in Cloud Quick Start example application contains the same Python, Java, C# examples and README.txt files as same as Thomson Reuters AMI.
 
-Before running the application, you need to install the following required libraries via the ```pip install``` command in your EC2 instance:
+Before running the Python application, you need to install the following required libraries via the ```pip install``` command in your EC2 instance:
 - [requests](https://pypi.org/project/requests/) library.
 - [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
 
@@ -135,7 +135,7 @@ $>sudo pip install requests websocket-client
 
 *Note:* 
 - Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your EC2 instance does not have the [pip tool](https://pypi.org/project/pip/) installed. 
-- If your EC2 instance already have a websocket-client library installed, you can use ```pip list``` command to verify a websocket-client library version, then use ```pip install --upgrade websocket-client``` command to upgrade websocket-client library. 
+- If your EC2 instance already have a websocket-client library installed, you can use ```pip list``` command to verify a library version, then use ```pip install --upgrade websocket-client``` command to upgrade websocket-client library. 
 
 ### ERT in Cloud connection parameters
 
