@@ -1,7 +1,7 @@
 # Elektron Real Time in Cloud (ERT in Cloud) Quick Start
-- Last update: July 2018
+- Last update: December 2018
 - Environment: Amazon AWS EC2 instance
-- Complier: Python
+- Compiler: Python
 - Prerequisite: [Access to Amazon AWS EC2](#prerequisite)
 
 ## Overview
@@ -37,35 +37,59 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 ## <a id="launch"></a>How to launch your EC2 Amazon Linux instance based on Thomson Reuters's AMI 
 1. Firstly, login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
 
-    ![Figure-1](images/refinitiv_rebrand/edp_rt_1_blue.png "Login to AWS console as IAM user")<!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
+    ![Figure-1](images/refinitiv_rebrand/edp_rt_1_blue.png "Login to AWS console as IAM user")
+    
+    [comment]: # (/sites/default/files/inline/images/edp_rt_1.png)
+    <!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
 
 2. Once you are logged in to the AWS Management Console, choose "US East (N. Virginia)" In the Region section
 
-    ![Figure-2](images/refinitiv_rebrand/edp_rt_2_blue.png "Choose US East N. Virginia region") <!-- ![](/sites/default/files/inline/images/edp_rt_2.png) -->
+    ![Figure-2](images/refinitiv_rebrand/edp_rt_2_blue.png "Choose US East N. Virginia region") 
+    
+    [comment]: # (/sites/default/files/inline/images/edp_rt_2.png)
+    <!-- ![](/sites/default/files/inline/images/edp_rt_2.png) -->
 
 3. Go to [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home) page, then choose IMAGES -> AMIs section.
 
-    ![Figure-3](images/refinitiv_rebrand/edp_rt_3_blue.png "EC2 Dashboard") <!-- ![](/sites/default/files/inline/images/edp_rt_3.png) -->
+    ![Figure-3](images/refinitiv_rebrand/edp_rt_3_blue.png "EC2 Dashboard") 
+    
+    [comment]: # (/sites/default/files/inline/images/edp_rt_3.png)
+    <!-- ![](/sites/default/files/inline/images/edp_rt_3.png) -->
 
 4. In the AMIs page, select "Public images" and then search Thomson Reuters' AMI name with **Thomson Reuters Elektron Real-Time Examples - Amazon Linux AMI** name filter.
 
-    ![Figure-4](images/refinitiv_rebrand/edp_rt_4_blue.png "Searching Thomson Reuters AMI") <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
+    ![Figure-4](images/refinitiv_rebrand/edp_rt_4_blue.png "Searching Thomson Reuters AMI") 
+    
+    [comment]: # (/sites/default/files/inline/images/edp_rt_4.png)
+    <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
 
 5. Select Thomson Reuters AMI, then select "Launch".
 
-    ![Figure-5](images/refinitiv_rebrand/edp_rt_5_blue.png "Launch instance 1") <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
+    ![Figure-5](images/refinitiv_rebrand/edp_rt_5_blue.png "Launch instance 1") 
+    
+    [comment]: # (/sites/default/files/inline/images/edp_rt_5_0.png)
+    <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
 
 6. Select your Instance type based on your preference and requirement, then click "Review and Launch" button. You may choose "Configure Instance Details" button to configure Instance network and public IP address (see more detail [here](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip)), storage, etc based on your requirement. Click "Launch" button to launch your EC2 Linux instance.
 
-    ![Figure-6](images/refintiv_rrefinitiv_rebrandebrand/edp_rt_7.png "Launch instance 2") <!-- ![](/sites/default/files/inline/images/edp_rt_7.png) -->
+    ![Figure-6](images/refinitiv_rebrand/edp_rt_7.png "Launch instance 2") 
+    
+    [comment]: # (/sites/default/files/inline/images/edp_rt_7.png)
+    <!-- ![](/sites/default/files/inline/images/edp_rt_7.png) -->
 
 7. Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this instance here. Click "Launch Instances" button to launch your Linux instance.
 
-    ![Figure-7](images/refinitiv_rebrand/edp_rt_8.png "Select key pair") <!-- ![](/sites/default/files/inline/images/edp_rt_8.png) -->
+    ![Figure-7](images/refinitiv_rebrand/edp_rt_8.png "Select key pair") 
+    
+    [comment]: # (/sites/default/files/inline/images/edp_rt_8.png)
+    <!-- ![](/sites/default/files/inline/images/edp_rt_8.png) -->
 
 8. Back to EC2 Dashboard, you will see your newly created Amazon Linux instance is running with the instance information such as Instance ID, Public DNS (IPv4), IPv4 Public IP, etc. The main information is Public DNS (IPv4) which is required to connect to this instance.
 
-    ![Figure-8](images/refinitiv_rebrand/edp_rt_9_blue.png "Instance is running") <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
+    ![Figure-8](images/refinitiv_rebrand/edp_rt_9_blue.png "Instance is running") 
+    
+    [comment]: # (/sites/default/files/inline/images/edp_rt_9.png)
+    <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
 
 ## <a id="connect"></a>How to connect to your EC2 Amazon Linux instance
 
@@ -87,7 +111,10 @@ Example:
 ```
 ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-35-174-156-150.compute-1.amazonaws.com
 ```
-![Figure-9](images/refinitiv_rebrand/edp_rt_10.png "Connecting to AWS Linux instance") <!-- ![](/sites/default/files/inline/images/edp_rt_10.png) -->
+![Figure-9](images/refinitiv_rebrand/edp_rt_10.png "Connecting to AWS Linux instance") 
+
+[comment]: # (/sites/default/files/inline/images/edp_rt_10.png)
+<!-- ![](/sites/default/files/inline/images/edp_rt_10.png) -->
 
 Figure-9: Connecting to AWS Linux instance
 
@@ -108,14 +135,16 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 If you already have an existing instance in your EC2 service, you can download the ERT in Cloud Quick Start example application from [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads) and upload the package to your EC2 instance. The ERT in Cloud Quick Start example application contains the same mmarket_price_edpgw_authentication.py, market_price_edpgw_service_discovery.py and README.txt files as same as Thomson Reuters AMI.
 
 Before running the application, you need to install the following required libraries via the ```pip install``` command in your EC2 instance:
-- [requests](https://pypi.org/project/requests/) library
-- [websocket-client](https://pypi.org/project/websocket-client/) library
+- [requests](https://pypi.org/project/requests/) library.
+- [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
 
 ```
 $>sudo pip install requests websocket-client
 ```
 
-*Note:* Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your EC2 instance does not have the [pip tool](https://pypi.org/project/pip/) installed. 
+*Note:* 
+- Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your EC2 instance does not have the [pip tool](https://pypi.org/project/pip/) installed. 
+- If your EC2 instance already have a websocket-client library installed, you can use ```pip list``` command to verify a websocket-client library version, then use ```pip install --upgrade websocket-client``` command to upgrade websocket-client library. 
 
 ### ERT in Cloud connection parameters
 
