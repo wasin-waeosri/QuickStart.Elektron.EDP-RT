@@ -1,10 +1,51 @@
-# Elektron Real Time in Cloud (ERT in Cloud) Quick Start
-- Last update: December 2018
-- Environment: Amazon AWS EC2 instance
-- Compiler: Python
-- Prerequisite: [Access to Amazon AWS EC2](#prerequisite)
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px;">
 
-## Overview
+<tbody>
+
+<tr>
+
+<td>Last Update</td>
+
+<td>December 2018</td>
+
+</tr>
+
+<tr>
+
+<td>Environment</td>
+
+<td>Amazon AWS EC2 instance</td>
+
+</tr>
+
+<tr>
+
+<td>Compiler</td>
+
+<td>Python</td>
+
+</tr>
+
+<tr>
+
+<td>Prerequisite</td>
+
+<td>Access to Amazon AWS EC2</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<!-- This README_AHS_page.md file has the same "content" as README.md file, except the formatting/markdown syntax for AHS page only. The reason is AHS page markdown is so stupid-->
+
+<!-- How to fix bullet and pictures issue
+
+•	Numbered list: right click on the number to change the starting number
+•	Picture: right click for properties, set HSpace to 40 (pixels, to move picture right) and VSpace ro 0 (to avoid big space before and after picture)
+
+-->
 
 The goal of this Quick Start tutorial is to guide you through initial steps to consume data from Thomson Reuters Elektron Data Platform in the [Amazon Cloud](https://aws.amazon.com/), using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/) programming language. This tutorial will teach you to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) or to connect to the Elektron Websockets API from your own EC2 instance using provided sample code.
 
@@ -35,53 +76,53 @@ The following accounts and softwares are required in order to run this quick sta
 If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.amazon.com/free/) account which gives you a free hands-on access to AWS platform and services. We highly recommend you follow the Amazon AWS [Setting Up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) and [Getting Started with Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) tutorials before proceeding futher in this quick start guide to create your key-pair, VPC and Security Group which are required for your EC2 instance.
 
 ## <a id="launch"></a>How to launch your EC2 Amazon Linux instance based on Thomson Reuters's AMI 
-1. Firstly, login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
+1. Firstly, login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user  
 
-    ![Figure-1](images/refinitiv_rebrand/edp_rt_1_blue.png "Login to AWS console as IAM user")
-    
-    <!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
+![](/sites/default/files/inline/images/edp_rt_1_blue_3.png)
+
+Figure-1: Login to AWS console as IAM user
 
 2. Once you are logged in to the AWS Management Console, choose "US East (N. Virginia)" In the Region section
 
-    ![Figure-2](images/refinitiv_rebrand/edp_rt_2_blue.png "Choose US East N. Virginia region") 
-    
-    <!-- ![](/sites/default/files/inline/images/edp_rt_2.png) -->
+![](/sites/default/files/inline/images/edp_rt_2_blue.png)
+
+Figure-2: Choose US East N. Virginia region
 
 3. Go to [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home) page, then choose IMAGES -> AMIs section.
 
-    ![Figure-3](images/refinitiv_rebrand/edp_rt_3_blue.png "EC2 Dashboard") 
-    
-    <!-- ![](/sites/default/files/inline/images/edp_rt_3.png) -->
+![](/sites/default/files/inline/images/edp_rt_3_blue.png)
+
+Figure-3: EC2 Dashboard
 
 4. In the AMIs page, select "Public images" and then search Thomson Reuters' AMI name with **Thomson Reuters Elektron Real-Time Examples - Amazon Linux AMI** name filter.
+ 
+![](/sites/default/files/inline/images/edp_rt_4_blue.png)
 
-    ![Figure-4](images/refinitiv_rebrand/edp_rt_4_blue.png "Searching Thomson Reuters AMI") 
-    
-    <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
+Figure-4: Searching Thomson Reuters AMI
 
-5. Select Thomson Reuters AMI, then select "Launch".
+5. Select Thomson Reuters AMI, then select "Launch". 
 
-    ![Figure-5](images/refinitiv_rebrand/edp_rt_5_blue.png "Launch instance 1") 
-    
-    <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
+![](/sites/default/files/inline/images/edp_rt_5_blue.png)
+
+Figure-5: Launch instance AWS instance
 
 6. Select your Instance type based on your preference and requirement, then click "Review and Launch" button. You may choose "Configure Instance Details" button to configure Instance network and public IP address (see more detail [here](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip)), storage, etc based on your requirement. Click "Launch" button to launch your EC2 Linux instance.
 
-    ![Figure-6](images/refinitiv_rebrand/edp_rt_7.png "Launch instance 2") 
+![](/sites/default/files/inline/images/edp_rt_7_0.png)
 
-    <!-- ![](/sites/default/files/inline/images/edp_rt_7.png) -->
+Figure-6: Launch instance AWS instance
 
-7. Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this instance here. Click "Launch Instances" button to launch your Linux instance.
+7. Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this instance here. Click "Launch Instances" button to launch your Linux instance. 
 
-    ![Figure-7](images/refinitiv_rebrand/edp_rt_8.png "Select key pair") 
+![](/sites/default/files/inline/images/edp_rt_8_0.png)
 
-    <!-- ![](/sites/default/files/inline/images/edp_rt_8.png) -->
+Figure-7: Select key pair for this AWS instance
 
 8. Back to EC2 Dashboard, you will see your newly created Amazon Linux instance is running with the instance information such as Instance ID, Public DNS (IPv4), IPv4 Public IP, etc. The main information is Public DNS (IPv4) which is required to connect to this instance.
 
-    ![Figure-8](images/refinitiv_rebrand/edp_rt_9_blue.png "Instance is running") 
+![](/sites/default/files/inline/images/edp_rt_9_blue.png)
 
-    <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
+Figure-8: Instance is running
 
 ## <a id="connect"></a>How to connect to your EC2 Amazon Linux instance
 
@@ -103,9 +144,7 @@ Example:
 ```
 ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-35-174-156-150.compute-1.amazonaws.com
 ```
-![Figure-9](images/refinitiv_rebrand/edp_rt_10.png "Connecting to AWS Linux instance") 
-
-<!-- ![](/sites/default/files/inline/images/edp_rt_10.png) -->
+![](/sites/default/files/inline/images/edp_rt_10_0.png)
 
 Figure-9: Connecting to AWS Linux instance
 
@@ -379,9 +418,6 @@ For further details, please check out the following resources:
 * [Thomson Reuters Data Model Discovery page](https://thomsonreuters.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 
 For any question related to this quick start guide or Elektron Real Time in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/spaces/71/index.html).
-
-<!--* [Thomson Reuters Elektron WebSocket API: Quick Start Guide](https://developers.thomsonreuters.com/elektron/websocket-api/quick-start)-->
-<!--* [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)-->
 
 
 
