@@ -6,7 +6,7 @@
 
 ## Overview
 
-The goal of this Quick Start tutorial is to guide you through initial steps to consume data from Thomson Reuters Elektron Data Platform in the [Amazon Cloud](https://aws.amazon.com/), using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/). This tutorial will teach you to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) or to connect to the Elektron Websockets API from your own EC2 instance using provided sample code.
+The goal of this Quick Start tutorial is to guide you through initial steps to consume data from Thomson Reuters Elektron Data Platform in the [Amazon Cloud](https://aws.amazon.com/), using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/) programming language. This tutorial will teach you to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Thomson Reuters Amazon Machine Image ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) or to connect to the Elektron Websockets API from your own EC2 instance using provided sample code.
 
 Once you complete this, further tutorials on using the Elektron Websockets API can be found in the [Elektron WebSocket API page](https://developers.thomsonreuters.com/elektron/websocket-api) of the [Developer Community](https://developers.thomsonreuters.com/).
 
@@ -125,7 +125,7 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 
 If you already have an existing instance in your EC2 service, you can download the ERT in Cloud Quick Start example application from [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads) and upload the package to your EC2 instance. The ERT in Cloud Quick Start example application contains the same Python, Java, C# examples and README.txt files as same as Thomson Reuters AMI.
 
-Before running the Python application, you need to install the following required libraries via the ```pip install``` command in your EC2 instance:
+The Python example has been qualified with Python versions 2.7.14 and 3.6.7. You need to install the following required Python libraries via the ```pip install``` command in your EC2 instance before running the example:
 - [requests](https://pypi.org/project/requests/) library.
 - [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
 
