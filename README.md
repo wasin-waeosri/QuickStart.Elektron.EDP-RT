@@ -125,9 +125,9 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 
 ## <a id="run_instance"></a>How to run ERT in Cloud demo application from your existing VM or Local machine
 
-For Development purpuse, you can connects to ERT in Cloud from your existing VM, Cloud VM or your local machine. The ERT in Cloud Quick Start example application is available for downloand at [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads). The ERT in Cloud Quick Start example application contains the same Python, Java, C# examples and README.txt files as same as Thomson Reuters AMI.
+For Development purpose, you can connects to ERT in Cloud from your existing VM, Cloud VM or your local machine. The ERT in Cloud Quick Start example application is available for downloand at [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads). The ERT in Cloud Quick Start example application contains the same Python, Java, C# examples and README.txt files as same as Thomson Reuters AMI.
 
-The Python example has been qualified with Python versions 2.7.14 and 3.6.7. You need to install the following required Python libraries via the ```pip install``` command in your EC2 instance before running the example:
+The Python example has been qualified with Python versions 2.7.14 and 3.6.7. You need to install the following required Python libraries via the ```pip install``` command in your environment before running the example:
 - [requests](https://pypi.org/project/requests/) library.
 - [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
 
