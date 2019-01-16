@@ -1,5 +1,5 @@
 # Elektron Real Time in Cloud (ERT in Cloud) Quick Start
-- Last update: December 2018
+- Last update: January 2019
 - Environment: Amazon AWS EC2 instance
 - Compiler: Python
 - Prerequisite: [Access to Amazon AWS EC2](#prerequisite)
@@ -12,14 +12,16 @@ Once you complete this, further tutorials on using the Elektron Websockets API c
 
 ## Connecting to the API from Amazon AWS
 
-Elektron Real Time in Cloud (ERT in Cloud) supports Amazon EC2 instance customers only. Thomson Reuters will not support customers outside of Amazon EC2 service until further notice.
+For Production and QA Testing purposes, Elektron Real Time in Cloud (ERT in Cloud) supports Amazon EC2 instance customers only. However, customers can use any environments (VM, Cloud VM, local machine) for Development purpose.
+
+Thomson Reuters will not support Production and QA/Testing customers outside of Amazon EC2 service until further notice.
 
 ## Description In this quick start guide, we will cover the following areas:
 - [Prerequisite](#prerequisite)
 - [How to launch your EC2 Amazon Linux instance based on Thomson Reuters's AMI](#launch)
 - [How to connect to your EC2 Amazon Linux instance](#connect)
 - [How to run ERT in Cloud demo application inside your newly created EC2 Amazon Linux instance](#run_ami)
-- [How to run ERT in Cloud demo application from your existing EC2 instance](#run_instance)
+- [How to run ERT in Cloud demo application from your existing VM or Local machine](#run_instance)
 - [Troubleshooting](#troubleshooting)
 - [References](#references)
 
@@ -121,11 +123,11 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 
 *Note:* This Thomson Reuters based AMI machined already installed all Python required libraries. 
 
-## <a id="run_instance"></a>How to run ERT in Cloud demo application from your existing EC2 instance
+## <a id="run_instance"></a>How to run ERT in Cloud demo application from your existing VM or Local machine
 
-If you already have an existing instance in your EC2 service, you can download the ERT in Cloud Quick Start example application from [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads) and upload the package to your EC2 instance. The ERT in Cloud Quick Start example application contains the same Python, Java, C# examples and README.txt files as same as Thomson Reuters AMI.
+For Development purpose, you can connects to ERT in Cloud from your existing VM, Cloud VM or your local machine. The ERT in Cloud Quick Start example application is available for download at [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.thomsonreuters.com/elektron/websocket-api/downloads). The ERT in Cloud Quick Start example application contains the same Python, Java, C# examples and README.txt files as same as in Thomson Reuters AMI.
 
-The Python example has been qualified with Python versions 2.7.14 and 3.6.7. You need to install the following required Python libraries via the ```pip install``` command in your EC2 instance before running the example:
+The Python example has been qualified with Python versions 2.7.14 and 3.6.7. You need to install the following required Python libraries via the ```pip install``` command in your environment before running the example:
 - [requests](https://pypi.org/project/requests/) library.
 - [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
 
@@ -134,8 +136,8 @@ $>sudo pip install requests websocket-client
 ```
 
 *Note:* 
-- Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your EC2 instance does not have the [pip tool](https://pypi.org/project/pip/) installed. 
-- If your EC2 instance already have a websocket-client library installed, you can use ```pip list``` command to verify a library version, then use ```pip install --upgrade websocket-client``` command to upgrade websocket-client library. 
+- Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your environment does not have the [pip tool](https://pypi.org/project/pip/) installed. 
+- If your environment already have a websocket-client library installed, you can use ```pip list``` command to verify a library version, then use ```pip install --upgrade websocket-client``` command to upgrade websocket-client library. 
 
 ### ERT in Cloud connection parameters
 
