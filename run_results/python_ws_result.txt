@@ -1,0 +1,450 @@
+[ec2-user@ip-172-31-92-65 python]$ python market_price_edpgw_service_discovery.py --user user1 --password password1
+('Sending authentication request with password to ', 'https://api.edp.thomsonreuters.com:443/auth/oauth2/beta1/token', '...')
+EDP-GW Authentication succeeded. RECEIVED:
+{
+  "access_token":"<Access Token>",
+  "expires_in":"300",
+  "refresh_token":"54393db4-747a-4e9d-a146-12ebf281883e",
+  "scope":"trapi.streaming.pricing.read",
+  "token_type":"Bearer"
+}
+Sending EDP-GW service discovery request to https://api.edp.thomsonreuters.com/streaming/pricing/v1/
+EDP-GW Service discovery succeeded. RECEIVED:
+{
+  "services":[
+    {
+      "dataFormat":[
+        "tr_json2"
+      ],
+      "endpoint":"amer-1.pricing.streaming.edp.thomsonreuters.com",
+      "location":[
+        "us-east-1a"
+      ],
+      "port":443,
+      "provider":"aws",
+      "transport":"websocket"
+    },
+    {
+      "dataFormat":[
+        "tr_json2"
+      ],
+      "endpoint":"amer-2.pricing.streaming.edp.thomsonreuters.com",
+      "location":[
+        "us-east-1b"
+      ],
+      "port":443,
+      "provider":"aws",
+      "transport":"websocket"
+    },
+    {
+      "dataFormat":[
+        "tr_json2"
+      ],
+      "endpoint":"amer-3.pricing.streaming.edp.thomsonreuters.com",
+      "location":[
+        "us-east-1a",
+        "us-east-1b"
+      ],
+      "port":443,
+      "provider":"aws",
+      "transport":"websocket"
+    },
+    {
+      "dataFormat":[
+        "tr_json2"
+      ],
+      "endpoint":"emea-1.pricing.streaming.edp.thomsonreuters.com",
+      "location":[
+        "eu-west-1a",
+        "eu-west-1b"
+      ],
+      "port":443,
+      "provider":"aws",
+      "transport":"websocket"
+    }
+  ]
+}
+Connecting to WebSocket wss://amer-3.pricing.streaming.edp.thomsonreuters.com:443/WebSocket for session1...
+WebSocket successfully connected for session1!
+SENT on session1:
+{
+  "Domain":"Login",
+  "ID":1,
+  "Key":{
+    "Elements":{
+      "ApplicationId":"256",
+      "AuthenticationToken":"<Access Token>",
+      "Position":"172.31.92.65/ip-172-31-92-65.ec2.internal"
+    },
+    "NameType":"AuthnToken"
+  }
+}
+RECEIVED on session1:
+[
+  {
+    "Domain":"Login",
+    "Elements":{
+      "MaxMsgSize":61430,
+      "PingTimeout":30
+    },
+    "ID":1,
+    "Key":{
+      "Elements":{
+        "AllowSuspectData":1,
+        "ApplicationId":"256",
+        "ApplicationName":"ADS",
+        "AuthenticationErrorCode":0,
+        "AuthenticationErrorText":{
+          "Data":null,
+          "Type":"AsciiString"
+        },
+        "AuthenticationTTReissue":1555069088,
+        "Position":"172.31.92.65/ip-172-31-92-65.ec2.internal",
+        "ProvidePermissionExpressions":1,
+        "ProvidePermissionProfile":0,
+        "SingleOpen":1,
+        "SupportBatchRequests":7,
+        "SupportEnhancedSymbolList":1,
+        "SupportOMMPost":1,
+        "SupportOptimizedPauseResume":0,
+        "SupportPauseResume":0,
+        "SupportStandby":0,
+        "SupportViewRequests":1
+      },
+      "Name":"AQIC5wM2LY4SfczwmIDgYSo%2BygcIp42lrNG8W%2BkojxxhJOk%3D%40AAJTSQACNDAAAlNLABQtODUyNDUzNzQ0ODUxMzM1MzQ3MQACUzEAAjM1%23"
+    },
+    "State":{
+      "Data":"Ok",
+      "Stream":"Open",
+      "Text":"Login accepted by host ads-premium-az1-green-8-main-prd.use1-az1."
+    },
+    "Type":"Refresh"
+  }
+]
+SENT on session1:
+{
+  "ID":2,
+  "Key":{
+    "Name":"/TRI.N"
+  }
+}
+RECEIVED on session1:
+[
+  {
+    "Fields":{
+      "52WK_HIGH":59.58,
+      "52WK_LOW":36.53,
+      "52W_HDAT":"2019-04-03",
+      "52W_HIND":null,
+      "52W_LDAT":"2018-05-11",
+      "52W_LIND":null,
+      "ACVOL_1":null,
+      "ACVOL_UNS":null,
+      "AC_TRN_CRS":null,
+      "AC_VOL_CRS":0,
+      "ADJUST_CLS":59.03,
+      "ASK":null,
+      "ASKSIZE":null,
+      "ASK_1":null,
+      "ASK_2":null,
+      "ASK_COND_N":null,
+      "ASK_MMID1":null,
+      "AUC_EX_NO":null,
+      "BCASTREF32":null,
+      "BCAST_REF":"TRI.TO",
+      "BCKGRNDPAG":null,
+      "BC_100K":null,
+      "BC_10_50K":null,
+      "BC_50_100K":null,
+      "BID":null,
+      "BIDSIZE":null,
+      "BID_1":null,
+      "BID_2":null,
+      "BID_ASK_DT":"2019-04-11",
+      "BID_COND_N":null,
+      "BID_MMID1":null,
+      "BLKCOUNT":null,
+      "BLKSALCOND":null,
+      "BLKTIM_MS":null,
+      "BLKTRDVOL":null,
+      "BLKVOLUM":null,
+      "BLK_DATE":null,
+      "BLK_FLAG":null,
+      "BLK_PRC1":null,
+      "BLK_SEQNO":null,
+      "BLK_TRDID":null,
+      "BOND_TYPE":null,
+      "BOOK_STATE":null,
+      "CANCEL_IND":null,
+      "CAN_COND":null,
+      "CAN_COND_N":null,
+      "CAN_DATE":null,
+      "CAN_PRC":null,
+      "CAN_SUBIND":null,
+      "CAN_TDTH_X":null,
+      "CAN_TERMS":null,
+      "CAN_TRD_ID":null,
+      "CAN_VOL":null,
+      "CLOSE_ASK":59.03,
+      "CLOSE_BID":59.01,
+      "CLOSE_TIME":null,
+      "CNTX_VER_N":null,
+      "CONTEXT_ID":1070,
+      "CRSSALCOND":null,
+      "CRSTIM_MS":null,
+      "CRSTRD_PRC":null,
+      "CRS_DATE":null,
+      "CRS_NUMOV":null,
+      "CRS_SEQNO":null,
+      "CRS_TRDID":null,
+      "CRS_TRDVOL":null,
+      "CTRDTIM":null,
+      "CTRDTIM_MS":null,
+      "CTS_QUAL":"   ",
+      "CUM_EX_MKR":"   ",
+      "CURRENCY":"USD",
+      "CUSIP_CD":"884903709",
+      "DDS_DSO_ID":8309,
+      "DIVIDEND":1.44,
+      "DIVIDENDTP":"  ",
+      "DIVPAYDATE":"2019-03-20",
+      "DJTIME":null,
+      "DM_TYPE":null,
+      "DOM_EQ_ID":"CMNPTKzBegXA",
+      "DOM_OPT_ID":"PWXYZ",
+      "DSPLY_NAME":"THOMSON REUTER/d",
+      "EARNINGS":0.3217,
+      "ELG_ACVOL":null,
+      "ELG_NUMMOV":null,
+      "ELG_TNOV":null,
+      "EXCHTIM":"20:02:02",
+      "EXDIVDATE":"2019-03-07",
+      "FIN_STATUS":"N",
+      "GEN_VAL3":null,
+      "GEN_VAL4":null,
+      "GV1_FLAG":null,
+      "GV1_TEXT":null,
+      "GV2_FLAG":null,
+      "GV2_TEXT":null,
+      "GV3_FLAG":null,
+      "GV3_TEXT":null,
+      "GV4_FLAG":" ",
+      "GV4_TEXT":null,
+      "HALT_DATE":"2018-08-28",
+      "HALT_REASN":" ",
+      "HALT_RSN":"  ",
+      "HALT_TM_MS":"14:45:31.68",
+      "HELD_T_IND":null,
+      "HIGH_1":null,
+      "HLT_RSM_DT":"2018-08-28",
+      "HLT_RSM_MS":"15:14:21.541",
+      "HSTCLSDATE":"2019-04-11",
+      "HST_CLOSE":59.03,
+      "IMB_ACT_TP":null,
+      "IMB_SH":null,
+      "IMB_SIDE":null,
+      "IMB_TIM_MS":null,
+      "IMP_VOLT":null,
+      "INSCOND":null,
+      "INSPRC":null,
+      "INSSALCOND":null,
+      "INSTIM_MS":null,
+      "INSTRD_DT":null,
+      "INSTRD_TIM":null,
+      "INST_PHASE":"   ",
+      "INSVOL":null,
+      "INS_SEQNO":null,
+      "INS_SUBIND":null,
+      "INS_TDTH_X":null,
+      "INS_TRDID":null,
+      "IPO_PRC":null,
+      "IRGCOND":null,
+      "IRGDATE":null,
+      "IRGPRC":null,
+      "IRGSALCOND":null,
+      "IRGTIM_MS":null,
+      "IRGVAL":null,
+      "IRGVOL":null,
+      "IRG_SEQNO":null,
+      "IRG_SUBIND":null,
+      "IRG_TDTH_X":null,
+      "IRG_TRDID":null,
+      "LIMIT_IND2":null,
+      "LIMIT_INDQ":"   ",
+      "LIST_MKT":"N",
+      "LMT_REFPR2":null,
+      "LMT_TYPE":null,
+      "LMT_TYPE2":null,
+      "LOLIMIT":null,
+      "LOLIMIT_2":null,
+      "LOT_SIZE_A":100,
+      "LOW_1":null,
+      "LSTSALCOND":" ",
+      "LS_SUBIND":null,
+      "LULD_T2_MS":null,
+      "LULD_TM_MS":null,
+      "MKT_STATUS":"3",
+      "MK_STATUS":null,
+      "MNEMONIC":"TRI",
+      "MPV":"INT ",
+      "NBBO_IND":"   ",
+      "NETCHNG_1":null,
+      "NEWS":"    ",
+      "NEWS_TIME":null,
+      "NUM_MOVES":null,
+      "ODDSALCOND":null,
+      "ODDTIM_MS":null,
+      "ODDTRN_UNS":null,
+      "ODD_DATE":null,
+      "ODD_PRC":null,
+      "ODD_SEQNO":null,
+      "ODD_TRDID":null,
+      "ODD_TRDVOL":null,
+      "ODD_VOLUME":null,
+      "OFFCL_CODE":"000884903709",
+      "OFFC_CODE2":"CMNPTKzBegXA",
+      "OFF_CD_IN2":null,
+      "OFF_CD_IND":"CUS",
+      "OFF_CLOSE":null,
+      "OFF_CLS_DT":null,
+      "OFF_CLS_MS":null,
+      "OFF_CL_TIM":null,
+      "OPEN_PRC":null,
+      "OPEN_T_MS":null,
+      "OPN_NETCH":null,
+      "OPTION_XID":"XABCEH",
+      "ORDREC2_MS":null,
+      "ORDRECV_MS":null,
+      "PCTCHNG":null,
+      "PCT_ABNVOL":null,
+      "PDACVOL":null,
+      "PDTRDDATE":null,
+      "PDTRDPRC":null,
+      "PDTRDTM_MS":null,
+      "PD_SALCOND":null,
+      "PD_SEQNO":null,
+      "PD_SUBIND":null,
+      "PD_TDTH_X":null,
+      "PD_TRDID":null,
+      "PERATIO":183.4758,
+      "PERIOD_CD2":null,
+      "PMA_150D":50.324,
+      "PMA_200D":48.2811,
+      "PMA_50D":55.4244,
+      "POST_PANEL":"08O",
+      "PRCTCK_1":"\u21e7",
+      "PRC_QL2":"D15",
+      "PRC_QL3":"CLS",
+      "PRC_QL_CD":"CLS",
+      "PRC_TICK":0.01,
+      "PREDAYVOL":null,
+      "PREF_DISP":5752,
+      "PRERL1594":null,
+      "PRERL1595":null,
+      "PREV_DISP":0,
+      "PRE_139_NS":null,
+      "PRE_140_NS":null,
+      "PRE_DT234":null,
+      "PRE_DT235":null,
+      "PRE_INT263":null,
+      "PRE_INT264":null,
+      "PRNTYP":" ",
+      "PROD_PERM":4017,
+      "PROV_SYMB":"TRI",
+      "QTE_ORIGIN":null,
+      "QUOTE_DATE":null,
+      "QUOTIM":null,
+      "QUOTIM_MS":null,
+      "RCS_AS_CL2":null,
+      "RCS_AS_CLA":" ",
+      "RDNDISPLAY":64,
+      "RDN_EXCHD2":"NYS",
+      "RDN_EXCHID":"NYS",
+      "RECORDTYPE":113,
+      "REG_PILOT":null,
+      "REPORT_VOL":null,
+      "RETAIL_INT":null,
+      "RETRAN_IND":null,
+      "SALTIM":null,
+      "SALTIM_MS":null,
+      "SECUR_ST":null,
+      "SEE_RIC":null,
+      "SEQNUM":null,
+      "SEQNUM_QT":null,
+      "SETL_TYPE":null,
+      "SH_SAL_RES":"N",
+      "SPS_SP_RIC":".[SPSCDSAM0101",
+      "STOCK_TYPE":null,
+      "THRESH_IND":null,
+      "TIMCOR":null,
+      "TIMCOR_MS":null,
+      "TRADE_DATE":"2019-04-11",
+      "TRADE_ID":null,
+      "TRDPRC_1":null,
+      "TRDPRC_2":null,
+      "TRDPRC_3":null,
+      "TRDPRC_4":null,
+      "TRDPRC_5":null,
+      "TRDREC2_MS":null,
+      "TRDRECV_MS":null,
+      "TRDTIM_1":"20:02:00",
+      "TRDTIM_MS":72122162,
+      "TRDVOL_1":null,
+      "TRD_STATUS":"N ",
+      "TRD_THRU_X":null,
+      "TRD_TYPE":"3",
+      "TRD_UNITS":"6DP ",
+      "TRNOVR_UNS":null,
+      "TURNOVER":null,
+      "TURN_BLOCK":null,
+      "UPLIMIT":null,
+      "UPLIMIT_2":null,
+      "VMA_10D":116268,
+      "VMA_25D":148205,
+      "VMA_50D":157903,
+      "VOL_X_PRC1":null,
+      "VWAP":null,
+      "VWAP_FLAG":null,
+      "VWAP_VOL":null,
+      "XMIC_CODE":"XNYS",
+      "YCHIGH_IND":null,
+      "YCLOW_IND":null,
+      "YEAR_FCAST":"08O",
+      "YIELD":2.4394,
+      "YRHIGH":59.58,
+      "YRHIGHDAT":"2019-04-03",
+      "YRHI_IND":"Yr.High ",
+      "YRLOW":36.53,
+      "YRLOWDAT":"2018-05-11",
+      "YRLO_IND":"Yr.Low  "
+    },
+    "ID":2,
+    "Key":{
+      "Name":"/TRI.N",
+      "Service":"ELEKTRON_DD"
+    },
+    "PermData":"AwEBQBfA",
+    "Qos":{
+      "Rate":"JitConflated",
+      "Timeliness":"Realtime"
+    },
+    "SeqNumber":30752,
+    "State":{
+      "Data":"Ok",
+      "Stream":"Open",
+      "Text":"*All is well"
+    },
+    "Type":"Refresh"
+  }
+]
+RECEIVED on session1:
+[
+  {
+    "Type":"Ping"
+  }
+]
+SENT on session1:
+{
+  "Type":"Pong"
+}
+
