@@ -1,12 +1,12 @@
 # Elektron Real Time in Cloud (ERT in Cloud) Quick Start
-- Last update: January 2019
+- Last update: April 2019
 - Environment: Amazon AWS EC2 instance
 - Compiler: Python
 - Prerequisite: [Access to Amazon AWS EC2](#prerequisite)
 
 ## Overview
 
-The goal of this Quick Start tutorial is to guide you through initial steps to consume data from Thomson Reuters Elektron Data Platform in the [Amazon Cloud](https://aws.amazon.com/), using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/) programming language. This tutorial will teach you to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Refinitiv Amazon Machine Image ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) or to connect to the Elektron Websockets API from your own EC2 instance using provided sample code.
+The goal of this Quick Start tutorial is to guide you through initial steps to consume data from Refinitiv Elektron Data Platform in the [Amazon Cloud](https://aws.amazon.com/), using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/) programming language. This tutorial will teach you to launch an [Amazon AWS EC2](https://aws.amazon.com/ec2/) Instance based on a Refinitiv Amazon Machine Image ([AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) or to connect to the Elektron Websockets API from your own EC2 instance using provided sample code.
 
 Once you complete this, further tutorials on using the Elektron Websockets API can be found in the [Elektron WebSocket API page](https://developers.refinitiv.com/elektron/websocket-api) of the [Developer Community](https://developers.refinitiv.com/).
 
@@ -14,11 +14,11 @@ Once you complete this, further tutorials on using the Elektron Websockets API c
 
 For Production and QA Testing purposes, Elektron Real Time in Cloud (ERT in Cloud) supports Amazon EC2 instance customers only. However, customers can use any environments (VM, Cloud VM, local machine) for Development purpose.
 
-Thomson Reuters will not support Production and QA/Testing customers outside of Amazon EC2 service until further notice.
+Refinitiv will not support Production and QA/Testing customers outside of Amazon EC2 service until further notice.
 
 ## Description In this quick start guide, we will cover the following areas:
 - [Prerequisite](#prerequisite)
-- [How to launch your EC2 Amazon Linux instance based on Thomson Reuters's AMI](#launch)
+- [How to launch your EC2 Amazon Linux instance based on Refinitiv's AMI](#launch)
 - [How to connect to your EC2 Amazon Linux instance](#connect)
 - [How to run ERT in Cloud demo application inside your newly created EC2 Amazon Linux instance](#run_ami)
 - [How to run ERT in Cloud demo application from your existing VM or Local machine](#run_instance)
@@ -36,52 +36,52 @@ The following accounts and softwares are required in order to run this quick sta
 
 If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.amazon.com/free/) account which gives you a free hands-on access to AWS platform and services. We highly recommend you follow the Amazon AWS [Setting Up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) and [Getting Started with Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) tutorials before proceeding futher in this quick start guide to create your key-pair, VPC and Security Group which are required for your EC2 instance.
 
-## <a id="launch"></a>How to launch your EC2 Amazon Linux instance based on Thomson Reuters's AMI 
-1. Firstly, login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user 
+## <a id="launch"></a>How to launch your EC2 Amazon Linux instance based on Refinitiv's AMI 
+1. Firstly, login to [AWS Management Console](https://console.aws.amazon.com/console/home) with your IAM user. 
 
-    ![Figure-1](images/refinitiv_rebrand/edp_rt_1_blue.png "Login to AWS console as IAM user")
+    ![Figure-1](images/draft14_esdk13/edp_rt_1_draft14_blue.png "Login to AWS console as IAM user")
     
     <!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
 
-2. Refinitiv AMI is available in "US East (N. Virginia)","Asia Pacific (Singapore)" and "EU (Ireland)" Regions. This Quick Start page will use "US East (N. Virginia)" Region. Once you are logged in to the AWS Management Console, choose "US East (N. Virginia)" In the Region section
+2. Refinitiv AMI is available in **US East (N. Virginia)**, **Asia Pacific (Singapore)** and **EU (Ireland)** Regions. This Quick Start page will use "US East (N. Virginia)" Region as a demonstration. Once you are logged in to the AWS Management Console, choose "US East (N. Virginia)" In the Region section.
 
-    ![Figure-2](images/refinitiv_rebrand/edp_rt_2_blue.png "Choose US East N. Virginia region") 
+    ![Figure-2](images/draft14_esdk13/edp_rt_2_draft14_blue.png "Choose US East N. Virginia region") 
     
     <!-- ![](/sites/default/files/inline/images/edp_rt_2.png) -->
 
 3. Go to [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home) page, then choose IMAGES -> AMIs section.
 
-    ![Figure-3](images/refinitiv_rebrand/edp_rt_3_blue.png "EC2 Dashboard") 
+    ![Figure-3](images/draft14_esdk13/edp_rt_3_draft14_blue.png "EC2 Dashboard") 
     
     <!-- ![](/sites/default/files/inline/images/edp_rt_3.png) -->
 
 4. In the AMIs page, select "Public images" and then search Refinitiv' AMI name with **Refinitiv** name filter.
 
-    ![Figure-4](images/refinitiv_rebrand/edp_rt_4_blue.png "Searching Thomson Reuters AMI") 
+    ![Figure-4](images/draft14_esdk13/edp_rt_4_draft14_blue.png "Searching Refinitiv AMI") 
     
     <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
 
-5. Select Thomson Reuters AMI, then select "Launch".
+5. Select Refinitiv AMI, then select "Launch".
 
-    ![Figure-5](images/refinitiv_rebrand/edp_rt_5_blue.png "Launch instance 1") 
+    ![Figure-5](images/draft14_esdk13/edp_rt_5_draft14_blue.png "Launch instance 1") 
     
     <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
 
 6. Select your Instance type based on your preference and requirement, then click "Review and Launch" button. You may choose "Configure Instance Details" button to configure Instance network and public IP address (see more detail [here](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-ip-addressing.html#vpc-public-ip)), storage, etc based on your requirement. Click "Launch" button to launch your EC2 Linux instance.
 
-    ![Figure-6](images/refinitiv_rebrand/edp_rt_7.png "Launch instance 2") 
+    ![Figure-6](images/draft14_esdk13/edp_rt_7_draft14.png "Launch instance 2") 
 
     <!-- ![](/sites/default/files/inline/images/edp_rt_7.png) -->
 
 7. Select your key pair which will be used to connect to your instance with your local machine. You can also create a new key-pair for this instance here. Click "Launch Instances" button to launch your Linux instance.
 
-    ![Figure-7](images/refinitiv_rebrand/edp_rt_8.png "Select key pair") 
+    ![Figure-7](images/draft14_esdk13/edp_rt_8_draft14.png "Select key pair") 
 
     <!-- ![](/sites/default/files/inline/images/edp_rt_8.png) -->
 
 8. Back to EC2 Dashboard, you will see your newly created Amazon Linux instance is running with the instance information such as Instance ID, Public DNS (IPv4), IPv4 Public IP, etc. The main information is Public DNS (IPv4) which is required to connect to this instance.
 
-    ![Figure-8](images/refinitiv_rebrand/edp_rt_9_blue.png "Instance is running") 
+    ![Figure-8](images/draft14_esdk13/edp_rt_9_draft14_blue.png "Instance is running") 
 
     <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
 
@@ -105,7 +105,7 @@ Example:
 ```
 ssh -i "Administrator-key-pair-us-east-1.pem" ec2-user@ec2-3-83-226-169.compute-1.amazonaws.com
 ```
-![Figure-9](images/refinitiv_rebrand/edp_rt_10.png "Connecting to AWS Linux instance") 
+![Figure-9](images/draft14_esdk13/edp_rt_10_draft14.png "Connecting to AWS Linux instance") 
 
 <!-- ![](/sites/default/files/inline/images/edp_rt_10.png) -->
 
@@ -117,15 +117,15 @@ Once you have connected to your Amazon Linux instance, you will be available in 
 - *Elektron-SDK folder*: contains the Elektron SDK [C++](https://developers.refinitiv.com/elektron/elektron-sdk-cc) and [Java](https://developers.refinitiv.com/elektron/elektron-sdk-java) examples for ERT in Cloud's RSSL connection.
 - *WebsocketAPI folder*: contains the Elektron WebSocket API examples in Python, Java and C# languages for ERT in Cloud's WebSocket connection.
 
-Each sub folder contain *README.md* file which give you full description regarding the API, examples and how to run examples. 
+Each sub folder contain *README.md* file which give you a full description regarding the examples detail and how to run examples. 
 
 This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to EDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.refinitiv.com/elektron/websocket-api).
 
-*Note:* This Thomson Reuters based AMI machined already installed all Python required libraries. 
+*Note:* This Refinitiv based AMI machined already installed all Python required libraries for users. 
 
 ## <a id="run_instance"></a>How to run ERT in Cloud demo application from your existing VM or Local machine
 
-For Development purpose, you can connects to ERT in Cloud from your existing VM, Cloud VM or your local machine. The ERT in Cloud Quick Start example application is available for download at [Thomson Reuters Developer Community: Elektron WebSocket API download page](https://developers.refinitiv.com/elektron/websocket-api/downloads). The ERT in Cloud Quick Start example application contains the same Python, Java, C# examples and README.txt files as same as in Thomson Reuters AMI.
+For Development purpose, you can connects to ERT in Cloud from your existing VM, Cloud VM or your local machine. The ERT in Cloud Quick Start example application is available for download at [Refinitiv Developer Community: Elektron WebSocket API download page](https://developers.refinitiv.com/elektron/websocket-api/downloads). The ERT in Cloud Quick Start example application contains the same Python, Java, C# examples and README.txt files as same as in Refinitiv AMI.
 
 The Python example has been qualified with Python versions 2.7.14 and 3.6.7. You need to install the following required Python libraries via the ```pip install``` command in your environment before running the example:
 - [requests](https://pypi.org/project/requests/) library.
@@ -144,9 +144,9 @@ $>sudo pip install requests websocket-client
 The required connections parameters for the ERT in Cloud application are following
 <!--- - *Authorization host of the EDP Gateway*: You can use *api.edp.thomsonreuters.com:443* to request the access token or pass it to ```---auth_hostname``` parameter on the application command line-->
 <!--- *Hostname of the Elektron Real-Time Service endpoint*: You can use *wss://amer-1.pricing.streaming.edp.thomsonreuters.com:443* as you API connection point, or pass it to ```--hostname``` parameter on the application command line.-->
-- *User name and Password*: To request your access token you must pass in a user name and password (or specify it with ```--user``` and ```--password``` parameters on the application command line). You will receive your Machine ID as a user name and a link to activate your machine account and set your password via the Welcome Email that you receive when you subscribe to ERT in Cloud. If you do not have that email please contact your Thomson Reuters account team, or if you are not a client please click [Contact Us page](https://my.refinitiv.com) if you would like to  try Elektron Real Time data.
+- *User name and Password*: To request your access token you must pass in a user name and password (or specify it with ```--user``` and ```--password``` parameters on the application command line). You will receive your Machine ID as a user name and a link to activate your machine account and set your password via the Welcome Email that you receive when you subscribe to ERT in Cloud. If you do not have that email please contact your Refinitiv account team, or if you are not a client please click [Contact Us page](https://my.refinitiv.com) if you would like to  try Elektron Real Time data.
 
-Optionally, the application subscribes *TRI.N* RIC code from ERT in Cloud by default. You can pass your interested RIC code to ```--ric``` parameter on the application command line. You can find Thomson Reuters RIC Code of your interested instrument via [RIC Search page](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
+Optionally, the application subscribes *TRI.N* RIC code from ERT in Cloud by default. You can pass your interested RIC code to ```--ric``` parameter on the application command line. You can find Refinitiv RIC Code of your interested instrument via [RIC Search page](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 
 ### Running the example
 
@@ -356,7 +356,7 @@ RECEIVED:
 
 **Q: How can I have Elektron Data Platform username and password**
 
-**A:** Please contact your Thomson Reuters's Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
+**A:** Please contact your Refinitiv's Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
 
 **Q: I do not have a private key pair file**
 
@@ -374,15 +374,15 @@ RECEIVED:
 
 ## <a id="references"></a>References
 For further details, please check out the following resources:
-* [Thomson Reuters Elektron SDK Family page](https://developers.refinitiv.com/elektron) on the [Thomson Reuters Developer Community](https://developers.thomsonreuters.com/) web site.
-* [Thomson Reuters Elektron WebSocket API page](https://developers.refinitiv.com/websocket-api) 
+* [Refinitiv Elektron SDK Family page](https://developers.refinitiv.com/elektron) on the [Refinitiv Developer Community](https://developers.thomsonreuters.com/) web site.
+* [Refinitiv Elektron WebSocket API page](https://developers.refinitiv.com/websocket-api) 
 * [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)
-* [Thomson Reuters Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
-* [Thomson Reuters Data Model Discovery page](https://refinitiv.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
+* [Refinitiv Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
+* [Refinitiv Data Model Discovery page](https://refinitiv.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 
 For any question related to this quick start guide or Elektron Real Time in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/spaces/71/index.html).
 
-<!--* [Thomson Reuters Elektron WebSocket API: Quick Start Guide](https://developers.thomsonreuters.com/elektron/websocket-api/quick-start)-->
+<!--* [Refinitiv Elektron WebSocket API: Quick Start Guide](https://developers.thomsonreuters.com/elektron/websocket-api/quick-start)-->
 <!--* [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)-->
 
 
