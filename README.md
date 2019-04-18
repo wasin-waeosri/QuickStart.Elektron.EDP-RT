@@ -112,7 +112,7 @@ Once you have connected to your Amazon Linux instance, you will be available in 
 - *Elektron-SDK folder*: contains the Elektron SDK [C++](https://developers.refinitiv.com/elektron/elektron-sdk-cc) and [Java](https://developers.refinitiv.com/elektron/elektron-sdk-java) examples for ERT in Cloud's RSSL connection.
 - *WebsocketAPI folder*: contains the Elektron WebSocket API examples in Python, Java and C# languages for ERT in Cloud's WebSocket connection.
 
-Each sub folder contain *README.md* file which give you a full description regarding the examples detail and how to run examples. 
+Each sub folder contains *README.md* file which give you a full description regarding the examples detail and how to run examples. 
 
 This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to EDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.refinitiv.com/elektron/websocket-api).
 
