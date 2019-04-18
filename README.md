@@ -10,11 +10,6 @@ The goal of this Quick Start tutorial is to guide you through initial steps to c
 
 Once you complete this, further tutorials on using the Elektron Websockets API can be found in the [Elektron WebSocket API page](https://developers.refinitiv.com/elektron/websocket-api) of the [Developer Community](https://developers.refinitiv.com/).
 
-## Connecting to the API from Amazon AWS
-
-For Production and QA Testing purposes, Elektron Real Time in Cloud (ERT in Cloud) supports Amazon EC2 instance customers only. However, customers can use any environments (VM, Cloud VM, local machine) for Development purpose.
-
-Refinitiv will not support Production and QA/Testing customers outside of Amazon EC2 service until further notice.
 
 ## Description In this quick start guide, we will cover the following areas:
 - [Prerequisite](#prerequisite)
@@ -57,7 +52,7 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 
 4. In the AMIs page, select "Public images" and then search Refinitiv' AMI name with **Refinitiv** name filter.
 
-    ![Figure-4](images/draft14_esdk13/edp_rt_4_draft14_blue.png "Searching Refinitiv AMI") 
+    ![Figure-4](images/draft14_esdk13/edp_rt_4_draft14_blue_2.png "Searching Refinitiv AMI") 
     
     <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
 
@@ -81,7 +76,7 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 
 8. Back to EC2 Dashboard, you will see your newly created Amazon Linux instance is running with the instance information such as Instance ID, Public DNS (IPv4), IPv4 Public IP, etc. The main information is Public DNS (IPv4) which is required to connect to this instance.
 
-    ![Figure-8](images/draft14_esdk13/edp_rt_9_draft14_blue.png "Instance is running") 
+    ![Figure-8](images/draft14_esdk13/edp_rt_9_draft14_blue_2.png "Instance is running") 
 
     <!-- ![](/sites/default/files/inline/images/edp_rt_9.png) -->
 
@@ -125,7 +120,7 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 
 ## <a id="run_instance"></a>How to run ERT in Cloud demo application from your existing VM or Local machine
 
-For Development purpose, you can connects to ERT in Cloud from your existing VM, Cloud VM or your local machine. The ERT in Cloud Quick Start example application is available for download at [Refinitiv Developer Community: Elektron WebSocket API download page](https://developers.refinitiv.com/elektron/websocket-api/downloads). The ERT in Cloud Quick Start example application contains the same Python, Java, C# examples and README.txt files as same as in Refinitiv AMI.
+You can also connect to ERT in Cloud from your existing VM, Cloud VM or your local machine. The ERT in Cloud Quick Start example application is available for download at [Refinitiv Developer Community: Elektron WebSocket API download page](https://developers.refinitiv.com/elektron/websocket-api/downloads). The ERT in Cloud Quick Start example application contains the same Python, Java, C# examples and README.txt files as same as in Refinitiv AMI.
 
 The Python example has been qualified with Python versions 2.7.14 and 3.6.7. You need to install the following required Python libraries via the ```pip install``` command in your environment before running the example:
 - [requests](https://pypi.org/project/requests/) library.
@@ -274,7 +269,7 @@ RECEIVED on session1:
 ]
 ```
 
-Then application will receive an initial image called a RefreshMsg. The RefreshMsg or initial image contains all fields for the requested instrument representing the latest up-to-date market values. Following this image, you will begin to see UpdateMsgs or realtime updates reflecting changes in the market. All messages between the application and ERT in Cloud are in JSON format, you can find more detail regarding the Elektron WebSocket API's JSON message format in [WebSocket API Developer Guide](https://docs-developers.thomsonreuters.com/1528863829980/14977/) link.
+Then application will receive an initial image called a RefreshMsg. The RefreshMsg or initial image contains all fields for the requested instrument representing the latest up-to-date market values. Following this image, you will begin to see UpdateMsgs or realtime updates reflecting changes in the market. All messages between the application and ERT in Cloud are in JSON format, you can find more detail regarding the Elektron WebSocket API's JSON message format in [WebSocket API Developer Guide](https://docs-developers.refinitiv.com/1555570705541/14977/) link.
 
 You can (Ctrl+C) to exit the application at any time.
 

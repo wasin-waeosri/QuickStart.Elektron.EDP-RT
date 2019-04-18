@@ -1,4 +1,4 @@
-[ec2-user@ip-10-0-0-85 Java]$ ./gradlew runConsumer450 --args="-username user1 -password password1 -keyfile /home/ec2-user/Elektron-SDK/Java/keystore.jks -keypasswd changeit"
+[ec2-user@ip-10-0-0-85 Java]$ ./gradlew runConsumer450 --args='-username user1 -password password1 -keyfile /home/ec2-user/Elektron-SDK/Java/keystore.jks -keypasswd changeit'
 
 > Task :Ema:Examples:runconsumer450
 Services :
