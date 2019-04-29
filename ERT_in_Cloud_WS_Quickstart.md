@@ -261,7 +261,7 @@ RECEIVED:
 
 **A:** Please contact your Refinitiv's Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
 
-**Q: I have ERT in Cloud account and the required Python libraries, but the example application stucks at "Connecting to WebSocket wss://&lt;ERT in Cloud URL&gt;/WebSocket for session1..." line**
+**Q: I have ERT in Cloud account and the required Python libraries, but the example application stucks at "Connecting to WebSocket wss://.. for session1..." line**
 
 **A:** Please verify your Python and websocket-client versions. The Python examples have been qualified with Python versions 2.7.14 and 3.6.7 and they require the websocket-client library *version 0.49 or greater*. You can use ```python --version``` and ```pip list``` commands to verify the Python and libraries versions in your environment.
 
