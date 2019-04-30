@@ -118,6 +118,8 @@ Please refer to following the series of ERT in Cloud Quick Start based on your p
 * [Elektron WebSocket API Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/websocket-api/quick-start?content=45253&type=quick_start).
 * [EMA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66483&type=quick_start).
 * [ETA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66486&type=quick_start).
+* [EMA C++ Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-cc/quick-start?content=64988&type=quick_start)
+* [ETA C++ Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-cc/quick-start?content=67018&type=quick_start)
 
 <!--
 This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to EDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.refinitiv.com/elektron/websocket-api).

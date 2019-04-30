@@ -288,6 +288,8 @@ Once you have successfully completed the steps above, you can further your learn
 If you are interested to connect to ERT in Cloud via the RSSL connection with Elektron SDK family,  you can find more detail in the following quick start pagges:
 * [EMA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66483&type=quick_start)
 * [ETA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66486&type=quick_start)
+* [EMA C++ Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-cc/quick-start?content=64988&type=quick_start)
+* [ETA C++ Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-cc/quick-start?content=67018&type=quick_start)
 -->
 Note: If there are plans to run your WebSocket applications within the Amazon Cloud, you can refer to the [Setting Up an Amazon EC2 instance article](./Amazon_AMI.md) for further details.
 
