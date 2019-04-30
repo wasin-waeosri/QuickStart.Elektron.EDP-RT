@@ -27,6 +27,7 @@ The following accounts and softwares are required in order to run this quick sta
 3. Internet connection
 4. SSH client software or Putty application
 5. Amazon AWS key pair
+6. ERT in Cloud Username/machine ID and password access credentials. Please reach out to your Refinitiv sales associate to acquire ERT in Cloud Username/machine ID and password access credentials.
 
 If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.amazon.com/free/) account which gives you a free hands-on access to AWS platform and services. We highly recommend you follow the Amazon AWS [Setting Up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) and [Getting Started with Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) tutorials before proceeding futher in this quick start guide to create your key-pair, VPC and Security Group which are required for your EC2 instance.
 
@@ -113,19 +114,15 @@ Once you have connected to your Amazon Linux instance, you will be available in 
 
 Each sub folder contains *README.md* file which give you a full description regarding the examples detail and how to run examples. 
 
+Please refer to following the series of ERT in Cloud Quick Start based on your prefer API and connection:
+* Elektron WebSocket API Quick Start - [Connecting to Elektron Real Time in Cloud](./ERT_in_Cloud_WS_Quickstart.md).
+* EMA Java Quick Start - [Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66483&type=quick_start).
+* ETA Java Quick Start - [Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66486&type=quick_start).
+
+<!--
 This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to EDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.refinitiv.com/elektron/websocket-api).
-
-*Note:* This Refinitiv based AMI machined already installed all Python required libraries for users. 
-
-
-## <a id="nextsteps"></a>Next Steps
-
-Once you have successfully completed the steps above, you can further your learning by following the series of ERT in Cloud Quick Start pages of the [Developer Community](https://developers.refinitiv.com/).
-
-* [EMA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66483&type=quick_start).
-* [ETA Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66486&type=quick_start).
-* [Elektron WebSocket API Quick Start - Connecting to Elektron Real Time in Cloud](./ERT_in_Cloud_WS_Quickstart.md)
-
+-->
+*Note:* This Refinitiv based AMI machined already installed all examples required libraries for users. 
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
@@ -150,8 +147,8 @@ Once you have successfully completed the steps above, you can further your learn
 ## <a id="references"></a>References
 For further details, please check out the following resources:
 * [Refinitiv Elektron SDK Family page](https://developers.refinitiv.com/elektron) on the [Refinitiv Developer Community](https://developers.thomsonreuters.com/) web site.
-* [Refinitiv Elektron WebSocket API page](https://developers.refinitiv.com/websocket-api) 
-* [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)
+* [Developer Webinar Recording: Introduction to Enterprise App Creation With Open-Source Elektron Message API ](https://www.youtube.com/watch?v=2pyhYmgHxlU)
+* [Refinitiv Elektron Data Platform](https://developers.refinitiv.com/elektron-data-platform)
 * [Refinitiv Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 * [Refinitiv Data Model Discovery page](https://refinitiv.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 

@@ -1,5 +1,5 @@
 # Elektron WebSocket API Quick Start - Connecting to Elektron Real Time in Cloud
-- Last update: April 2019
+- Last update: May 2019
 - Environment: Windows, Linux
 - Compiler: Python
 - Prerequisite: [ERT in Cloud Access Credentials](#prerequisite)
@@ -8,7 +8,7 @@
 
 <!--The goal of this Quick Start tutorial is to guide you through initial steps to consume the Elektron Real time in Cloud (ERT in Cloud) data from [Refinitiv Elektron Data Platform](https://developers.refinitiv.com/elektron-data-platform) using the Elektron Websocket API by way of a small sample application written in [Python](https://www.python.org/) programming language. -->
 
-The goal of this Quick Start tutorial is to guide you through initial steps to run the Elektron Real Time in Cloud (ERT in Cloud) Websocket API example. The example is written in [Python](https://www.python.org/) programming language to connect and consume a streaming data from ERT in Cloud via Elektron WebSocket API connection.
+The goal of this Quick Start tutorial is to guide you through initial steps to run the Elektron Real Time in Cloud (ERT in Cloud) Websocket API example. The example is written in [Python](https://www.python.org/) programming language to connect and consume a streaming data from ERT in Cloud via Elektron WebSocket API connection over internet.
 
 The tutorial is applicable to both Linux and Windows environments.
 
@@ -23,14 +23,28 @@ The tutorial is applicable to both Linux and Windows environments.
 
 The following accounts and softwares are required in order to run this quick start guide:
 1. [Python](https://www.python.org/) compiler and runtime
-2. Internet connection
-3. ERT in Cloud Username/machine ID and password access credentials. Please reach out to your Refinitiv sales associate to acquire ERT in Cloud Username/machine ID and password access credentials.
+2. Python's [requests](https://pypi.org/project/requests/) library.
+3. Python's [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
+4. Internet connection
+5. ERT in Cloud Username/machine ID and password access credentials. Please reach out to your Refinitiv sales associate to acquire ERT in Cloud Username/machine ID and password access credentials.
+
+You need to install the required requests and websocket-client libraries via the ```pip install``` command in your environment before running the example:
+
+```
+$>pip install requests websocket-client
+```
+
+*Note:* 
+- The Python example has been qualified with Python versions 2.7.14 and 3.6.7. 
+- Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your environment does not have the [pip tool](https://pypi.org/project/pip/) installed. 
+- If your environment already have a websocket-client library installed, you can use ```pip list``` command to verify a library version, then use ```pip install --upgrade websocket-client``` command to upgrade websocket-client library. 
 
 ## <a id="run_instance"></a>How to run ERT in Cloud Python example
 
 You can connect to ERT in Cloud from your existing VM, Cloud VM or your local machine. The ERT in Cloud Quick Start example application is available for download at [Refinitiv Developer Community: Elektron WebSocket API download page](https://developers.refinitiv.com/elektron/websocket-api/downloads) or [Refinitiv/websocket-api: GitHub page](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/EDP). The ERT in Cloud Quick Start example package contains the WebSocket API examples for Python, Java and C# languages. 
 
-The Python example has been qualified with Python versions 2.7.14 and 3.6.7. You need to install the following required Python libraries via the ```pip install``` command in your environment before running the example:
+This Quick Start is focusing on the Python's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to EDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.refinitiv.com/elektron/websocket-api).
+<!--You need to install the following required Python libraries via the ```pip install``` command in your environment before running the example:
 - [requests](https://pypi.org/project/requests/) library.
 - [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
 
@@ -41,7 +55,7 @@ $>pip install requests websocket-client
 *Note:* 
 - Please refer to the [pip installation guide page](https://pip.pypa.io/en/stable/installing/) if your environment does not have the [pip tool](https://pypi.org/project/pip/) installed. 
 - If your environment already have a websocket-client library installed, you can use ```pip list``` command to verify a library version, then use ```pip install --upgrade websocket-client``` command to upgrade websocket-client library. 
-
+-->
 ### ERT in Cloud connection parameters
 
 The required connections parameters for the ERT in Cloud application are following
