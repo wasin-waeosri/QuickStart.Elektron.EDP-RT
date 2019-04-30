@@ -1,4 +1,4 @@
-# How to Setup Refinitiv Amazon Machine Elektron Real Time in Cloud Image
+# How to Setup Refinitiv's Amazon EC2 Machine Image for Elektron Real Time in Cloud
 - Last update: May 2019
 - Environment: Amazon AWS EC2 instance
 - Compiler: Python
@@ -115,9 +115,9 @@ Once you have connected to your Amazon Linux instance, you will be available in 
 Each sub folder contains *README.md* file which give you a full description regarding the examples detail and how to run examples. 
 
 Please refer to following the series of ERT in Cloud Quick Start based on your prefer API and connection:
-* Elektron WebSocket API Quick Start - [Connecting to Elektron Real Time in Cloud](./ERT_in_Cloud_WS_Quickstart.md).
-* EMA Java Quick Start - [Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66483&type=quick_start).
-* ETA Java Quick Start - [Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66486&type=quick_start).
+* [Elektron WebSocket API Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/websocket-api/quick-start?content=45253&type=quick_start).
+* [EMA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66483&type=quick_start).
+* [ETA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66486&type=quick_start).
 
 <!--
 This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to EDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.refinitiv.com/elektron/websocket-api).

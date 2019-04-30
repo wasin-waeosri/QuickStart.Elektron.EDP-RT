@@ -275,25 +275,28 @@ RECEIVED:
 
 **A:** Please contact your Refinitiv's Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
 
-**Q: I have ERT in Cloud account and the required Python libraries, but the example application stucks at "Connecting to WebSocket wss://.. for session1..." line**
-
-**A:** Please verify your Python and websocket-client versions. The Python examples have been qualified with Python versions 2.7.14 and 3.6.7 and they require the websocket-client library *version 0.49 or greater*. You can use ```python --version``` and ```pip list``` commands to verify the Python and libraries versions in your environment.
+**Q: I have ERT in Cloud account and the required Python libraries, but the example application fails at the Connecting to WebSocket line**
+```
+Connecting to WebSocket wss://<ERT in Cloud Server URL> for session1...
+```
+**A:** Please verify your Python and websocket-client versions. The Python examples have been qualified with Python versions 2.7.14, 3.6.7 and  the websocket-client library *version 0.49 or greater*. You can use ```python --version``` and ```pip list``` commands to verify the Python and libraries versions in your environment.
 
 ## <a id="nextsteps"></a>Next Steps
 
 Once you have successfully completed the steps above, you can further your learning by following the series of [Elektron WebSocket API tutorials](https://developers.refinitiv.com/elektron/websocket-api/learning) of the [Developer Community](https://developers.refinitiv.com/).
-
+<!--
 If you are interested to connect to ERT in Cloud via the RSSL connection with Elektron SDK family,  you can find more detail in the following quick start pagges:
 * [EMA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66483&type=quick_start)
 * [ETA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66486&type=quick_start)
-
-Note: If there are plans to run your EMA applications within the Amazon Cloud, you can refer to the [Setting Up an Amazon EC2 instance article](./Amazon_AMI.md) for further details.
+-->
+Note: If there are plans to run your WebSocket applications within the Amazon Cloud, you can refer to the [Setting Up an Amazon EC2 instance article](./Amazon_AMI.md) for further details.
 
 ## <a id="references"></a>References
 For further details, please check out the following resources:
 * [Refinitiv Elektron SDK Family page](https://developers.refinitiv.com/elektron) on the [Refinitiv Developer Community](https://developers.thomsonreuters.com/) web site.
 * [Refinitiv Elektron WebSocket API page](https://developers.refinitiv.com/websocket-api) 
 * [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)
+* [Refinitiv Elektron Data Platform](https://developers.refinitiv.com/elektron-data-platform)
 * [Refinitiv Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 * [Refinitiv Data Model Discovery page](https://refinitiv.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 
