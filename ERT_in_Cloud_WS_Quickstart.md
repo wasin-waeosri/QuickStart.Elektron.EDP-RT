@@ -28,7 +28,7 @@ The following accounts and softwares are required in order to run this quick sta
 4. Internet connection
 5. ERT in Cloud Username/machine ID and password access credentials. Please reach out to your Refinitiv sales associate to acquire ERT in Cloud Username/machine ID and password access credentials.
 
-You need to install the required requests and websocket-client libraries via the ```pip install``` command in your environment before running the example:
+You need to install examples required libraries via the ```pip install``` command in your environment before running the example:
 
 ```
 $>pip install requests websocket-client
@@ -285,7 +285,7 @@ Once you have successfully completed the steps above, you can further your learn
 
 If you are interested to connect to ERT in Cloud via the RSSL connection with Elektron SDK family,  you can find more detail in the following quick start pagges:
 * [EMA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66483&type=quick_start)
-* [ETA Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66486&type=quick_start)
+* [ETA Java Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-java/quick-start?content=66486&type=quick_start)
 
 Note: If there are plans to run your EMA applications within the Amazon Cloud, you can refer to the [Setting Up an Amazon EC2 instance article](./Amazon_AMI.md) for further details.
 
