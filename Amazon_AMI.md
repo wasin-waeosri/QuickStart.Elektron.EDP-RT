@@ -142,7 +142,7 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 
 *Note:* AWS Elastic IP Address is not included in the AWS Free Tier services.
 
-**Q: What should I do after finish running an example application**
+**Q: What should I do after I finish running an example application**
 
 **A:** You can "Terminate" instance to delete your E2 instance permanently or "Stop" instance to just shutdown your instance and release all public DNS IP address. Please refer to [AWS Document: Clean Up Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-clean-up-your-instance) link for more detail. 
 

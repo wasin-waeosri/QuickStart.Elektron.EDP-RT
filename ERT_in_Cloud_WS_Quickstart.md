@@ -271,9 +271,9 @@ RECEIVED:
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
-**Q: How can I have Elektron Data Platform username and password**
+**Q: How can I obtain Elektron Data Platform username and password?**
 
-**A:** Please contact your Refinitiv's Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
+**A:** Please contact your Refinitiv Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
 
 **Q: I have ERT in Cloud account and the required Python libraries, but the example application fails at the Connecting to WebSocket line**
 ```
