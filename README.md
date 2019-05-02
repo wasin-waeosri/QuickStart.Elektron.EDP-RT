@@ -1,5 +1,5 @@
 # Elektron Real Time in Cloud (ERT in Cloud) Quick Start
-- Last update: April 2019
+- Last update: May 2019
 
 This is just an index page for ERT in Cloud WebSocket Quick Start:
 * [Elektron WebSocket API Quick Start - Connecting to Elektron Real Time in Cloud](./ERT_in_Cloud_WS_Quickstart.md)
