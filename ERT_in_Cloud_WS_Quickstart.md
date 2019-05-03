@@ -291,7 +291,7 @@ If you are interested to connect to ERT in Cloud via the RSSL connection with El
 * [EMA C++ Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-cc/quick-start?content=64988&type=quick_start)
 * [ETA C++ Quick Start - Connecting to Elektron Real Time in Cloud](https://developers.refinitiv.com/elektron/elektron-sdk-cc/quick-start?content=67018&type=quick_start)
 -->
-Note: If there are plans to run your WebSocket applications within the Amazon Cloud, you can refer to the [Setting Up an Amazon EC2 instance article](./Amazon_AMI.md) for further details.
+Note: If there are plans to run your WebSocket applications within the Amazon Cloud, you can refer to the [Setting Up an Amazon EC2 instance article](https://developers.refinitiv.com/article/how-setup-refinitivs-amazon-ec2-machine-image-elektron-real-time-cloud) for further details.
 
 ## <a id="references"></a>References
 For further details, please check out the following resources:

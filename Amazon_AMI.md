@@ -110,7 +110,7 @@ Figure-9: Connecting to AWS Linux instance
 
 Once you have connected to your Amazon Linux instance, you will be available in your home folder **/home/ec2-user** location. Your home folder contains the following example and API folders:
 - *Elektron-SDK folder*: contains the Elektron SDK [C++](https://developers.refinitiv.com/elektron/elektron-sdk-cc) and [Java](https://developers.refinitiv.com/elektron/elektron-sdk-java) examples for ERT in Cloud's RSSL connection.
-- *WebsocketAPI folder*: contains the Elektron WebSocket API examples in Python, Java and C# languages for ERT in Cloud's WebSocket connection.
+- *WebsocketAPI folder*: contains the [Elektron WebSocket API](https://developers.refinitiv.com/elektron/websocket-api) examples in Python, Java and C# languages for ERT in Cloud's WebSocket connection.
 
 Each sub folder contains *README.md* file which give you a full description regarding the examples detail and how to run examples. 
 
