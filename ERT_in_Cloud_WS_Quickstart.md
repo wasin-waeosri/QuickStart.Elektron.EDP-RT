@@ -1,6 +1,6 @@
 # Elektron WebSocket API Quick Start - Connecting to Elektron Real Time in Cloud
 - Last update: May 2019
-- Environment: Windows, Linux
+- Environment: Windows and Linux OS on either on-premise or any Cloud VMs environment
 - Compiler: Python
 - Prerequisite: [ERT in Cloud Access Credentials](#prerequisite)
 
