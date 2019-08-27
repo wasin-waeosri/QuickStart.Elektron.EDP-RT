@@ -26,7 +26,7 @@ The following accounts and softwares are required in order to run this quick sta
 2. Python's [requests](https://pypi.org/project/requests/) library.
 3. Python's [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
 4. Internet connection
-5. ERT in Cloud Username/machine ID and password access credentials. Please reach out to your Refinitiv sales associate to acquire ERT in Cloud Username/machine ID and password access credentials.
+5. ERT in Cloud Username/machine ID, password and client_id access credentials. Please reach out to your Refinitiv sales associate to acquire ERT in Cloud access credentials.
 
 You need to install examples required libraries via the ```pip install``` command in your environment before running the example:
 
@@ -61,7 +61,7 @@ $>pip install requests websocket-client
 The required connections parameters for the ERT in Cloud application are following
 <!--- - *Authorization host of the EDP Gateway*: You can use *api.edp.thomsonreuters.com:443* to request the access token or pass it to ```---auth_hostname``` parameter on the application command line-->
 <!--- *Hostname of the Elektron Real-Time Service endpoint*: You can use *wss://amer-1.pricing.streaming.edp.thomsonreuters.com:443* as you API connection point, or pass it to ```--hostname``` parameter on the application command line.-->
-- *Username and Password*: To request your access token you must pass in a user name and password credentials (or specify it with ```--user```, ```--password```, ```--clientid``` parameters on the application command line). You will receive your Machine ID as a user name and a link to activate your machine account and set your password via the Welcome Email that you receive when you subscribe to ERT in Cloud. You must use these credentials to obtain a client_id (aka AppKey) 
+- *Username and Password*: To request your access token you must pass in a user name and password credentials (or specify it with ```--user```, ```--password``` parameters on the application command line). You will receive your Machine ID as a user name and a link to activate your machine account and set your password via the Welcome Email that you receive when you subscribe to ERT in Cloud. You must use these credentials to obtain a client_id 
 - *client_id*: You must also pass in the client_id credential (or specifiy ig with ```--clientid``` parameter). The Client ID aka AppKey can be generated from an [AppGenerator tool](https://apac1.apps.cp.thomsonreuters.com/apps/AppkeyGenerator) with your username and password credentials. 
 
 If you do not have that email please contact your Refinitiv account team, or if you are not a client please click [Contact Us page](https://my.refinitiv.com) if you would like to try Elektron Real Time data.
@@ -301,6 +301,7 @@ For further details, please check out the following resources:
 * [Refinitiv Elektron SDK Family page](https://developers.refinitiv.com/elektron) on the [Refinitiv Developer Community](https://developers.thomsonreuters.com/) web site.
 * [Refinitiv Elektron WebSocket API page](https://developers.refinitiv.com/websocket-api) 
 * [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)
+* [Refinitiv Elektron WebSocket API tutorials](https://developers.refinitiv.com/elektron/websocket-api/learning)
 * [Refinitiv Elektron Data Platform](https://developers.refinitiv.com/elektron-data-platform)
 * [Refinitiv Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 * [Refinitiv Data Model Discovery page](https://refinitiv.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
