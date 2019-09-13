@@ -26,7 +26,7 @@ The following accounts and softwares are required in order to run this quick sta
 2. Python's [requests](https://pypi.org/project/requests/) library.
 3. Python's [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
 4. Internet connection
-5. ERT in Cloud Username/machine ID, password and client_id access credentials. Please reach out to your Refinitiv sales associate to acquire ERT in Cloud access credentials.
+5. ERT in Cloud Username/machine ID, password and client_id access credentials. Please reach out to your Refinitiv representative to acquire ERT in Cloud access credentials.
 
 You need to install examples required libraries via the ```pip install``` command in your environment before running the example:
 
@@ -64,9 +64,9 @@ The required connections parameters for the ERT in Cloud application are followi
 - *Username and Password*: To request your access token you must pass in a user name and password credentials (or specify it with ```--user```, ```--password``` parameters on the application command line). You will receive your Machine ID as a user name and a link to activate your machine account and set your password via the Welcome Email that you receive when you subscribe to ERT in Cloud. You must use these credentials to obtain a client_id 
 - *client_id*: You must also pass in the client_id credential (or specifiy ig with ```--clientid``` parameter). The Client ID aka AppKey can be generated from an [AppGenerator tool](https://apac1.apps.cp.thomsonreuters.com/apps/AppkeyGenerator) with your username and password credentials. 
 
-If you do not have that email please contact your Refinitiv account team, or if you are not a client please click [Contact Us page](https://my.refinitiv.com) if you would like to try Elektron Real Time data.
+If you do not have that email please contact your Refinitiv representative, or if you are not a client please click [Contact Us page](https://my.refinitiv.com) if you would like to try Elektron Real Time data.
 
-Optionally, the application subscribes *TRI.N* RIC code from ERT in Cloud by default. You can pass your interested RIC code to ```--ric``` parameter on the application command line. You can find Refinitiv RIC Code of your interested instrument via [RIC Search page](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
+Optionally, the application subscribes a delay */TRI.N* RIC code from ERT in Cloud by default. You can pass your interested RIC code to ```--ric``` parameter on the application command line. You can find Refinitiv RIC Code of your interested instrument via [RIC Search page](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 
 ### Running the example
 
@@ -274,9 +274,13 @@ RECEIVED:
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
-**Q: How can I obtain Elektron Data Platform username and password?**
+**Q: How can I have Elektron Data Platform username, password and client_id?**
 
-**A:** Please contact your Refinitiv Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
+**A:** Please contact your Refinitiv representative to help you with EDP/ERT in cloud credential and permission. 
+
+**Q: I have tried to use the App Key Generator page to create my client_id but page keeps asking me Eikon's email username**
+
+**A:** Please contact your Refinitiv representative to help you with EDP/ERT in cloud credential and permission. 
 
 **Q: I have ERT in Cloud account and the required Python libraries, but the example application fails at the Connecting to WebSocket line**
 ```
@@ -306,7 +310,7 @@ For further details, please check out the following resources:
 * [Refinitiv Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 * [Refinitiv Data Model Discovery page](https://refinitiv.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 
-For any question related to this quick start guide or Elektron Real Time in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/spaces/71/index.html).
+For any question related to this quick start guide or Elektron Real Time in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.refinitiv.com/spaces/71/index.html).
 
 <!--* [Refinitiv Elektron WebSocket API: Quick Start Guide](https://developers.thomsonreuters.com/elektron/websocket-api/quick-start)-->
 <!--* [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)-->
