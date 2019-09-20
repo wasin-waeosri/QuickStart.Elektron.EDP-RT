@@ -1,5 +1,5 @@
 # How to Setup Refinitiv's Amazon EC2 Machine Image for Elektron Real Time in Cloud
-- Last update: May 2019
+- Last update: September 2019
 - Environment: Amazon AWS EC2 instance
 - Compiler: Python
 - Prerequisite: [Access to Amazon AWS EC2](#prerequisite)
@@ -27,7 +27,7 @@ The following accounts and softwares are required in order to run this quick sta
 3. Internet connection
 4. SSH client software or Putty application
 5. Amazon AWS key pair
-6. ERT in Cloud Username/machine ID and password access credentials. Please reach out to your Refinitiv sales associate to acquire ERT in Cloud Username/machine ID and password access credentials.
+6. ERT in Cloud Username/machine ID, password and client_id access credentials. Please reach out to your Refinitiv representative to acquire ERT in Cloud access credentials.
 
 If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.amazon.com/free/) account which gives you a free hands-on access to AWS platform and services. We highly recommend you follow the Amazon AWS [Setting Up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) and [Getting Started with Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) tutorials before proceeding futher in this quick start guide to create your key-pair, VPC and Security Group which are required for your EC2 instance.
 
@@ -38,7 +38,7 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
     
     <!--![](/sites/default/files/inline/images/edp_rt_1.png)-->
 
-2. Refinitiv AMI is available in **US East (N. Virginia)**, **Asia Pacific (Singapore)** and **EU (Ireland)** Regions. This Quick Start page will use "US East (N. Virginia)" Region as a demonstration. Once you are logged in to the AWS Management Console, choose "US East (N. Virginia)" In the Region section.
+2. Refinitiv AMI is available in [all Regions](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions). This article will use "US East (N. Virginia)" Region as a demonstration. Once you are logged in to the AWS Management Console, choose your desired Region In the Region section. There might be unavailability of AMI in some Regions for maintenance, please choose other Regions instead.
 
     ![Figure-2](images/draft14_esdk13/edp_rt_2_draft14_blue.png "Choose US East N. Virginia region") 
     
@@ -128,9 +128,13 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
-**Q: How can I have Elektron Data Platform username and password**
+**Q: How can I have Elektron Data Platform username, password and client_id?**
 
-**A:** Please contact your Refinitiv's Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
+**A:** Please contact your Refinitiv representative to help you with EDP/ERT in cloud credential and permission. 
+
+**Q: I have tried to use the App Key Generator page to create my client_id but page keeps asking me Eikon's email username**
+
+**A:** Please contact your Refinitiv representative to help you with EDP/ERT in cloud credential and permission. 
 
 **Q: I do not have a private key pair file**
 
@@ -154,7 +158,7 @@ For further details, please check out the following resources:
 * [Refinitiv Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 * [Refinitiv Data Model Discovery page](https://refinitiv.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 
-For any question related to this quick start guide or Elektron Real Time in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/spaces/71/index.html).
+For any question related to this quick start guide or Elektron Real Time in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.refintiv.com/spaces/71/index.html).
 
 <!--* [Refinitiv Elektron WebSocket API: Quick Start Guide](https://developers.thomsonreuters.com/elektron/websocket-api/quick-start)-->
 <!--* [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)-->

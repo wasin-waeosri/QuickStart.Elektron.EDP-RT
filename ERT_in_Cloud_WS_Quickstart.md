@@ -1,5 +1,5 @@
 # Elektron WebSocket API Quick Start - Connecting to Elektron Real Time in Cloud
-- Last update: May 2019
+- Last update: September 2019
 - Environment: Windows and Linux OS on either on-premise or any Cloud VMs environment
 - Compiler: Python
 - Prerequisite: [ERT in Cloud Access Credentials](#prerequisite)
@@ -26,7 +26,7 @@ The following accounts and softwares are required in order to run this quick sta
 2. Python's [requests](https://pypi.org/project/requests/) library.
 3. Python's [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
 4. Internet connection
-5. ERT in Cloud Username/machine ID and password access credentials. Please reach out to your Refinitiv sales associate to acquire ERT in Cloud Username/machine ID and password access credentials.
+5. ERT in Cloud Username/machine ID, password and client_id access credentials. Please reach out to your Refinitiv representative to acquire ERT in Cloud access credentials.
 
 You need to install examples required libraries via the ```pip install``` command in your environment before running the example:
 
@@ -61,35 +61,37 @@ $>pip install requests websocket-client
 The required connections parameters for the ERT in Cloud application are following
 <!--- - *Authorization host of the EDP Gateway*: You can use *api.edp.thomsonreuters.com:443* to request the access token or pass it to ```---auth_hostname``` parameter on the application command line-->
 <!--- *Hostname of the Elektron Real-Time Service endpoint*: You can use *wss://amer-1.pricing.streaming.edp.thomsonreuters.com:443* as you API connection point, or pass it to ```--hostname``` parameter on the application command line.-->
-- *User name and Password*: To request your access token you must pass in a user name and password (or specify it with ```--user``` and ```--password``` parameters on the application command line). You will receive your Machine ID as a user name and a link to activate your machine account and set your password via the Welcome Email that you receive when you subscribe to ERT in Cloud. If you do not have that email please contact your Refinitiv account team, or if you are not a client please click [Contact Us page](https://my.refinitiv.com) if you would like to  try Elektron Real Time data.
+- *Username, password and client_id*: To request your access token you must pass in a user name, password and client_id credentials (or specify it with ```--user```, ```--password``` and ```--clientid``` parameters on the application command line). When you subscribe to ERT Cloud, you will receive a Welcome email that provides a link to activate your machine account and create a password. The email includes a Machine ID. This is your username. You must use these credentials to obtain a client_id from an [AppGenerator tool](https://apac1.apps.cp.thomsonreuters.com/apps/AppkeyGenerator). The output of the tool is an AppKey, which is your client_id. 
 
-Optionally, the application subscribes *TRI.N* RIC code from ERT in Cloud by default. You can pass your interested RIC code to ```--ric``` parameter on the application command line. You can find Refinitiv RIC Code of your interested instrument via [RIC Search page](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
+If you do not have that email please contact your Refinitiv representative, or if you are not a client please click [Contact Us page](https://my.refinitiv.com) if you would like to try Elektron Real Time data.
+
+Optionally, the application subscribes a delay */TRI.N* RIC code from ERT in Cloud by default. You can pass your interested RIC code to ```--ric``` parameter on the application command line. You can find Refinitiv RIC Code of your interested instrument via [RIC Search page](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 
 ### Running the example
 
 You can run market_price_edpgw_service_discovery.py application with the following command
 
 ```
-$>python market_price_edpgw_service_discovery.py --user <ERT in Cloud Username> --password <ERT in Cloud Password>
+$>python market_price_edpgw_service_discovery.py --user <ERT in Cloud Machine-ID> --password <ERT in Cloud Password> --clientid <ERT in Cloud client_id>
 ```
 
-The other optional parameters are explained in the README.md file. 
+The other optional parameters are explained in the [README.md](https://github.com/Refinitiv/websocket-api/blob/master/Applications/Examples/EDP/python/README.md) file. 
 
 Upon execution, you will be presented with authentication and ERT in Cloud Service discovery processes via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
 
 ```
-$>python market_price_edpgw_service_discovery.py --user user1 --password password1
+$>python market_price_edpgw_service_discovery.py --user user1 --password password1 --clientid QAZClienTIDZZZ..
 
-('Sending authentication request with password to ', 'https://api.edp.thomsonreuters.com:443/auth/oauth2/beta1/token', '...')
+Sending authentication request with password to https://api.refinitiv.com:443/auth/oauth2/beta1/token ...
 EDP-GW Authentication succeeded. RECEIVED:
 {
   "access_token":"<Access Token>",
   "expires_in":"300",
   "refresh_token":"f69c291b-4d1a-48e8-8210-19fad796b924",
-  "scope":"",
+  "scope":"your scope",
   "token_type":"Bearer"
 }
-Sending EDP-GW service discovery request to https://api.edp.thomsonreuters.com/streaming/pricing/v1/
+Sending EDP-GW service discovery request to https://api.refinitiv.com/streaming/pricing/v1/
 EDP-GW Service discovery succeeded. RECEIVED:
 {
   "services":[
@@ -271,9 +273,13 @@ RECEIVED:
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
-**Q: How can I obtain Elektron Data Platform username and password?**
+**Q: How can I have Elektron Data Platform username, password and client_id?**
 
-**A:** Please contact your Refinitiv Technical Account Manager or Technical Relationship Manager to help you to access EDP account and services.
+**A:** Please contact your Refinitiv representative to help you with EDP/ERT in cloud credential and permission. 
+
+**Q: I have tried to use the App Key Generator page to create my client_id but page keeps asking me Eikon's email username**
+
+**A:** Please contact your Refinitiv representative to help you with EDP/ERT in cloud credential and permission. 
 
 **Q: I have ERT in Cloud account and the required Python libraries, but the example application fails at the Connecting to WebSocket line**
 ```
@@ -298,11 +304,12 @@ For further details, please check out the following resources:
 * [Refinitiv Elektron SDK Family page](https://developers.refinitiv.com/elektron) on the [Refinitiv Developer Community](https://developers.thomsonreuters.com/) web site.
 * [Refinitiv Elektron WebSocket API page](https://developers.refinitiv.com/websocket-api) 
 * [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)
+* [Refinitiv Elektron WebSocket API tutorials](https://developers.refinitiv.com/elektron/websocket-api/learning)
 * [Refinitiv Elektron Data Platform](https://developers.refinitiv.com/elektron-data-platform)
 * [Refinitiv Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 * [Refinitiv Data Model Discovery page](https://refinitiv.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 
-For any question related to this quick start guide or Elektron Real Time in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/spaces/71/index.html).
+For any question related to this quick start guide or Elektron Real Time in Cloud, please use the Developer Community [Q&A Forum](https://community.developers.refinitiv.com/spaces/71/index.html).
 
 <!--* [Refinitiv Elektron WebSocket API: Quick Start Guide](https://developers.thomsonreuters.com/elektron/websocket-api/quick-start)-->
 <!--* [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)-->
