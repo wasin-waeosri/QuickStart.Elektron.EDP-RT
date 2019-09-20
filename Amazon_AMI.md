@@ -1,5 +1,5 @@
 # How to Setup Refinitiv's Amazon EC2 Machine Image for Elektron Real Time in Cloud
-- Last update: May 2019
+- Last update: September 2019
 - Environment: Amazon AWS EC2 instance
 - Compiler: Python
 - Prerequisite: [Access to Amazon AWS EC2](#prerequisite)
