@@ -82,13 +82,13 @@ Upon execution, you will be presented with authentication and ERT in Cloud Servi
 ```
 $>python market_price_edpgw_service_discovery.py --user user1 --password password1 --clientid QAZClienTIDZZZ..
 
-('Sending authentication request with password to ', 'https://api.refinitiv.com:443/auth/oauth2/beta1/token', '...')
+Sending authentication request with password to https://api.refinitiv.com:443/auth/oauth2/beta1/token ...
 EDP-GW Authentication succeeded. RECEIVED:
 {
   "access_token":"<Access Token>",
   "expires_in":"300",
   "refresh_token":"f69c291b-4d1a-48e8-8210-19fad796b924",
-  "scope":"",
+  "scope":"your scope",
   "token_type":"Bearer"
 }
 Sending EDP-GW service discovery request to https://api.refinitiv.com/streaming/pricing/v1/
