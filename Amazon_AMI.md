@@ -1,5 +1,5 @@
 # How to Setup Refinitiv's Amazon EC2 Machine Image for Elektron Real Time in Cloud
-- Last update: September 2019
+- Last update: December 2019
 - Environment: Amazon AWS EC2 instance
 - Compiler: Python
 - Prerequisite: [Access to Amazon AWS EC2](#prerequisite)
@@ -128,13 +128,13 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
-**Q: How can I have Elektron Data Platform username, password and client_id?**
+**Q: How can I have Refinitiv Data Platform username, password and client_id?**
 
-**A:** Please contact your Refinitiv representative to help you with EDP/ERT in cloud credential and permission. 
+**A:** Please contact your Refinitiv representative to help you with RDP/ERT in cloud credential and permission. 
 
 **Q: I have tried to use the App Key Generator page to create my client_id but page keeps asking me Eikon's email username**
 
-**A:** Please contact your Refinitiv representative to help you with EDP/ERT in cloud credential and permission. 
+**A:** Please contact your Refinitiv representative to help you with RDP/ERT in cloud credential and permission. 
 
 **Q: I do not have a private key pair file**
 
@@ -154,7 +154,7 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 For further details, please check out the following resources:
 * [Refinitiv Elektron SDK Family page](https://developers.refinitiv.com/elektron) on the [Refinitiv Developer Community](https://developers.thomsonreuters.com/) web site.
 * [Developer Webinar Recording: Introduction to Enterprise App Creation With Open-Source Elektron Message API ](https://www.youtube.com/watch?v=2pyhYmgHxlU)
-* [Refinitiv Elektron Data Platform](https://developers.refinitiv.com/elektron-data-platform)
+* [Refinitiv Data Platform](https://developers.refinitiv.com/refinitiv-data-platform)
 * [Refinitiv Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 * [Refinitiv Data Model Discovery page](https://refinitiv.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 

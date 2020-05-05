@@ -43,7 +43,7 @@ $>pip install requests websocket-client
 
 You can connect to ERT in Cloud from your existing VM, Cloud VM or your local machine. The ERT in Cloud Quick Start example application is available for download at [Refinitiv Developer Community: Elektron WebSocket API download page](https://developers.refinitiv.com/elektron/websocket-api/downloads) or [Refinitiv/websocket-api: GitHub page](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/EDP). The ERT in Cloud Quick Start example package contains the WebSocket API examples for Python, Java and C# languages. 
 
-This Quick Start is focusing on the Python's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the EDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to EDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.refinitiv.com/elektron/websocket-api).
+This Quick Start is focusing on the Python's market_price_edpgw_service_discovery.py application. The market_price_edpgw_service_discovery.py file is an example Python application that sends the HTTP request to the RDP Gateway with the specified username and password for authentication, then it receives an authentication token to sends the HTTP request to RDP Streming Service Discovery to get associcate ERT in Cloud endpoint, then it login and consumes real-time streaming quote data from ERT in Cloud via the [Elektron WebSocket API](https://developers.refinitiv.com/elektron/websocket-api).
 <!--You need to install the following required Python libraries via the ```pip install``` command in your environment before running the example:
 - [requests](https://pypi.org/project/requests/) library.
 - [websocket-client](https://pypi.org/project/websocket-client/) library (*version 0.49 or greater*).
@@ -77,7 +77,7 @@ $>python market_price_edpgw_service_discovery.py --user <ERT in Cloud Machine-ID
 
 The other optional parameters are explained in the [README.md](https://github.com/Refinitiv/websocket-api/blob/master/Applications/Examples/EDP/python/README.md) file. 
 
-Upon execution, you will be presented with authentication and ERT in Cloud Service discovery processes via EDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
+Upon execution, you will be presented with authentication and ERT in Cloud Service discovery processes via RDP Gateway REST API, then followed by initial WebSocket connection between the application and ERT in Cloud. 
 
 ```
 $>python market_price_edpgw_service_discovery.py --user user1 --password password1 --clientid QAZClienTIDZZZ..
@@ -273,13 +273,13 @@ RECEIVED:
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
-**Q: How can I have Elektron Data Platform username, password and client_id?**
+**Q: How can I have Refinitiv Data Platform username, password and client_id?**
 
-**A:** Please contact your Refinitiv representative to help you with EDP/ERT in cloud credential and permission. 
+**A:** Please contact your Refinitiv representative to help you with RDP/ERT in cloud credential and permission. 
 
 **Q: I have tried to use the App Key Generator page to create my client_id but page keeps asking me Eikon's email username**
 
-**A:** Please contact your Refinitiv representative to help you with EDP/ERT in cloud credential and permission. 
+**A:** Please contact your Refinitiv representative to help you with RDP/ERT in cloud credential and permission. 
 
 **Q: I have ERT in Cloud account and the required Python libraries, but the example application fails at the Connecting to WebSocket line**
 ```
@@ -305,7 +305,7 @@ For further details, please check out the following resources:
 * [Refinitiv Elektron WebSocket API page](https://developers.refinitiv.com/websocket-api) 
 * [Developer Webinar Recording: Introduction to Electron WebSocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)
 * [Refinitiv Elektron WebSocket API tutorials](https://developers.refinitiv.com/elektron/websocket-api/learning)
-* [Refinitiv Elektron Data Platform](https://developers.refinitiv.com/elektron-data-platform)
+* [Refinitiv Data Platform](https://developers.refinitiv.com/refinitiv-data-platform)
 * [Refinitiv Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
 * [Refinitiv Data Model Discovery page](https://refinitiv.fixspec.com/specserver/specs/reuters): Explore TR data models, content definitions and data update behaviors
 
