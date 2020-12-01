@@ -52,13 +52,13 @@ If you are new to Amazon AWS, you can subscribe to [AWS Free Tier](https://aws.a
 
 4. In the AMIs page, select "Public images" and then search Refinitiv' AMI name with **Refinitiv** name filter.
 
-    ![Figure-4](images/draft14_esdk13/edp_rt_4_draft14_blue_2.png "Searching Refinitiv AMI") 
+    ![Figure-4](images/02may2020/edp_rt_4.png "Searching Refinitiv AMI") 
     
     <!-- ![](/sites/default/files/inline/images/edp_rt_4.png) -->
 
-5. Select Refinitiv AMI, then select "Launch".
+5. Select Refinitiv's AMI name **Refinitiv Elektron Real-Time Examples - Amazon Linux AMI** , right click and choose "Launch" menu.
 
-    ![Figure-5](images/draft14_esdk13/edp_rt_5_draft14_blue.png "Launch instance 1") 
+    ![Figure-5](images/02may2020/edp_rt_5.png "Launch instance 1") 
     
     <!-- ![](/sites/default/files/inline/images/edp_rt_5_0.png) -->
 
@@ -152,7 +152,7 @@ This Quick Start is focusing on the Pyton's market_price_edpgw_service_discovery
 
 ## <a id="references"></a>References
 For further details, please check out the following resources:
-* [Refinitiv Elektron SDK Family page](https://developers.refinitiv.com/elektron) on the [Refinitiv Developer Community](https://developers.thomsonreuters.com/) web site.
+* [Refinitiv Elektron SDK Family page](https://developers.refinitiv.com/elektron) on the [Refinitiv Developer Community](https://developers.refinitiv.com) web site.
 * [Developer Webinar Recording: Introduction to Enterprise App Creation With Open-Source Elektron Message API ](https://www.youtube.com/watch?v=2pyhYmgHxlU)
 * [Refinitiv Data Platform](https://developers.refinitiv.com/refinitiv-data-platform)
 * [Refinitiv Elektron: RIC Search](https://developers.refinitiv.com/elektron/websocket-api/dev-tools?type=ric)
